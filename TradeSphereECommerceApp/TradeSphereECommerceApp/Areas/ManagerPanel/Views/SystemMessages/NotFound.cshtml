@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Areas/ManagerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Sistem Mesajı</label>
+</div>
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Sayfa Bulunamadı</h2>
+    </div>
+    <div class="formContent" style="text-align:center">
+        <img src="~/Areas/ManagerPanel/Assests/PageImages/notfound2.png" width="500" height="330" />
+    </div>
+    <div class="formfooter">
+        <a href="@Url.Action("Index","Home")">Anasayfaya dön</a>
+    </div>
+</div>
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/FormStyle.css" rel="stylesheet" />
+}
+
+

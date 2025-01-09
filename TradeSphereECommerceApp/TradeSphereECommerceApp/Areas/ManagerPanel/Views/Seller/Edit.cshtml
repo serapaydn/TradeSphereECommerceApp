@@ -1,0 +1,81 @@
+﻿@model TradeSphereECommerceApp.Models.Seller
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/ManagerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Sellers")">Satıcılar</a> >
+    <label>Satıcı Güncelle</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Satıcı Güncelle</h2>
+    </div>
+    <div class="formContent">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.ID);
+            <div class="row">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="row">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.SellerCode, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.SellerCode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.SellerCode, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.SellerType, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.SellerType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SellerType, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.IsActive) Aktif Satıcı
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                <input type="submit" value="Satıcı Güncelle" class="btn-default" />
+            </div>
+        }
+
+    </div>
+    <div class="formfooter">
+        @Html.ActionLink("Satıcılar Listesine Dön", "Index")
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/FormStyle.css" rel="stylesheet" />
+
+

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TradeSphereECommerceApp.Models.Product>
+@{
+    ViewBag.Title = "UploadXmlProducts";
+    Layout = "~/Areas/SellerPanel/Views/Shared/_LayoutPage1.cshtml";
+    string sellerType = ViewBag.SellerType;
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Ürünler</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Ürünler</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        @using (Html.BeginForm("ConfirmXmlProducts", "Product", FormMethod.Post))
+        {
+            <input type="hidden" name="sellerType" value="@sellerType" />
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="border-left:none">Seç</th>
+                        <th>Ürün Adı</th>
+                        <th>Barkod</th>
+                        <th>Fiyat</th>
+                        <th>Stok</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="border-left:none">
+                                    <input type="checkbox" name="selectedProductIds" value="@item.ID" />
+                                </td>
+                                <td>@item.Name</td>
+                                <td>@item.Barcode</td>
+                                <td>
+                                    @switch (ViewBag.SellerType?.ToLower())
+                                    {
+                                        case "gold":
+                                            @item.GoldPrice
+                                            break;
+                                        case "silver":
+                                            @item.SilverPrice
+                                            break;
+                                        case "bronze":
+                                            @item.BronzePrice
+                                            break;
+                                        default:
+                                            @item.Price
+                                            break;
+                                    }
+                                </td>
+                                <td>@item.Stock</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5">No products available.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="tablefooter">
+                <button type="submit" class="btn">Seçilen Ürünleri Onayla</button>
+            </div>
+        }
+    </div>
+</div>
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/TableStyle.css" rel="stylesheet" />
+}
+
+

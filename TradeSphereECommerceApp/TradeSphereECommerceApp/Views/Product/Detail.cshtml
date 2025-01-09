@@ -1,0 +1,99 @@
+﻿@model TradeSphereECommerceApp.Models.Product
+@using TradeSphereECommerceApp.Models
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa ></a>
+    <label>Ürünler ></label>
+    <label>@Model.Name</label>
+</div>
+
+<div class="mainBase">
+    <div class="detailBase">
+        <div class="image">
+            <img src="~/Assets/ProductImages/@Model.Image" />
+        </div>
+        <div class="detail">
+            <div class="urunbaslik">
+                <h1>@Model.Brand.Name</h1>
+                <h2>@Model.Name</h2>
+            </div>
+            <div style="margin-top:20px">
+                <label class="indirimli">
+                    @Model.Price,00 ₺
+                </label>
+                <label class="zamli">@Model.ListPrice,00 ₺</label>
+            </div>
+            <div class="detailCategory">
+                Kategori:
+                <a href="@Url.Action("Home", "Index", new { id = Model.Category_ID })">@Model.Category.Name</a>
+                <a href="@Url.Action("AddToFavorites", "Product", new { productId = Model.ID })" style="margin-left:180px">
+                    @if (ViewBag.IsFavorite == true)
+                    {
+                        <img src="~/Assets/PageImages/heart(2).png" width="16" style="margin-bottom:-4px;" />
+                        <label>Favorilere Ekle</label>
+                    }
+                    else
+                    {
+                        <img src="~/Assets/PageImages/heart(3).png" width="16" style="margin-bottom:-4px;" />
+                        <label>Favorilere Ekle</label>
+                    }
+                </a>
+            </div>
+            <div class="detailsummary">
+                @Model.Summary
+            </div>
+
+            <div class="detailquantity">
+                <input type="number" name="quantity" class="quantity" value="1" min="1" />
+                <div class="buttons">
+                    <input type="submit" class="buyNow" value="Şimdi Satın Al" />
+                    @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post))
+                    {
+                        @Html.Hidden("id", Model.ID)
+                        <input type="submit" class="addtoCart" value="Sepete Ekle" />
+                    }
+                </div>
+            </div>
+            <div class="detaildescription">
+                <h3>Ürün Detay</h3>
+                <div style="border-top:1px solid silver; padding-top:20px">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="comment">
+        <h4>Yorumlar</h4>
+        @*@if (Session["User"] == null)
+            {
+                <p>Yorum yapabilmek için <a href="@Url.Action("Login", "Index")">giriş yapın</a>.</p>
+            }
+            else
+            {
+                @using (Html.BeginForm("AddComment", "Product", FormMethod.Post))
+                {
+                    @Html.Hidden("ProductId", Model.ID)
+                    <textarea name="CommentText" placeholder="Yorumunuzu buraya yazın..." rows="5"></textarea><br />
+                    <input type="submit" value="Yorum Yap" />
+                }
+            }
+            <div class="commentsList">
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="commentItem">
+                        <p><strong>@comment.User.Name</strong> - @comment.Date.ToString("dd/MM/yyyy")</p>
+                        <p>@comment.Text</p>
+                    </div>
+                }*@
+    </div>
+</div>
+<div style="clear:both"></div>
+</div>

@@ -1,0 +1,76 @@
+﻿@model TradeSphereECommerceApp.Models.Seller
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/ManagerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Seller")">Satıcılar</a> >
+    <label>Satıcı Sil</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Satıcı Sil</h2>
+    </div>
+    <div class="formContent">
+        <h3>Bu satıcıyı silmek istediğinize emin misiniz?</h3>
+        <table border="1" cellpadding="5" cellspacing="0" style="border:1px solid silver" width="600" class="table">
+            <tr>
+                <th align="left" width="30%">ID</th>
+                <td>@Model.ID</td>
+            </tr>
+            <tr>
+                <th align="left">Satıcı Adı</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th align="left">Kullanıcı Adı</th>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <th align="left">E-posta</th>
+                <td>@Model.Mail</td>
+            </tr>
+            <tr>
+                <th align="left">Telefon</th>
+                <td>@Model.Phone</td>
+            </tr>
+            <tr>
+                <th align="left">Satıcı Durum</th>
+                <td>@Model.IsActive</td>
+            </tr>
+            <tr>
+                <th align="left">SİLİNME DURUMU</th>
+                <td>
+                    @if (Model.IsDeleted)
+                    {
+                        <label>Silinmiş</label>
+                    }
+                    else
+                    {
+                        <label>Silinmemiş</label>
+                    }
+                </td>
+            </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <input type="submit" value="Satıcıyı Sil" class="btn btn-default" />
+            </div>
+        }
+    </div>
+    <div class="formfooter">
+        @Html.ActionLink("Satıcılar Listesine Dön", "Index")
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/FormStyle.css" rel="stylesheet" />
+}
+
+
+

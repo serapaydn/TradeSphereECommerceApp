@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index","Home")">Ana Sayfa</a>
+
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <div style="clear:both"></div>
+    </div>
+    <div class="formContent">
+        <div class="row">
+            <div class="countBox">
+                Ürün Sayısı = @ViewBag.ProductCount
+            </div>
+            <div class="countBox">
+                Kategori Sayısı = @ViewBag.CategoryCount
+            </div>
+            <div class="countBox">
+                Marka Sayısı = @ViewBag.BrandCount
+            </div>
+            <div class="countBox">
+                Üye Sayısı = @ViewBag.MemberCount
+            </div>
+            <div class="countBox">
+                Sipariş Sayısı = @ViewBag.OrderCount
+            </div>
+            <div class="countBox">
+                Satış Sayısı = @ViewBag.SalesCount
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

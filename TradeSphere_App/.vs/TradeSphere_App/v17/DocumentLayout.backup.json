@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\source\\repos\\tradesphere_app\\tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\source\\repos\\TradeSphere_App\\tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\source\\repos\\TradeSphere_App\\tradesphere_app\\dealerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\dealerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\source\\repos\\TradeSphere_App\\tradesphere_app\\dealerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\dealerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\source\\repos\\TradeSphere_App\\tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DealerForm.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\DealerForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\DealerForm.cs",
+              "ToolTip": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\DealerForm.cs",
+              "RelativeToolTip": "TradeSphere_App\\DealerForm.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T10:36:06.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\MainForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\MainForm.cs",
+              "ToolTip": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\MainForm.cs [Design]",
+              "RelativeToolTip": "TradeSphere_App\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T08:15:14.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DealerForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\DealerForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\DealerForm.cs",
+              "ToolTip": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\DealerForm.cs [Design]",
+              "RelativeToolTip": "TradeSphere_App\\DealerForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T08:13:12.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductForm.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\ProductForm.cs",
+              "ToolTip": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs*",
+              "RelativeToolTip": "TradeSphere_App\\ProductForm.cs*",
+              "ViewState": "AgIAALcAAAAAAAAAAAAowMsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T09:47:07.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\ProductForm.cs",
+              "ToolTip": "C:\\Users\\serap\\source\\repos\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs [Design]*",
+              "RelativeToolTip": "TradeSphere_App\\ProductForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T09:47:05.341Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

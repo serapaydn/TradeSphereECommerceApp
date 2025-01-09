@@ -1,0 +1,76 @@
+﻿@model TradeSphereECommerceApp.Models.Seller
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+
+}
+
+<div class="registerForm">
+    <h2>Satıcı Kayıt</h2>
+
+    @using (Html.BeginForm("Create", "Seller", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        if (ViewBag.Warning != null)
+        {
+            <div class="warningMessage">
+                <p>@ViewBag.Warning</p>
+            </div>
+        }
+
+        if (ViewBag.Success != null)
+        {
+            <div class="successMessage">
+                <p>@ViewBag.Success</p>
+            </div>
+        }
+
+        <div class="row">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Mağaza Adı" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.UserName)
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Mail)
+            @Html.TextBoxFor(model => model.Mail, new { @class = "form-control", placeholder = "E-posta" })
+            @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Şifre" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Phone)
+            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", placeholder = "Telefon Numarası" })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+
+        @*<div class="row">
+                @Html.LabelFor(model => model.SellerCode)
+                @Html.TextBoxFor(model => model.SellerCode, new { @class = "form-control", placeholder = "Satıcı Kodu", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.SellerCode, "", new { @class = "text-danger" })
+            </div>*@
+
+        <div class="row">
+            <button type="submit" class="btn">Satıcı Ol</button>
+        </div>
+
+        <div class="row">
+            <a href="@Url.Action("Index", "Login")" style="display: block; text-align: center;">
+                Zaten Hesabınız Var mı? Giriş Yap
+            </a>
+        </div>
+    }
+</div>
+

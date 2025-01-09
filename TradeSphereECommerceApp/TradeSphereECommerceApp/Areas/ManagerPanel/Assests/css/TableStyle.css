@@ -1,0 +1,141 @@
+﻿.pageContent {
+}
+
+.pagetitle {
+    border: 1px solid #dbc4bf;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #f8f4f2;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .pagetitle h2 {
+        font-size: 20pt;
+        margin: 0;
+        color: #7b5d56;
+        font-weight: bold;
+    }
+
+    .pagetitle a {
+        background-color: #7b5d56;
+        color: #dbc4bf;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 14pt;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+        .pagetitle a:hover {
+            background-color: #dbc4bf;
+            color: #7b5d56;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+.tableContent {
+    border: 1px solid #dbc4bf;
+    border-top: none;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #dbc4bf;
+        color: #292929;
+    }
+
+    .table th {
+        background-color: #f8f4f2;
+        color: #7b5d56;
+        font-weight: bold;
+    }
+
+    .table td {
+        background-color: #ffffff;
+        font-size: 12pt;
+    }
+
+    .table tr:hover td {
+        background-color: #f3f3f3;
+    }
+
+.btnedit, .btndetail, .btndelete {
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 10pt;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btnedit {
+    background-color: #059669;
+}
+
+    .btnedit:hover {
+        background-color: #06ca8d;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+.btndetail {
+    background-color: #3f3df3;
+}
+
+    .btndetail:hover {
+        background-color: #5f5dfb;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+.btndelete {
+    background-color: #ff0000;
+}
+
+    .btndelete:hover {
+        background-color: #ff4d4d;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+.tablefooter {
+    padding: 15px 20px;
+    border: 2px solid #dbc4bf;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #f8f4f2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .tablefooter a {
+        text-decoration: none;
+        color: #7b5d56;
+        background-color: #dbc4bf;
+        padding: 6px 15px;
+        border-radius: 5px;
+        margin-left: 10px;
+        font-size: 10pt;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+        .tablefooter a:hover {
+            background-color: #7b5d56;
+            color: #dbc4bf;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }

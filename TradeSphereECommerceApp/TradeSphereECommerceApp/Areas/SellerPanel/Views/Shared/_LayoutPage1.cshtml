@@ -1,0 +1,38 @@
+﻿@{
+    TradeSphereECommerceApp.Models.Seller seller = Session["seller"] as TradeSphereECommerceApp.Models.Seller;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Trade Sphere Satıcı Giriş @ViewBag.Title</title>
+    <link href="~/Areas/ManagerPanel/Assests/css/MainStyle.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div class="sidebar">
+        <h2>TradeSphere</h2>
+        <div class="userPanel">
+            <h3>Hoşgeldiniz</h3>
+            <p>@seller.UserName</p>
+        </div>
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">Ana Sayfa</a></li>
+            <li><a href="@Url.Action("Index", "Brand")">Marka İşlemleri</a></li>
+            <li><a href="@Url.Action("Index", "Product")">Ürün İşlemleri</a></li>
+            <li><a href="@Url.Action("UploadXmlProducts", "Product")">Ana Bayi Ürün İşlemleri</a></li>
+            <li><a href="@Url.Action("Index", "Order")">Sipariş İşlemleri</a></li>
+            <li><a href="@Url.Action("Index", "OrderDetail")">Satış İşlemleri</a></li>
+            <li><a href="@Url.Action("Logout","Login")">Çıkış</a></li>
+        </ul>
+        <footer>&copy; 2024 Yönetim Paneli</footer>
+    </div>
+    <div class="main-content">
+        <h1>Yönetim Paneli</h1>
+        <p> @RenderBody()</p>
+    </div>
+
+</body>
+</html>
+
