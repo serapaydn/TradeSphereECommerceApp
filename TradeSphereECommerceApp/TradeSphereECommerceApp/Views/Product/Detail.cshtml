@@ -51,9 +51,10 @@
                 <input type="number" name="quantity" class="quantity" value="1" min="1" />
                 <div class="buttons">
                     <input type="submit" class="buyNow" value="Şimdi Satın Al" />
-                    @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post))
+                    @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post, new { @class = "addToCartForm" }))
                     {
                         @Html.Hidden("id", Model.ID)
+                        <input type="number" name="quantity" class="quantity-hidden" value="1" hidden />
                         <input type="submit" class="addtoCart" value="Sepete Ekle" />
                     }
                 </div>
@@ -81,7 +82,7 @@
         {
             using (Html.BeginForm("AddComment", "Product", FormMethod.Post))
             {
-                @Html.AntiForgeryToken() 
+                @Html.AntiForgeryToken()
                 @Html.Hidden("ProductId", Model.ID)
                 <textarea name="CommentText" placeholder="Yorumunuzu buraya yazın..." rows="5"></textarea><br />
                 <input type="submit" value="Yorum Yap" />

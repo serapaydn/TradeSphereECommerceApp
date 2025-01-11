@@ -116,6 +116,7 @@
     <Content Include="Areas\ManagerPanel\Assests\css\TableStyle.css" />
     <Content Include="Areas\ManagerPanel\Assests\PageImages\notfound2.png" />
     <Content Include="Assets\css\UIMainStyle.css" />
+    <Content Include="Assets\PageImages\bin.png" />
     <Content Include="Assets\PageImages\heart%282%29.png" />
     <Content Include="Assets\PageImages\heart%283%29.png" />
     <Content Include="Assets\PageImages\ProjeLogo1.png" />
@@ -253,6 +254,9 @@
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Member\Favorites.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Member\Comments.cshtml" />
+    <Content Include="Views\Member\EditComment.cshtml" />
+    <Content Include="Views\Member\DeleteComment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

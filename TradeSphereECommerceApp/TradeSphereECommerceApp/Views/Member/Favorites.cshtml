@@ -10,21 +10,24 @@
     <label>Favoriler</label>
 </div>
 <div class="main-content">
-    <div class="member-panel">
-        <a href="#">Sepetim</a>
-        <a href="#">Favorilerim</a>
-        <a href="#">Yorumlarım</a>
-        <a href="#">Siparişlerim</a>
-    </div>
-    <div class="member-panel">
-        <a href="@Url.Action("Edit","Member")">Kullanıcı Bilgilerim</a>
-        <a href="#">Adres Bilgilerim</a>
-        <a href="#">Kayıtlı Kartlar</a>
-    </div>
-    <div class="member-panel">
-        <a href="@Url.Action("Logout", "Login")">Çıkış</a>
+    <div class="member-panel-container">
+        <div class="member-panel">
+            <a href="@Url.Action("Index","ShoppingCart")">Sepetim</a>
+            <a href="@Url.Action("Favorites","Member")">Favorilerim</a>
+            <a href="@Url.Action("Comments","Member")">Yorumlarım</a>
+            <a href="#">Siparişlerim</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Edit","Member")">Kullanıcı Bilgilerim</a>
+            <a href="#">Adres Bilgilerim</a>
+            <a href="#">Kayıtlı Kartlar</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Logout", "Login")">Çıkış</a>
+        </div>
     </div>
     <div class="favoriteBase">
+        <h2>Favori Ürünlerim</h2>
         @if (Model != null && Model.Any())
         {
             <table class="favoriteProducts">
@@ -52,7 +55,7 @@
     </div>
     <div style="clear:both"></div>
 </div>
-</div>
+
 
    
 

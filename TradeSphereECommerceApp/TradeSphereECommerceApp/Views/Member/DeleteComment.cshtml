@@ -1,0 +1,62 @@
+﻿@model TradeSphereECommerceApp.Models.Comment
+@{
+    ViewBag.Title = "Yorum Sil";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Profil</label> >
+    <label>Yorumlarım</label>
+</div>
+
+<div class="main-content">
+    <div class="member-panel-container">
+        <div class="member-panel">
+            <a href="@Url.Action("Index","ShoppingCart")">Sepetim</a>
+            <a href="@Url.Action("Favorites","Member")">Favorilerim</a>
+            <a href="#">Yorumlarım</a>
+            <a href="#">Siparişlerim</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Edit","Member")">Kullanıcı Bilgilerim</a>
+            <a href="#">Adres Bilgilerim</a>
+            <a href="#">Kayıtlı Kartlar</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Logout", "Login")">Çıkış</a>
+        </div>
+    </div>
+
+    <div class="commentsBase">
+        <h2>Yorum Sil</h2>
+        <p>Bu yorumu silmek istediğinizden emin misiniz?</p>
+
+        <table class="commentsTable">
+            <tr class="headerRow">
+                <th>ÜRÜN RESMİ</th>
+                <th>ÜRÜN ADI</th>
+                <th>YORUM</th>
+                <th>TARİH</th>
+                <th>SEÇENEKLER</th>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    <img src="~/Assets/ProductImages/@Model.Product.Image" class="productImage" />
+                </td>
+                <td>@Model.Product.Name</td>
+                <td>@Model.CommentText</td>
+                <td>@Model.CreationTime.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <form action="@Url.Action("DeleteCommentConfirmed", "Member", new { id = Model.ID })" method="post" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+                    <a href="@Url.Action("Comments", "Member")" class="btn btn-secondary">İptal</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="clear:both"></div>
+</div>

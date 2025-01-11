@@ -24,19 +24,6 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
             return View(db.Members.ToList());
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult UpdateStatus(int id, bool isActive)
-        //{
-        //    var member = db.Members.Find(id);
-        //    if (member != null)
-        //    {
-        //        member.IsActive = !isActive;
-        //        db.SaveChanges();
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
         public ActionResult Delete(int? id)
         {
             if (id == null)

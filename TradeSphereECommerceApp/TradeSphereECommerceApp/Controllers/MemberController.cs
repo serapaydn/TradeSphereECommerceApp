@@ -137,6 +137,111 @@ namespace TradeSphereECommerceApp.Controllers
             ViewBag.Warning = "Lütfen giriş yapın.";
             return RedirectToAction("Index", "Login");
         }
+        public ActionResult Comments()
+        {
+            Member member = Session["user"] as Member;
 
+            if (member == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            List<Comment> memberComments = db.Comments
+                                              .Where(c => c.Member_ID == member.ID && c.IsActive && !c.IsDeleted)
+                                              .ToList();
+
+            return View(memberComments);
+        }
+        public ActionResult EditComment(int id)
+        {
+            Member member = Session["user"] as Member;
+
+            if (member == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            Comment comment = db.Comments.Find(id);
+
+            if (comment != null && comment.Member_ID == member.ID && comment.IsActive && !comment.IsDeleted)
+            {
+                return View(comment);
+            }
+
+            return RedirectToAction("Comments");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditComment(Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                Comment existingComment = db.Comments.Find(comment.ID);
+
+                if (existingComment != null)
+                {
+                    existingComment.CommentText = comment.CommentText;
+                    db.Entry(existingComment).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    ViewBag.Success = "Yorum başarıyla güncellendi.";
+                }
+                else
+                {
+                    ViewBag.Warning = "Yorum bulunamadı.";
+                }
+            }
+
+            return View(comment);
+        }
+        public ActionResult DeleteComment(int id)
+        {
+            Member member = Session["user"] as Member;
+
+            if (member == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            Comment comment = db.Comments
+                                .Where(c => c.ID == id && c.Member_ID == member.ID && c.IsActive && !c.IsDeleted)
+                                .FirstOrDefault();
+
+            if (comment == null)
+            {
+                ViewBag.Warning = "Yorum bulunamadı veya işlem yetkiniz yok.";
+                return RedirectToAction("Comments");
+            }
+
+            return View(comment); 
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCommentConfirmed(int id)
+        {
+            Member member = Session["user"] as Member;
+
+            if (member == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            Comment comment = db.Comments.Find(id);
+
+            if (comment != null && comment.Member_ID == member.ID)
+            {
+                comment.IsDeleted = true;
+                db.Entry(comment).State = EntityState.Modified;
+                db.SaveChanges();
+                TempData["Success"] = "Yorum başarıyla silindi.";
+            }
+            else
+            {
+                TempData["Warning"] = "Yorum bulunamadı veya silme yetkiniz yok.";
+            }
+
+            return RedirectToAction("Comments");
+        }
     }
 }

@@ -1,0 +1,70 @@
+﻿@model TradeSphereECommerceApp.Models.Comment
+@{
+    ViewBag.Title = "EditComment";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Profile", "Member")">Profil</a> >
+    <label>Yorum Düzenle</label>
+</div>
+
+<div class="main-content">
+    <div class="member-panel-container">
+        <div class="member-panel">
+            <a href="@Url.Action("Index", "ShoppingCart")">Sepetim</a>
+            <a href="@Url.Action("Favorites", "Member")">Favorilerim</a>
+            <a href="@Url.Action("Comments", "Member")">Yorumlarım</a>
+            <a href="@Url.Action("Orders", "Member")">Siparişlerim</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Edit", "Member")">Kullanıcı Bilgilerim</a>
+            <a href="#">Adres Bilgilerim</a>
+            <a href="#">Kayıtlı Kartlar</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Logout", "Login")">Çıkış</a>
+        </div>
+    </div>
+
+    <div class="editCommentBase">
+        <h2>Yorumu Düzenle</h2>
+
+        @if (ViewBag.Success != null)
+        {
+            <div class="alert alert-success">@ViewBag.Success</div>
+        }
+        else if (ViewBag.Warning != null)
+        {
+            <div class="alert alert-warning">@ViewBag.Warning</div>
+        }
+        @if (Model != null)
+        {
+            using (Html.BeginForm("EditComment", "Member", FormMethod.Post, new { id = Model.ID }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <label for="ProductName">Ürün Adı:</label>
+                    <input type="text" id="ProductName" class="form-control" value="@Model.Product.Name" disabled />
+                </div>
+
+                <div class="row">
+                    <label for="CommentText">Yorumunuz:</label>
+                    @Html.TextAreaFor(m => m.CommentText, new { @class = "form-control", rows = 4 })
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="btn">Yorumu Güncelle</button>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Yorum bulunamadı. Lütfen tekrar deneyin.</p>
+        }
+
+    </div>
+
+    <div style="clear:both"></div>
+</div>
