@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TradeBank_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Hesap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Musteri_ID" Type="Int32" />
+    <Property Name="Bakiye" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Musteriler" Relationship="Self.FK_Hesap_Musteriler" FromRole="Hesap" ToRole="Musteriler" />
+    <NavigationProperty Name="Kartlar" Relationship="Self.FK_Kartlar_Hesap" FromRole="Hesap" ToRole="Kartlar" />
+  </EntityType>
+  <EntityType Name="Kartlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HesapID" Type="Int32" />
+    <Property Name="KartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SonKullanmaAy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="SonKullanmaYil" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CVV" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="KartDurum" Type="Boolean" />
+    <NavigationProperty Name="Hesap" Relationship="Self.FK_Kartlar_Hesap" FromRole="Kartlar" ToRole="Hesap" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyisim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Hesap" Relationship="Self.FK_Hesap_Musteriler" FromRole="Musteriler" ToRole="Hesap" />
+  </EntityType>
+  <EntityType Name="SanalPosMusterileri">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirmaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaticiKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaticiSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebSitesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Hesap_Musteriler">
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="0..1" />
+    <End Role="Hesap" Type="Self.Hesap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteriler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Hesap">
+        <PropertyRef Name="Musteri_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kartlar_Hesap">
+    <End Role="Hesap" Type="Self.Hesap" Multiplicity="0..1" />
+    <End Role="Kartlar" Type="Self.Kartlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hesap">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Kartlar">
+        <PropertyRef Name="HesapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TradeBank_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hesap" EntityType="Self.Hesap" />
+    <EntitySet Name="Kartlar" EntityType="Self.Kartlar" />
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
+    <EntitySet Name="SanalPosMusterileri" EntityType="Self.SanalPosMusterileri" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Hesap_Musteriler" Association="Self.FK_Hesap_Musteriler">
+      <End Role="Musteriler" EntitySet="Musteriler" />
+      <End Role="Hesap" EntitySet="Hesap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kartlar_Hesap" Association="Self.FK_Kartlar_Hesap">
+      <End Role="Hesap" EntitySet="Hesap" />
+      <End Role="Kartlar" EntitySet="Kartlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
