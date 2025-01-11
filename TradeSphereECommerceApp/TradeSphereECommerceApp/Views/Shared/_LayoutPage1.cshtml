@@ -36,7 +36,7 @@
                     @if (Session["user"] != null)
                     {
                         <a href="@Url.Action("Logout", "Login")">Çıkış Yap/</a>
-                        <a href="@Url.Action("Index", "Member")">Hesabım</a>
+                        <a href="@Url.Action("Edit", "Member")">Hesabım</a>
 
                     }
                     else
@@ -47,11 +47,11 @@
                 </div>
                 <div class="favorites">
                     <img src="~/Assets/PageImages/heart(2).png" class="favorites-icon" />
-                    <a href="#">Favorilerim</a>
+                    <a href="@Url.Action("Favorites","Member")">Favorilerim</a>
                 </div>
                 <div class="cart">
                     <img src="~/Assets/PageImages/shopping-cart.png" class="cart-icon" />
-                    <a href="#">Sepetim</a>
+                    <a href="@Url.Action("Index","ShoppingCart")">Sepetim</a>
                 </div>
             </div>
         </div>

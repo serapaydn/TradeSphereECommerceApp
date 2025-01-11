@@ -1,17 +1,142 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TradeSphereECommerceApp.Models;
 
 namespace TradeSphereECommerceApp.Controllers
 {
     public class MemberController : Controller
     {
+        TradeSphereDBModel db = new TradeSphereDBModel();
         // GET: Member
         public ActionResult Index()
         {
             return View();
         }
+        public ActionResult Edit(int? id)
+        {
+
+            Member user = Session["user"] as Member;
+
+            if (user == null)
+            {
+                ViewBag.Warning = "Kullanıcı oturumunda bir hata oluştu.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            Member member = db.Members.Find(user.ID);
+
+            if (member != null)
+            {
+                return View(member);
+            }
+            else
+            {
+                ViewBag.Warning = "Kullanıcı bulunamadı.";
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Member user)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Member member = db.Members.Find(user.ID);
+
+                    if (member != null)
+                    {
+                        member.Name = user.Name;
+                        member.Surname = user.Surname;
+                        member.UserName = user.UserName;
+                        member.Mail = user.Mail;
+                        member.Password = user.Password;
+
+                        db.Entry(member).State = EntityState.Modified;
+
+                        if (db.SaveChanges() > 0)
+                        {
+                            Session["user"] = member;
+                            ViewBag.Success = "Profil başarıyla güncellendi.";
+                        }
+                        else
+                        {
+                            ViewBag.Warning = "Veritabanı güncellemesi sırasında bir sorun oluştu.";
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Warning = "Kullanıcı bulunamadı.";
+                    }
+                }
+                catch
+                {
+                    ViewBag.Warning = "Bir hata oluştu. Lütfen tekrar deneyin.";
+                }
+            }
+            else
+            {
+                ViewBag.Warning = "Girilen bilgilerde hata var. Lütfen kontrol edip tekrar deneyin.";
+            }
+
+            return View(user);
+        }
+        public ActionResult Favorites()
+        {
+            Member member = Session["user"] as Member;
+            if (member == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            List<Product> favoriteProducts = db.Favorites
+                                    .Where(f => f.Member_ID == member.ID)
+                                    .Select(f => f.Product)
+                                    .ToList();
+
+            return View(favoriteProducts);
+        }
+        public ActionResult AddToFavorites(int productId)
+        {
+            Member member = Session["user"] as Member;
+
+            if (member != null)
+            {
+                Favorites favorite = db.Favorites.FirstOrDefault(f => f.Member_ID == member.ID && f.Product_ID == productId);
+
+                bool isFavorite;
+
+                if (favorite == null)
+                {
+                    favorite = new Favorites
+                    {
+                        Member_ID = member.ID,
+                        Product_ID = productId
+                    };
+                    db.Favorites.Add(favorite);
+                    db.SaveChanges();
+                    isFavorite = true;
+                }
+                else
+                {
+                    db.Favorites.Remove(favorite);
+                    db.SaveChanges();
+                    isFavorite = false;
+                }
+
+                return RedirectToAction("Detail", "Product", new { id = productId, isFavorite });
+            }
+
+            ViewBag.Warning = "Lütfen giriş yapın.";
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }

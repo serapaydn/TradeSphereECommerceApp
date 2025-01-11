@@ -250,6 +250,9 @@
     <Content Include="Views\Seller\Create.cshtml" />
     <Content Include="Views\Seller\Index.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Member\Favorites.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -261,7 +264,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\SellerPanel\Views\FileUpload\" />
     <Folder Include="Views\Order\" />
-    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

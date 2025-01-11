@@ -614,14 +614,16 @@ body {
     padding-top: 30px;
     border-top: 1px solid #dbc4bf;
 }
+
     .comment p {
         color: #6c4a32;
     }
-    .comment p a {
-        font-weight: bold;
-        color: #6c4a32;
 
-    }
+        .comment p a {
+            font-weight: bold;
+            color: #6c4a32;
+        }
+
     .comment h4 {
         font-size: 22px;
         color: #7b5d56;
@@ -661,14 +663,15 @@ body {
 .commentsList {
     margin-top: 20px;
 }
+
     .commentsList p {
         color: #6c4a32;
     }
 
-    .commentItem {
-        border-bottom: 1px solid #dbc4bf;
-        padding: 10px 0;
-    }
+.commentItem {
+    border-bottom: 1px solid #dbc4bf;
+    padding: 10px 0;
+}
 
     .commentItem p {
         font-size: 16px;
@@ -697,11 +700,18 @@ body {
         color: #a69e98;
         font-style: italic;
     }
+
 .main-content {
-    width: 1100px;
+    width: 1000px;
     margin: 0 auto;
-    padding-left: 30px;
     padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.member-panel-container {
+    width: 150px;
+    float: left;
 }
 
 .member-panel {
@@ -715,6 +725,7 @@ body {
     background-color: white;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
+
     .member-panel:hover {
         border-color: #7b5d56;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -736,5 +747,85 @@ body {
             color: #5a4039;
         }
 
+.profileBase {
+    width: 750px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+    border: 1px solid #dbc4bf;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+    .profileBase h2 {
+        font-size: 24px;
+        color: #7b5d56;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
+    .profileBase .row {
+        margin-bottom: 15px;
+    }
+
+    .profileBase label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #7b5d56;
+    }
+
+    .profileBase input[type="text"],
+    .profileBase input[type="email"],
+    .profileBase input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #dbc4bf;
+        border-radius: 5px;
+        background-color: #f9f7f6;
+        color: #5a4039;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .profileBase input:focus {
+        border-color: #7b5d56;
+        background-color: #ffffff;
+        outline: none;
+    }
+
+.successMessage {
+    background-color: #e8f5e9;
+    color: #388e3c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.warningMessage {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profileBase .btn {
+    background-color: #7b5d56;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .profileBase .btn:hover {
+        background-color: #5a4039;
+    }

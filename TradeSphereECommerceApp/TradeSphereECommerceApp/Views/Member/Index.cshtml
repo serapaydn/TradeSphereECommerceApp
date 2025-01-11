@@ -11,15 +11,16 @@
 <div class="main-content">
     <div class="member-panel">
         <a href="#">Sepetim</a>
-        <a href="#">Favorilerim</a>
+        <a href="@Url.Action("Favorites","Member")">Favorilerim</a>
+        <a href="#">Yorumlarım</a>
         <a href="#">Siparişlerim</a>
     </div>
     <div class="member-panel">
-        <a href="#">Kullanıcı Bilgilerim</a>
+        <a href="@Url.Action("Edit","Member")">Kullanıcı Bilgilerim</a>
         <a href="#">Adres Bilgilerim</a>
         <a href="#">Kayıtlı Kartlar</a>
     </div>
     <div class="member-panel">
-        <a href="#">Çıkış</a>
+        <a href="@Url.Action("Logout", "Login")">Çıkış</a>
     </div>
 </div>
