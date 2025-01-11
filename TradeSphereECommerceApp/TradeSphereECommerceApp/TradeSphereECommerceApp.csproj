@@ -115,17 +115,18 @@
     <Content Include="Areas\ManagerPanel\Assests\css\MainStyle.css" />
     <Content Include="Areas\ManagerPanel\Assests\css\TableStyle.css" />
     <Content Include="Areas\ManagerPanel\Assests\PageImages\notfound2.png" />
-    <Content Include="Assests\css\UIMainStyle.css" />
-    <Content Include="Assests\PageImages\heart%282%29.png" />
-    <Content Include="Assests\PageImages\heart%283%29.png" />
-    <Content Include="Assests\PageImages\ProjeLogo1.png" />
-    <Content Include="Assests\PageImages\search.png" />
-    <Content Include="Assests\PageImages\shopping-cart%281%29.png" />
-    <Content Include="Assests\PageImages\shopping-cart.png" />
-    <Content Include="Assests\PageImages\user%282%29.png" />
-    <Content Include="Assests\PageImages\user.png" />
-    <Content Include="Assests\ProductImages\kulaklık.jpg" />
-    <Content Include="Assests\ProductImages\laptop.jpg" />
+    <Content Include="Assets\css\UIMainStyle.css" />
+    <Content Include="Assets\PageImages\heart%282%29.png" />
+    <Content Include="Assets\PageImages\heart%283%29.png" />
+    <Content Include="Assets\PageImages\ProjeLogo1.png" />
+    <Content Include="Assets\PageImages\search.png" />
+    <Content Include="Assets\PageImages\shopping-cart%281%29.png" />
+    <Content Include="Assets\PageImages\shopping-cart.png" />
+    <Content Include="Assets\PageImages\user%282%29.png" />
+    <Content Include="Assets\PageImages\user.png" />
+    <Content Include="Assets\ProductImages\bilgisayar.jpg" />
+    <Content Include="Assets\ProductImages\kulaklık.jpg" />
+    <Content Include="Assets\ProductImages\laptop.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <Compile Include="Areas\ManagerPanel\Filters\SellerAuthorizationFilterAttribute.cs" />
     <Compile Include="Areas\ManagerPanel\ManagerPanelAreaRegistration.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\BrandController.cs" />
+    <Compile Include="Areas\SellerPanel\Controllers\CommentController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\FileUploadController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\LoginController.cs" />
@@ -157,7 +159,6 @@
     <Compile Include="Areas\SellerPanel\Controllers\SystemMessagesController.cs" />
     <Compile Include="Areas\SellerPanel\Data\ViewModels\SellerLoginViewModel.cs" />
     <Compile Include="Areas\SellerPanel\SellerPanelAreaRegistration.cs" />
-    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -234,6 +235,12 @@
     <Content Include="Areas\SellerPanel\Views\Product\Edit.cshtml" />
     <Content Include="Areas\SellerPanel\Views\Product\Delete.cshtml" />
     <Content Include="Areas\SellerPanel\Views\Product\UploadXmlProducts.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Comment\Index.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Comment\AllIndex.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Comment\Delete.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Comment\Index.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Comment\AllIndex.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Comment\Delete.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -242,6 +249,7 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Seller\Create.cshtml" />
     <Content Include="Views\Seller\Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -251,11 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Filters\" />
-    <Folder Include="Areas\ManagerPanel\Views\Comment\" />
     <Folder Include="Areas\SellerPanel\Views\FileUpload\" />
-    <Folder Include="Views\Comment\" />
-    <Folder Include="Views\Member\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>

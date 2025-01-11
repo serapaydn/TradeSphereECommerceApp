@@ -170,7 +170,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                     return View();
                 }
             }
-            return View();
+            return View(model);
         }
 
         public ActionResult Delete(int? id)
@@ -248,7 +248,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             try
             {
-                string apiUrl = "https://localhost:44334/api/fileupload/gettempproducts";
+                string apiUrl = "https://localhost:44385/api/fileupload/gettempproducts";
 
                 HttpResponseMessage response = client.GetAsync(apiUrl).Result;
 

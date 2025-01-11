@@ -34,6 +34,8 @@ namespace TradeSphereECommerceApp.Models
         public string CommentText { get; set; }
 
         public DateTime CreationTime { get; set; }
+
+        [Display(Name = "Durum")]
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
 

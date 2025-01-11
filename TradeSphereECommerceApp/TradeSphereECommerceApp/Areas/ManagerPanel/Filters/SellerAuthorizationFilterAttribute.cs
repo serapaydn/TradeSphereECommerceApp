@@ -13,7 +13,6 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Filters
         {
             if (filterContext.HttpContext.Session["seller"] == null)
             {
-
                 filterContext.Result = new HttpUnauthorizedResult();
             }
         }

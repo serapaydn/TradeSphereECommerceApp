@@ -1,10 +1,9 @@
 ﻿@model TradeSphereECommerceApp.Models.Product
 @using TradeSphereECommerceApp.Models
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "Product Detail";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
-
 
 <div class="breadCrumb">
     <a href="@Url.Action("Index", "Home")">Anasayfa ></a>
@@ -70,30 +69,42 @@
         </div>
 
     </div>
+
     <div class="comment">
         <h4>Yorumlar</h4>
-        @*@if (Session["User"] == null)
+
+        @if (Session["User"] == null)
+        {
+            <p>Yorum yapabilmek için <a href="@Url.Action("Index", "Login")">giriş yapın</a>.</p>
+        }
+        else
+        {
+            using (Html.BeginForm("AddComment", "Product", FormMethod.Post))
             {
-                <p>Yorum yapabilmek için <a href="@Url.Action("Login", "Index")">giriş yapın</a>.</p>
+                @Html.AntiForgeryToken() 
+                @Html.Hidden("ProductId", Model.ID)
+                <textarea name="CommentText" placeholder="Yorumunuzu buraya yazın..." rows="5"></textarea><br />
+                <input type="submit" value="Yorum Yap" />
+            }
+        }
+
+        <div class="commentsList">
+            @if (ViewBag.Comments != null && ViewBag.Comments.Count > 0)
+            {
+                foreach (var comment in ViewBag.Comments as List<TradeSphereECommerceApp.Models.Comment>)
+                {
+                    <div class="commentItem">
+                        <p><strong>@comment.Member.Name @comment.Member.Surname</strong> - @comment.CreationTime.ToString("dd/MM/yyyy")</p>
+                        <p>@comment.CommentText</p>
+                    </div>
+                }
             }
             else
             {
-                @using (Html.BeginForm("AddComment", "Product", FormMethod.Post))
-                {
-                    @Html.Hidden("ProductId", Model.ID)
-                    <textarea name="CommentText" placeholder="Yorumunuzu buraya yazın..." rows="5"></textarea><br />
-                    <input type="submit" value="Yorum Yap" />
-                }
+                <p>Henüz yorum yapılmamış. İlk yorumu yapabilirsiniz!</p>
             }
-            <div class="commentsList">
-                @foreach (var comment in Model.Comments)
-                {
-                    <div class="commentItem">
-                        <p><strong>@comment.User.Name</strong> - @comment.Date.ToString("dd/MM/yyyy")</p>
-                        <p>@comment.Text</p>
-                    </div>
-                }*@
+        </div>
     </div>
 </div>
+
 <div style="clear:both"></div>
-</div>

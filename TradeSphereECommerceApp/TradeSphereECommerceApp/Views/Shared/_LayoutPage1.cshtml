@@ -10,7 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Trade Sphere @ViewBag.Title</title>
-    <link href="~/Assests/css/UIMainStyle.css" rel="stylesheet" />
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
 </head>
 <body>
     <div class="topbanner">
@@ -25,18 +25,18 @@
     <div class="topbannerlogo">
         <div class="boxedlayout">
             <div class="logo-search-container">
-                <img src="~/Assests/PageImages/ProjeLogo1.png" class="logoimage" />
+                <img src="~/Assets/PageImages/ProjeLogo1.png" class="logoimage" />
                 <div class="search-container">
                     <input type="text" placeholder="Aradığınız ürün,kategori veya markayı yazınız..." class="search-input" />
                 </div>
             </div>
             <div class="user-cart-favorites">
                 <div class="user">
-                    <img src="~/Assests/PageImages/user.png" class="user-icon"  />
+                    <img src="~/Assets/PageImages/user.png" class="user-icon"  />
                     @if (Session["user"] != null)
                     {
                         <a href="@Url.Action("Logout", "Login")">Çıkış Yap/</a>
-                        <a href="#">Hesabım</a>
+                        <a href="@Url.Action("Index", "Member")">Hesabım</a>
 
                     }
                     else
@@ -46,11 +46,11 @@
                     }
                 </div>
                 <div class="favorites">
-                    <img src="~/Assests/PageImages/heart(2).png" class="favorites-icon" />
+                    <img src="~/Assets/PageImages/heart(2).png" class="favorites-icon" />
                     <a href="#">Favorilerim</a>
                 </div>
                 <div class="cart">
-                    <img src="~/Assests/PageImages/shopping-cart.png" class="cart-icon" />
+                    <img src="~/Assets/PageImages/shopping-cart.png" class="cart-icon" />
                     <a href="#">Sepetim</a>
                 </div>
             </div>

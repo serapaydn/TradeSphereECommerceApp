@@ -1,0 +1,25 @@
+﻿@model TradeSphereECommerceApp.Models.Member
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Hesabım</label>
+</div>
+
+<div class="main-content">
+    <div class="member-panel">
+        <a href="#">Sepetim</a>
+        <a href="#">Favorilerim</a>
+        <a href="#">Siparişlerim</a>
+    </div>
+    <div class="member-panel">
+        <a href="#">Kullanıcı Bilgilerim</a>
+        <a href="#">Adres Bilgilerim</a>
+        <a href="#">Kayıtlı Kartlar</a>
+    </div>
+    <div class="member-panel">
+        <a href="#">Çıkış</a>
+    </div>
+</div>

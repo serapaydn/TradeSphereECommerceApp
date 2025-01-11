@@ -18,7 +18,7 @@
         @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.HiddenFor(model => model.ID);
-            @Html.HiddenFor(model => model.Manager_ID);
+            @Html.HiddenFor(model => model.Seller_ID)
             @Html.HiddenFor(model => model.IsDeleted);
             @Html.HiddenFor(model => model.Image);
             @Html.HiddenFor(model => model.CreationTime);

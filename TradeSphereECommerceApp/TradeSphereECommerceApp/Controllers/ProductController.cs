@@ -42,7 +42,36 @@ namespace TradeSphereECommerceApp.Controllers
                 ViewBag.IsFavorite = false;
             }
 
+            var comments = db.Comments.Where(c => c.Product_ID == model.ID && c.IsActive && !c.IsDeleted)
+                                      .OrderByDescending(c => c.CreationTime)
+                                      .ToList();
+            ViewBag.Comments = comments;
+
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddComment(int ProductId, string CommentText)
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Index");
+            }
+
+            Member member = Session["User"] as Member;
+            Comment newComment = new Comment
+            {
+                Product_ID = ProductId,
+                CommentText = CommentText,
+                Member_ID = member.ID,
+                CreationTime = DateTime.Now
+            };
+
+            db.Comments.Add(newComment);
+            db.SaveChanges();
+
+            return RedirectToAction("Detail", new { id = ProductId });
         }
     }
 }

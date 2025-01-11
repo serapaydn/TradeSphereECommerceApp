@@ -29,7 +29,19 @@
     .formContent h3 {
         color: #7b5d56;
     }
+    .formContent .left {
+        float: left;
+        width: 45%;
+    }
 
+    .formContent .right {
+        float: right;
+        width: 45%;
+    }
+
+.row {
+    padding: 7px 0;
+}
 .control-label {
     font-size: 12pt;
     color: #7b5d56;
@@ -102,6 +114,7 @@
             color: #dbc4bf;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
+
 
 .table {
     width: 100%;
