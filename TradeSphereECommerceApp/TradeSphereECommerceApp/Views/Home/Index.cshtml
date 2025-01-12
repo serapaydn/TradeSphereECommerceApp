@@ -13,48 +13,57 @@
             <a href="@Url.Action("Index", "Home")" class="home">Anasayfa</a>
             @foreach (var item in categories)
             {
-                <a href="">@item.Name</a>
+                <a href="@Url.Action("Index", "Home", new { categoryId = item.ID, page = 1 })">@item.Name</a>
             }
         </div>
     </div>
 
     <div class="productBase">
-        @foreach (var item in Model)
+        @if (ViewBag.NoProductsMessage != null)
         {
-            <div class="product">
-                <a href="@Url.Action("Detail", "Product", new { id = item.ID })" style="text-decoration:none">
-                    <div class="image">
-                        <img src="~/Assets/ProductImages/@item.Image" width="200" height="190" />
-                    </div>
-                    <div class="name">
-                        @item.Name
-                    </div>
-                    <div class="price">
-                        @item.Price ₺ <label>@item.ListPrice ₺</label>
-                    </div>
-                </a>
-                <div class="cart">
-                    <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = item.ID, quantity = 1 })">Sepete Ekle</a>
-                </div>
+            <div class="noproductsmessage">
+                <p>@ViewBag.NoProductsMessage</p>
             </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="product">
+                    <a href="@Url.Action("Detail", "Product", new { id = item.ID })" style="text-decoration:none">
+                        <div class="image">
+                            <img src="~/Assets/ProductImages/@item.Image" width="200" height="190" />
+                        </div>
+                        <div class="name">
+                            @item.Name
+                        </div>
+                        <div class="price">
+                            @item.Price ₺ <label>@item.ListPrice ₺</label>
+                        </div>
+                    </a>
+                    <div class="cart">
+                        <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = item.ID, quantity = 1 })">Sepete Ekle</a>
+                    </div>
+                </div>
+            }
         }
 
         <div style="clear:both"></div>
 
         <div class="pagination">
-            @if (currentPage > 1)
+            @if (ViewBag.CurrentPage > 1)
             {
-                <a href="@Url.Action("Index", "Home", new { page = currentPage - 1 })">« Önceki</a>
+                <a href="@Url.Action("Index", "Home", new { page = ViewBag.CurrentPage - 1 })">« Önceki</a>
             }
 
-            @for (int i = 1; i <= totalPages; i++)
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
             {
-                <a href="@Url.Action("Index", "Home", new { page = i })" class="@(i == currentPage ? "active" : "")">@i</a>
+                <a href="@Url.Action("Index", "Home", new { page = i })" class="@(i == ViewBag.CurrentPage ? "active" : "")">@i</a>
             }
 
-            @if (currentPage < totalPages)
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
             {
-                <a href="@Url.Action("Index", "Home", new { page = currentPage + 1 })">Sonraki »</a>
+                <a href="@Url.Action("Index", "Home", new { page = ViewBag.CurrentPage + 1 })">Sonraki »</a>
             }
         </div>
     </div>

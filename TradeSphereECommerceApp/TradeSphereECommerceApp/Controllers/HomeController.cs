@@ -11,10 +11,23 @@ namespace TradeSphereECommerceApp.Controllers
     {
         TradeSphereDBModel db = new TradeSphereDBModel();
         // GET: Home
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(int page = 1, int? categoryId = null, string searchTerm = null)
         {
             int pageSize = 12;
-            var products = db.Products.Where(p => p.IsDeleted == false && p.IsActive == true).OrderBy(p => p.Name).ToList();
+
+            IQueryable<Product> products = db.Products.Where(p => p.IsDeleted == false && p.IsActive == true);
+
+            if (categoryId.HasValue)
+            {
+                products = products.Where(p => p.Category_ID == categoryId.Value);
+            }
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p => p.Name.Contains(searchTerm) || p.Category.Name.Contains(searchTerm) || p.Brand.Name.Contains(searchTerm));
+            }
+
+            products = products.OrderBy(p => p.Name);
             int totalProducts = products.Count();
             var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
 
@@ -24,6 +37,11 @@ namespace TradeSphereECommerceApp.Controllers
 
             ViewBag.TotalPages = totalPages;
             ViewBag.CurrentPage = page;
+
+            if (!pagedProducts.Any())
+            {
+                ViewBag.NoProductsMessage = "Ürün yok, bu kategori veya arama terimiyle ilgili ürün bulunmuyor!";
+            }
 
             return View(pagedProducts);
         }

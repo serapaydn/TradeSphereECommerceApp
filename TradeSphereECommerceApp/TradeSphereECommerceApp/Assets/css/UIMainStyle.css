@@ -47,7 +47,7 @@ body {
 
 .search-container {
     display: flex;
-    margin-left: 100px;
+    margin-left: 70px;
 }
 
 .search-input {
@@ -64,6 +64,24 @@ body {
         border-color: #5a4039;
         outline: none;
     }
+
+button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 30px; 
+    padding: 8px 12px; 
+    cursor: pointer; 
+}
+
+    button:hover {
+        border: 1px solid #7b5d56;
+    }
+
+.search-icon {
+   
+    width: 20px;
+    height: auto;
+}
 
 .user-cart-favorites {
     float: right;
@@ -390,7 +408,12 @@ body {
         .product .cart a:hover {
             background-color: #5a4039;
         }
-
+.noproductsmessage{
+    text-align:center;
+    margin-top:40px;
+    font-size:20pt;
+    color:#7b5d56;
+}
 .pagination {
     text-align: center;
     margin-top: 20px;

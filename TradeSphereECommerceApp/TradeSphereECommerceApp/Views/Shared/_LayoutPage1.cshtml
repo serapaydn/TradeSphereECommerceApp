@@ -27,7 +27,12 @@
             <div class="logo-search-container">
                 <img src="~/Assets/PageImages/ProjeLogo1.png" class="logoimage" />
                 <div class="search-container">
-                    <input type="text" placeholder="Aradığınız ürün,kategori veya markayı yazınız..." class="search-input" />
+                    <form action="@Url.Action("Index", "Home")" method="get">
+                        <input type="text" name="searchTerm" placeholder="Aradığınız ürün, kategori veya markayı yazınız..." class="search-input" />
+                        <button type="submit">
+                            <img src="~/Assets/PageImages/search(1).png" alt="Ara" class="search-icon" />
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="user-cart-favorites">
