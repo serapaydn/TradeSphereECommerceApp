@@ -164,10 +164,12 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SellerController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Data\ViewModels\PaymentViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +259,7 @@
     <Content Include="Views\Member\Comments.cshtml" />
     <Content Include="Views\Member\EditComment.cshtml" />
     <Content Include="Views\Member\DeleteComment.cshtml" />
+    <Content Include="Views\Pay\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

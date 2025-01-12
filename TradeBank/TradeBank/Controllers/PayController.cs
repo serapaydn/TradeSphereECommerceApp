@@ -11,10 +11,12 @@ namespace TradeBank.Controllers
     public class PayController : ApiController
     {
         TradeBank_DBEntities db = new TradeBank_DBEntities();
+
+        [Route("api/pay")]
         public string Post(string kartNo, string ay, string yil, string cvv, double bakiye, string merchantID, string merchantPass)
         {
-            int satisisayi = db.SanalPosMusterileri.Count(sm => sm.SaticiKodu == merchantID && sm.SaticiSifre == merchantPass);
-            if (satisisayi > 0)
+            int saticisayi = db.SanalPosMusterileri.Count(sm => sm.SaticiKodu == merchantID && sm.SaticiSifre == merchantPass);
+            if (saticisayi > 0)
             {
                 SanalPosMusterileri spm = db.SanalPosMusterileri.First();
                 if (Convert.ToBoolean(spm.Durum))

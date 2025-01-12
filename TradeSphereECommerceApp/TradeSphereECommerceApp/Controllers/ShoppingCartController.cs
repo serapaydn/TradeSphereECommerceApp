@@ -156,7 +156,7 @@ namespace TradeSphereECommerceApp.Controllers
             List<ShoppingCart> cart = db.ShoppingCarts.Where(x => x.Member_ID == id).ToList();
             TempData["cart"] = cart;
 
-            return RedirectToAction("Index", "Checkout");
+            return RedirectToAction("Index", "Pay");
         }
     }
 }
