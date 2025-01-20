@@ -50,7 +50,9 @@
             <div class="detailquantity">
                 <input type="number" name="quantity" class="quantity" value="1" min="1" />
                 <div class="buttons">
-                    <input type="submit" class="buyNow" value="Şimdi Satın Al" />
+                    <a href="@Url.Action("Index", "Pay", new { productId = Model.ID, quantity = 1 })" class="buyNow">
+                        Şimdi Satın Al
+                    </a>
                     @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post, new { @class = "addToCartForm" }))
                     {
                         @Html.Hidden("id", Model.ID)

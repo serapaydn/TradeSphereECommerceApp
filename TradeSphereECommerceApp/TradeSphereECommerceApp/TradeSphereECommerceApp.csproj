@@ -260,6 +260,7 @@
     <Content Include="Views\Member\EditComment.cshtml" />
     <Content Include="Views\Member\DeleteComment.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -186,6 +186,7 @@ namespace TradeSphereECommerceApp.Controllers
                     db.SaveChanges();
 
                     ViewBag.Success = "Yorum başarıyla güncellendi.";
+                    return View(existingComment);
                 }
                 else
                 {

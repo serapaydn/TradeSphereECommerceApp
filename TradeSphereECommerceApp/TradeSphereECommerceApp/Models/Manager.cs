@@ -53,6 +53,13 @@ namespace TradeSphereECommerceApp.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? LastLoginTime { get; set; }
 
+        [Display(Name = "Satıcı ID")]
+        [StringLength(50)]
+        public string MerchantID { get; set; }
+
+        [Display(Name = "Satıcı Şifre")]
+        [StringLength(50)]
+        public string MerchantPass { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
 

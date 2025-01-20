@@ -53,6 +53,13 @@ namespace TradeSphereECommerceApp.Models
         }
         [Display(Name = "Bayi Tipi")]
         public string SellerType { get; set; }
+        [Display(Name = "Satıcı ID")]
+        [StringLength(50)]
+        public string MerchantID { get; set; }
+
+        [Display(Name = "Satıcı Şifre")]
+        [StringLength(50)]
+        public string MerchantPass { get; set; }
         [Display(Name = "Durum")]
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; } = true;

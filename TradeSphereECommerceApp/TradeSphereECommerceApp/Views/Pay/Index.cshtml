@@ -65,28 +65,54 @@
 
         <div class="Ordercontent">
             <h2>Sipariş Bilgileri</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ürün Adı</th>
-                        <th>Adet</th>
-                        <th>Birim Fiyat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in c)
-                    {
+            @if (ViewBag.SingleProduct != null)
+            {
+                var product = ViewBag.SingleProduct as ShoppingCart;
+                <table>
+                    <thead>
                         <tr>
-                            <td>@item.Product.Name</td>
-                            <td>@item.Quantity</td>
-                            <td>@item.Product.Price</td>
+                            <th>Ürün Adı</th>
+                            <th>Adet</th>
+                            <th>Birim Fiyat</th>
                         </tr>
-                        TotalAmount += (item.Product.Price * item.Quantity);
-                    }
-                </tbody>
-            </table>
-            <h3>Toplam Tutar</h3>
-            <h4>@TotalAmount</h4>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@product.Product.Name</td>
+                            <td>@product.Quantity</td>
+                            <td>@product.Product.Price</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Toplam Tutar</h3>
+                <h4>@(product.Product.Price * product.Quantity)</h4>
+            }
+            else
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ürün Adı</th>
+                            <th>Adet</th>
+                            <th>Birim Fiyat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in c)
+                        {
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Product.Price</td>
+                            </tr>
+                            TotalAmount += (item.Product.Price * item.Quantity);
+                        }
+                    </tbody>
+                </table>
+                <h3>Toplam Tutar</h3>
+                <h4>@TotalAmount</h4>
+            }
+
             <input type="submit" value="Ödeme Yap" />
         </div>
     }

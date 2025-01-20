@@ -73,5 +73,6 @@ namespace TradeSphereECommerceApp.Controllers
 
             return RedirectToAction("Detail", new { id = ProductId });
         }
+
     }
 }

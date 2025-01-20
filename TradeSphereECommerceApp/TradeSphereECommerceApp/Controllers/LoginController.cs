@@ -45,5 +45,36 @@ namespace TradeSphereECommerceApp.Controllers
             Session["user"] = null;
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(string userNameOrEmail, string newPassword)
+        {
+            Member user = db.Members.FirstOrDefault(m => m.UserName == userNameOrEmail || m.Mail == userNameOrEmail);
+
+            if (user != null)
+            {
+                if (user.IsActive)
+                {
+                    user.Password = newPassword;
+                    db.SaveChanges();
+
+                    ViewBag.Success = "Şifreniz başarıyla güncellendi.";
+                }
+                else
+                {
+                    ViewBag.Warning = "Hesabınız aktif değil. Lütfen destek ile iletişime geçin.";
+                }
+            }
+            else
+            {
+                ViewBag.Warning = "Bu kullanıcı adı veya e-posta ile bir hesap bulunamadı.";
+            }
+
+            return View();
+        }
     }
 }

@@ -13,11 +13,28 @@ namespace TradeSphereECommerceApp.Controllers
     {
         TradeSphereDBModel db = new TradeSphereDBModel();
         // GET: Pay
-        public ActionResult Index()
+        public ActionResult Index(int? productId, int? quantity)
         {
             if (Session["user"] == null)
             {
                 return RedirectToAction("Index", "Login");
+            }
+
+            if (productId != null && quantity != null)
+            {
+                Product product = db.Products.Find(productId);
+                if (product == null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.SingleProduct = new ShoppingCart
+                {
+                    Product_ID = productId.Value,
+                    Product = product,
+                    Quantity = quantity.Value,
+                    Member_ID = ((Member)Session["user"]).ID
+                };
             }
 
             ViewBag.Months = new SelectList(Enumerable.Range(1, 12));
@@ -95,6 +112,8 @@ namespace TradeSphereECommerceApp.Controllers
 
                 return View("Index");
             }
+
         }
+
     }
 }
