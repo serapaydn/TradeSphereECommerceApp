@@ -55,15 +55,17 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
         public ActionResult Edit(int? id)
         {
-            Seller seller = (Seller)Session["seller"];
-            if (seller == null)
-            {
-                return RedirectToAction("Login", "Index");
-            }
             if (id == null)
             {
                 return RedirectToAction("Index", "Brand");
             }
+            Seller seller = (Seller)Session["seller"];
+
+            if (seller == null)
+            {
+                return RedirectToAction("Login", "Index");
+            }
+           
             Brand brand = db.Brand.Find(id);
             if (brand == null)
             {
@@ -71,6 +73,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             }
             return View(brand);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -82,10 +85,14 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             {
                 return RedirectToAction("Login", "Index");
             }
+
+            brand.Seller_ID = seller.ID;
+
             if (brand.Seller_ID != seller.ID)
             {
                 return RedirectToAction("NotFound", "SystemMessages");
             }
+
             if (ModelState.IsValid)
             {
                 db.Entry(brand).State = EntityState.Modified;
@@ -93,7 +100,6 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 return RedirectToAction("Index");
             }
             return View(brand);
-
         }
 
         public ActionResult Delete(int? id)
