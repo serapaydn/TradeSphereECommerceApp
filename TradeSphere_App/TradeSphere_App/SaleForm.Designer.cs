@@ -111,7 +111,7 @@
             this.dtp_date.Location = new System.Drawing.Point(447, 97);
             this.dtp_date.Name = "dtp_date";
             this.dtp_date.Size = new System.Drawing.Size(200, 22);
-            this.dtp_date.TabIndex = 9;
+            this.dtp_date.TabIndex = 4;
             // 
             // cb_customer
             // 
@@ -119,15 +119,16 @@
             this.cb_customer.Location = new System.Drawing.Point(129, 155);
             this.cb_customer.Name = "cb_customer";
             this.cb_customer.Size = new System.Drawing.Size(191, 24);
-            this.cb_customer.TabIndex = 8;
+            this.cb_customer.TabIndex = 2;
             // 
             // cb_employee
             // 
             this.cb_employee.FormattingEnabled = true;
+            this.cb_employee.ItemHeight = 16;
             this.cb_employee.Location = new System.Drawing.Point(129, 95);
             this.cb_employee.Name = "cb_employee";
             this.cb_employee.Size = new System.Drawing.Size(191, 24);
-            this.cb_employee.TabIndex = 8;
+            this.cb_employee.TabIndex = 1;
             // 
             // nud_totalprice
             // 
@@ -135,7 +136,7 @@
             this.nud_totalprice.Location = new System.Drawing.Point(447, 37);
             this.nud_totalprice.Name = "nud_totalprice";
             this.nud_totalprice.Size = new System.Drawing.Size(204, 22);
-            this.nud_totalprice.TabIndex = 7;
+            this.nud_totalprice.TabIndex = 3;
             // 
             // btn_pdf
             // 
@@ -155,11 +156,12 @@
             this.tb_ID.Location = new System.Drawing.Point(129, 31);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(191, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(972, 145);
+            this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_edit.Location = new System.Drawing.Point(973, 186);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(139, 35);
             this.btn_edit.TabIndex = 3;
@@ -170,6 +172,7 @@
             // 
             // btn_add
             // 
+            this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_add.Location = new System.Drawing.Point(973, 186);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(138, 35);

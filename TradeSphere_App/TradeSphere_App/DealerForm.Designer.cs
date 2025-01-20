@@ -37,6 +37,7 @@
             this.btn_pdf = new System.Windows.Forms.Button();
             this.tb_discountrate = new System.Windows.Forms.TextBox();
             this.tb_mail = new System.Windows.Forms.TextBox();
+            this.tb_dealercode = new System.Windows.Forms.TextBox();
             this.tb_dealername = new System.Windows.Forms.TextBox();
             this.tb_ID = new System.Windows.Forms.TextBox();
             this.btn_edit = new System.Windows.Forms.Button();
@@ -44,14 +45,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tb_dealercode = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -120,10 +120,10 @@
             "Gold",
             "Silver",
             "Bronz"});
-            this.cb_dealertype.Location = new System.Drawing.Point(119, 191);
+            this.cb_dealertype.Location = new System.Drawing.Point(119, 185);
             this.cb_dealertype.Name = "cb_dealertype";
             this.cb_dealertype.Size = new System.Drawing.Size(201, 24);
-            this.cb_dealertype.TabIndex = 7;
+            this.cb_dealertype.TabIndex = 3;
             // 
             // mtb_phone
             // 
@@ -131,14 +131,14 @@
             this.mtb_phone.Mask = "(999) 000-0000";
             this.mtb_phone.Name = "mtb_phone";
             this.mtb_phone.Size = new System.Drawing.Size(202, 22);
-            this.mtb_phone.TabIndex = 6;
+            this.mtb_phone.TabIndex = 4;
             // 
             // btn_pdf
             // 
             this.btn_pdf.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_pdf.Location = new System.Drawing.Point(986, 227);
+            this.btn_pdf.Location = new System.Drawing.Point(951, 227);
             this.btn_pdf.Name = "btn_pdf";
-            this.btn_pdf.Size = new System.Drawing.Size(125, 35);
+            this.btn_pdf.Size = new System.Drawing.Size(160, 35);
             this.btn_pdf.TabIndex = 1;
             this.btn_pdf.Text = "Pdf Oluştur";
             this.btn_pdf.UseVisualStyleBackColor = true;
@@ -147,10 +147,10 @@
             // tb_discountrate
             // 
             this.tb_discountrate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tb_discountrate.Location = new System.Drawing.Point(467, 187);
+            this.tb_discountrate.Location = new System.Drawing.Point(467, 182);
             this.tb_discountrate.Name = "tb_discountrate";
             this.tb_discountrate.Size = new System.Drawing.Size(202, 28);
-            this.tb_discountrate.TabIndex = 5;
+            this.tb_discountrate.TabIndex = 6;
             // 
             // tb_mail
             // 
@@ -160,13 +160,21 @@
             this.tb_mail.Size = new System.Drawing.Size(202, 28);
             this.tb_mail.TabIndex = 5;
             // 
+            // tb_dealercode
+            // 
+            this.tb_dealercode.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tb_dealercode.Location = new System.Drawing.Point(118, 230);
+            this.tb_dealercode.Name = "tb_dealercode";
+            this.tb_dealercode.Size = new System.Drawing.Size(202, 28);
+            this.tb_dealercode.TabIndex = 3;
+            // 
             // tb_dealername
             // 
             this.tb_dealername.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tb_dealername.Location = new System.Drawing.Point(118, 117);
             this.tb_dealername.Name = "tb_dealername";
             this.tb_dealername.Size = new System.Drawing.Size(202, 28);
-            this.tb_dealername.TabIndex = 5;
+            this.tb_dealername.TabIndex = 2;
             // 
             // tb_ID
             // 
@@ -175,14 +183,14 @@
             this.tb_ID.Location = new System.Drawing.Point(118, 47);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
             // 
             // btn_edit
             // 
             this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_edit.Location = new System.Drawing.Point(987, 145);
+            this.btn_edit.Location = new System.Drawing.Point(951, 186);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(124, 35);
+            this.btn_edit.Size = new System.Drawing.Size(160, 35);
             this.btn_edit.TabIndex = 3;
             this.btn_edit.Text = "Bayi Düzenle";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -192,9 +200,9 @@
             // btn_add
             // 
             this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_add.Location = new System.Drawing.Point(986, 186);
+            this.btn_add.Location = new System.Drawing.Point(951, 186);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(121, 35);
+            this.btn_add.Size = new System.Drawing.Size(160, 35);
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "Bayi Ekle";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -204,7 +212,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(354, 191);
+            this.label6.Location = new System.Drawing.Point(354, 186);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 21);
             this.label6.TabIndex = 1;
@@ -214,7 +222,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(39, 192);
+            this.label3.Location = new System.Drawing.Point(39, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 21);
             this.label3.TabIndex = 1;
@@ -229,6 +237,16 @@
             this.label5.Size = new System.Drawing.Size(46, 21);
             this.label5.TabIndex = 1;
             this.label5.Text = "Mail:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(28, 234);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 21);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Bayi Kodu:";
             // 
             // label2
             // 
@@ -282,24 +300,6 @@
             this.TSMI_delete.Size = new System.Drawing.Size(132, 24);
             this.TSMI_delete.Text = "Sil";
             this.TSMI_delete.Click += new System.EventHandler(this.TSMI_delete_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(41, 241);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 21);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Bayi Kodu:";
-            // 
-            // tb_dealercode
-            // 
-            this.tb_dealercode.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tb_dealercode.Location = new System.Drawing.Point(118, 233);
-            this.tb_dealercode.Name = "tb_dealercode";
-            this.tb_dealercode.Size = new System.Drawing.Size(202, 28);
-            this.tb_dealercode.TabIndex = 5;
             // 
             // DealerForm
             // 

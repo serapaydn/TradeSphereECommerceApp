@@ -131,23 +131,23 @@
             this.cb_grade.Location = new System.Drawing.Point(445, 102);
             this.cb_grade.Name = "cb_grade";
             this.cb_grade.Size = new System.Drawing.Size(202, 24);
-            this.cb_grade.TabIndex = 7;
+            this.cb_grade.TabIndex = 5;
             // 
             // mtb_fax
             // 
             this.mtb_fax.Location = new System.Drawing.Point(731, 154);
             this.mtb_fax.Mask = "(999) 000-0000";
             this.mtb_fax.Name = "mtb_fax";
-            this.mtb_fax.Size = new System.Drawing.Size(98, 22);
-            this.mtb_fax.TabIndex = 6;
+            this.mtb_fax.Size = new System.Drawing.Size(202, 22);
+            this.mtb_fax.TabIndex = 9;
             // 
             // mtb_phone
             // 
             this.mtb_phone.Location = new System.Drawing.Point(731, 112);
             this.mtb_phone.Mask = "(999) 000-0000";
             this.mtb_phone.Name = "mtb_phone";
-            this.mtb_phone.Size = new System.Drawing.Size(98, 22);
-            this.mtb_phone.TabIndex = 6;
+            this.mtb_phone.Size = new System.Drawing.Size(202, 22);
+            this.mtb_phone.TabIndex = 8;
             // 
             // btn_pdf
             // 
@@ -167,7 +167,7 @@
             this.tb_adddress.Multiline = true;
             this.tb_adddress.Name = "tb_adddress";
             this.tb_adddress.Size = new System.Drawing.Size(202, 78);
-            this.tb_adddress.TabIndex = 5;
+            this.tb_adddress.TabIndex = 6;
             // 
             // tb_contactname
             // 
@@ -175,7 +175,7 @@
             this.tb_contactname.Location = new System.Drawing.Point(445, 48);
             this.tb_contactname.Name = "tb_contactname";
             this.tb_contactname.Size = new System.Drawing.Size(202, 28);
-            this.tb_contactname.TabIndex = 5;
+            this.tb_contactname.TabIndex = 4;
             // 
             // tb_city
             // 
@@ -183,7 +183,7 @@
             this.tb_city.Location = new System.Drawing.Point(731, 51);
             this.tb_city.Name = "tb_city";
             this.tb_city.Size = new System.Drawing.Size(202, 28);
-            this.tb_city.TabIndex = 5;
+            this.tb_city.TabIndex = 7;
             // 
             // tb_companyname
             // 
@@ -191,7 +191,7 @@
             this.tb_companyname.Location = new System.Drawing.Point(111, 152);
             this.tb_companyname.Name = "tb_companyname";
             this.tb_companyname.Size = new System.Drawing.Size(202, 28);
-            this.tb_companyname.TabIndex = 5;
+            this.tb_companyname.TabIndex = 3;
             // 
             // tb_dealerid
             // 
@@ -199,7 +199,7 @@
             this.tb_dealerid.Location = new System.Drawing.Point(108, 102);
             this.tb_dealerid.Name = "tb_dealerid";
             this.tb_dealerid.Size = new System.Drawing.Size(202, 28);
-            this.tb_dealerid.TabIndex = 4;
+            this.tb_dealerid.TabIndex = 2;
             // 
             // tb_ID
             // 
@@ -208,7 +208,7 @@
             this.tb_ID.Location = new System.Drawing.Point(108, 48);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
             // 
             // btn_edit
             // 

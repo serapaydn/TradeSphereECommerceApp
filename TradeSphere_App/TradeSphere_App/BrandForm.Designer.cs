@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_pdf = new System.Windows.Forms.Button();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.tb_ID = new System.Windows.Forms.TextBox();
             this.btn_edit = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_pdf = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_edit = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,13 +66,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Marka Ekle";
             // 
+            // btn_pdf
+            // 
+            this.btn_pdf.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_pdf.Location = new System.Drawing.Point(986, 227);
+            this.btn_pdf.Name = "btn_pdf";
+            this.btn_pdf.Size = new System.Drawing.Size(125, 35);
+            this.btn_pdf.TabIndex = 1;
+            this.btn_pdf.Text = "Pdf Oluştur";
+            this.btn_pdf.UseVisualStyleBackColor = true;
+            this.btn_pdf.Click += new System.EventHandler(this.btn_pdf_Click);
+            // 
             // tb_name
             // 
             this.tb_name.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tb_name.Location = new System.Drawing.Point(118, 117);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(202, 28);
-            this.tb_name.TabIndex = 5;
+            this.tb_name.TabIndex = 1;
             // 
             // tb_ID
             // 
@@ -81,11 +92,12 @@
             this.tb_ID.Location = new System.Drawing.Point(118, 47);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(196, 190);
+            this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_edit.Location = new System.Drawing.Point(986, 186);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(124, 35);
             this.btn_edit.TabIndex = 3;
@@ -96,9 +108,10 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(199, 190);
+            this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_add.Location = new System.Drawing.Point(986, 186);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(121, 35);
+            this.btn_add.Size = new System.Drawing.Size(125, 35);
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "Marka Ekle";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -136,17 +149,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Markalar";
-            // 
-            // btn_pdf
-            // 
-            this.btn_pdf.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_pdf.Location = new System.Drawing.Point(986, 227);
-            this.btn_pdf.Name = "btn_pdf";
-            this.btn_pdf.Size = new System.Drawing.Size(125, 35);
-            this.btn_pdf.TabIndex = 1;
-            this.btn_pdf.Text = "Pdf Oluştur";
-            this.btn_pdf.UseVisualStyleBackColor = true;
-            this.btn_pdf.Click += new System.EventHandler(this.btn_pdf_Click);
             // 
             // dataGridView1
             // 

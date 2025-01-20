@@ -35,12 +35,12 @@
             this.tb_description = new System.Windows.Forms.TextBox();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.tb_ID = new System.Windows.Forms.TextBox();
+            this.btn_pdf = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_pdf = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_delete = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +103,7 @@
             this.tb_description.Location = new System.Drawing.Point(140, 191);
             this.tb_description.Name = "tb_description";
             this.tb_description.Size = new System.Drawing.Size(202, 28);
-            this.tb_description.TabIndex = 5;
+            this.tb_description.TabIndex = 2;
             // 
             // tb_name
             // 
@@ -111,7 +111,7 @@
             this.tb_name.Location = new System.Drawing.Point(140, 118);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(202, 28);
-            this.tb_name.TabIndex = 5;
+            this.tb_name.TabIndex = 1;
             // 
             // tb_ID
             // 
@@ -120,13 +120,25 @@
             this.tb_ID.Location = new System.Drawing.Point(140, 48);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
+            // 
+            // btn_pdf
+            // 
+            this.btn_pdf.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_pdf.Location = new System.Drawing.Point(930, 227);
+            this.btn_pdf.Name = "btn_pdf";
+            this.btn_pdf.Size = new System.Drawing.Size(181, 35);
+            this.btn_pdf.TabIndex = 3;
+            this.btn_pdf.Text = "PDF Oluştur";
+            this.btn_pdf.UseVisualStyleBackColor = true;
+            this.btn_pdf.Click += new System.EventHandler(this.btn_pdf_Click);
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(392, 184);
+            this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_edit.Location = new System.Drawing.Point(930, 184);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(168, 35);
+            this.btn_edit.Size = new System.Drawing.Size(181, 37);
             this.btn_edit.TabIndex = 3;
             this.btn_edit.Text = "Kategori Düzenle";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -135,9 +147,10 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(392, 184);
+            this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_add.Location = new System.Drawing.Point(930, 186);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(165, 35);
+            this.btn_add.Size = new System.Drawing.Size(181, 35);
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "Kategori Ekle";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -173,17 +186,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
-            // btn_pdf
-            // 
-            this.btn_pdf.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_pdf.Location = new System.Drawing.Point(878, 227);
-            this.btn_pdf.Name = "btn_pdf";
-            this.btn_pdf.Size = new System.Drawing.Size(233, 35);
-            this.btn_pdf.TabIndex = 3;
-            this.btn_pdf.Text = "PDF Oluştur";
-            this.btn_pdf.UseVisualStyleBackColor = true;
-            this.btn_pdf.Click += new System.EventHandler(this.btn_pdf_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -196,14 +198,14 @@
             // TSMI_edit
             // 
             this.TSMI_edit.Name = "TSMI_edit";
-            this.TSMI_edit.Size = new System.Drawing.Size(210, 24);
+            this.TSMI_edit.Size = new System.Drawing.Size(132, 24);
             this.TSMI_edit.Text = "Düzenle";
             this.TSMI_edit.Click += new System.EventHandler(this.TSMI_edit_Click);
             // 
             // TSMI_delete
             // 
             this.TSMI_delete.Name = "TSMI_delete";
-            this.TSMI_delete.Size = new System.Drawing.Size(210, 24);
+            this.TSMI_delete.Size = new System.Drawing.Size(132, 24);
             this.TSMI_delete.Text = "Sil";
             this.TSMI_delete.Click += new System.EventHandler(this.TSMI_delete_Click);
             // 

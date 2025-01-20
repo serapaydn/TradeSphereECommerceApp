@@ -36,6 +36,7 @@
             this.btn_pdf = new System.Windows.Forms.Button();
             this.tb_adddress = new System.Windows.Forms.TextBox();
             this.tb_contactname = new System.Windows.Forms.TextBox();
+            this.tb_mail = new System.Windows.Forms.TextBox();
             this.tb_city = new System.Windows.Forms.TextBox();
             this.tb_companyname = new System.Windows.Forms.TextBox();
             this.tb_ID = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_mail = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_delete = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,7 +119,7 @@
             this.mtb_phone.Mask = "(999) 000-0000";
             this.mtb_phone.Name = "mtb_phone";
             this.mtb_phone.Size = new System.Drawing.Size(202, 22);
-            this.mtb_phone.TabIndex = 6;
+            this.mtb_phone.TabIndex = 4;
             // 
             // btn_pdf
             // 
@@ -139,7 +139,7 @@
             this.tb_adddress.Multiline = true;
             this.tb_adddress.Name = "tb_adddress";
             this.tb_adddress.Size = new System.Drawing.Size(202, 78);
-            this.tb_adddress.TabIndex = 5;
+            this.tb_adddress.TabIndex = 6;
             // 
             // tb_contactname
             // 
@@ -147,7 +147,15 @@
             this.tb_contactname.Location = new System.Drawing.Point(117, 165);
             this.tb_contactname.Name = "tb_contactname";
             this.tb_contactname.Size = new System.Drawing.Size(202, 28);
-            this.tb_contactname.TabIndex = 5;
+            this.tb_contactname.TabIndex = 3;
+            // 
+            // tb_mail
+            // 
+            this.tb_mail.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tb_mail.Location = new System.Drawing.Point(706, 42);
+            this.tb_mail.Name = "tb_mail";
+            this.tb_mail.Size = new System.Drawing.Size(185, 28);
+            this.tb_mail.TabIndex = 7;
             // 
             // tb_city
             // 
@@ -163,7 +171,7 @@
             this.tb_companyname.Location = new System.Drawing.Point(117, 104);
             this.tb_companyname.Name = "tb_companyname";
             this.tb_companyname.Size = new System.Drawing.Size(202, 28);
-            this.tb_companyname.TabIndex = 5;
+            this.tb_companyname.TabIndex = 2;
             // 
             // tb_ID
             // 
@@ -172,7 +180,7 @@
             this.tb_ID.Location = new System.Drawing.Point(117, 48);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 1;
             // 
             // btn_edit
             // 
@@ -267,14 +275,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
-            // tb_mail
-            // 
-            this.tb_mail.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tb_mail.Location = new System.Drawing.Point(706, 42);
-            this.tb_mail.Name = "tb_mail";
-            this.tb_mail.Size = new System.Drawing.Size(185, 28);
-            this.tb_mail.TabIndex = 5;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -287,14 +287,14 @@
             // TSMI_edit
             // 
             this.TSMI_edit.Name = "TSMI_edit";
-            this.TSMI_edit.Size = new System.Drawing.Size(210, 24);
+            this.TSMI_edit.Size = new System.Drawing.Size(132, 24);
             this.TSMI_edit.Text = "Düzenle";
             this.TSMI_edit.Click += new System.EventHandler(this.TSMI_edit_Click);
             // 
             // TSMI_delete
             // 
             this.TSMI_delete.Name = "TSMI_delete";
-            this.TSMI_delete.Size = new System.Drawing.Size(210, 24);
+            this.TSMI_delete.Size = new System.Drawing.Size(132, 24);
             this.TSMI_delete.Text = "Sil";
             this.TSMI_delete.Click += new System.EventHandler(this.TSMI_delete_Click);
             // 

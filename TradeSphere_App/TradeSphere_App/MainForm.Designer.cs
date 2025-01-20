@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dosyaİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,11 @@
             this.TSMI_sale = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_saledetail = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_dealer = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cms_icon = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_close = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.cms_icon.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -128,21 +133,21 @@
             // TSMI_purchases
             // 
             this.TSMI_purchases.Name = "TSMI_purchases";
-            this.TSMI_purchases.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_purchases.Size = new System.Drawing.Size(187, 26);
             this.TSMI_purchases.Text = "Satın Alımlar";
             this.TSMI_purchases.Click += new System.EventHandler(this.TSMI_purchases_Click);
             // 
             // TSMI_sale
             // 
             this.TSMI_sale.Name = "TSMI_sale";
-            this.TSMI_sale.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_sale.Size = new System.Drawing.Size(187, 26);
             this.TSMI_sale.Text = "Satışlar";
             this.TSMI_sale.Click += new System.EventHandler(this.TSMI_sale_Click);
             // 
             // TSMI_saledetail
             // 
             this.TSMI_saledetail.Name = "TSMI_saledetail";
-            this.TSMI_saledetail.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_saledetail.Size = new System.Drawing.Size(187, 26);
             this.TSMI_saledetail.Text = "Satış Detayları";
             this.TSMI_saledetail.Click += new System.EventHandler(this.TSMI_saledetail_Click);
             // 
@@ -152,6 +157,28 @@
             this.TSMI_dealer.Size = new System.Drawing.Size(68, 24);
             this.TSMI_dealer.Text = "Bayiler";
             this.TSMI_dealer.Click += new System.EventHandler(this.TSMI_dealer_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.cms_icon;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // cms_icon
+            // 
+            this.cms_icon.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cms_icon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_close});
+            this.cms_icon.Name = "cms_icon";
+            this.cms_icon.Size = new System.Drawing.Size(118, 28);
+            // 
+            // TSMI_close
+            // 
+            this.TSMI_close.Name = "TSMI_close";
+            this.TSMI_close.Size = new System.Drawing.Size(117, 24);
+            this.TSMI_close.Text = "Kapat";
+            this.TSMI_close.Click += new System.EventHandler(this.TSMI_close_Click);
             // 
             // MainForm
             // 
@@ -165,8 +192,10 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trade Sphere";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.cms_icon.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +216,8 @@
         private System.Windows.Forms.ToolStripMenuItem TSMI_sale;
         private System.Windows.Forms.ToolStripMenuItem TSMI_saledetail;
         private System.Windows.Forms.ToolStripMenuItem TSMI_dealer;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip cms_icon;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_close;
     }
 }

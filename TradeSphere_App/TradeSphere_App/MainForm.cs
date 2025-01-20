@@ -99,5 +99,19 @@ namespace TradeSphere_App
         {
             FormOpen(new DealerForm());
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //DialogResult result = MessageBox.Show("Çıkış yapmak istediğinizden emin misiniz?", "Çıkış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (result != DialogResult.Yes)
+            //{
+            //    e.Cancel = true;
+            //}
+        }
+
+        private void TSMI_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

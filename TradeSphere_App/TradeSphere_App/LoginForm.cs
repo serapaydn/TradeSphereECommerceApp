@@ -46,5 +46,26 @@ namespace TradeSphere_App
                 MessageBox.Show("Kuallanıcı Adı boş bırakılamaz");
             }
         }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
+            if (!giris)
+            {
+                DialogResult result = MessageBox.Show("Çıkış Yapmak İstiyor musun?", "Çıkış Onay", MessageBoxButtons.OKCancel);
+                if (result != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!giris)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

@@ -134,7 +134,7 @@
             this.cb_brandid.Location = new System.Drawing.Point(440, 46);
             this.cb_brandid.Name = "cb_brandid";
             this.cb_brandid.Size = new System.Drawing.Size(202, 24);
-            this.cb_brandid.TabIndex = 7;
+            this.cb_brandid.TabIndex = 4;
             // 
             // cb_categoryid
             // 
@@ -142,7 +142,7 @@
             this.cb_categoryid.Location = new System.Drawing.Point(118, 205);
             this.cb_categoryid.Name = "cb_categoryid";
             this.cb_categoryid.Size = new System.Drawing.Size(202, 24);
-            this.cb_categoryid.TabIndex = 7;
+            this.cb_categoryid.TabIndex = 3;
             // 
             // cb_supplierid
             // 
@@ -150,7 +150,7 @@
             this.cb_supplierid.Location = new System.Drawing.Point(118, 152);
             this.cb_supplierid.Name = "cb_supplierid";
             this.cb_supplierid.Size = new System.Drawing.Size(202, 24);
-            this.cb_supplierid.TabIndex = 7;
+            this.cb_supplierid.TabIndex = 2;
             // 
             // nud_price
             // 
@@ -158,21 +158,21 @@
             this.nud_price.Location = new System.Drawing.Point(442, 208);
             this.nud_price.Name = "nud_price";
             this.nud_price.Size = new System.Drawing.Size(202, 22);
-            this.nud_price.TabIndex = 6;
+            this.nud_price.TabIndex = 7;
             // 
             // nud_reorderlevel
             // 
             this.nud_reorderlevel.Location = new System.Drawing.Point(800, 105);
             this.nud_reorderlevel.Name = "nud_reorderlevel";
             this.nud_reorderlevel.Size = new System.Drawing.Size(169, 22);
-            this.nud_reorderlevel.TabIndex = 6;
+            this.nud_reorderlevel.TabIndex = 9;
             // 
             // nud_stock
             // 
             this.nud_stock.Location = new System.Drawing.Point(800, 47);
             this.nud_stock.Name = "nud_stock";
             this.nud_stock.Size = new System.Drawing.Size(169, 22);
-            this.nud_stock.TabIndex = 6;
+            this.nud_stock.TabIndex = 8;
             // 
             // btn_pdf
             // 
@@ -191,7 +191,7 @@
             this.tb_quantity.Location = new System.Drawing.Point(442, 152);
             this.tb_quantity.Name = "tb_quantity";
             this.tb_quantity.Size = new System.Drawing.Size(202, 28);
-            this.tb_quantity.TabIndex = 5;
+            this.tb_quantity.TabIndex = 6;
             // 
             // tb_barcode
             // 
@@ -207,7 +207,7 @@
             this.tb_name.Location = new System.Drawing.Point(118, 95);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(202, 28);
-            this.tb_name.TabIndex = 5;
+            this.tb_name.TabIndex = 1;
             // 
             // tb_ID
             // 
@@ -216,11 +216,12 @@
             this.tb_ID.Location = new System.Drawing.Point(118, 46);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(986, 145);
+            this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_edit.Location = new System.Drawing.Point(986, 186);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(125, 35);
             this.btn_edit.TabIndex = 3;
@@ -231,6 +232,7 @@
             // 
             // btn_add
             // 
+            this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_add.Location = new System.Drawing.Point(986, 186);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(125, 35);

@@ -126,7 +126,7 @@
             this.mtb_phone.Location = new System.Drawing.Point(777, 114);
             this.mtb_phone.Mask = "(999) 000-0000";
             this.mtb_phone.Name = "mtb_phone";
-            this.mtb_phone.Size = new System.Drawing.Size(100, 22);
+            this.mtb_phone.Size = new System.Drawing.Size(202, 22);
             this.mtb_phone.TabIndex = 7;
             // 
             // dtp_hiredate
@@ -141,7 +141,7 @@
             this.dtp_bithdate.Location = new System.Drawing.Point(440, 192);
             this.dtp_bithdate.Name = "dtp_bithdate";
             this.dtp_bithdate.Size = new System.Drawing.Size(200, 22);
-            this.dtp_bithdate.TabIndex = 6;
+            this.dtp_bithdate.TabIndex = 5;
             // 
             // btn_pdf
             // 
@@ -157,10 +157,10 @@
             // tb_notes
             // 
             this.tb_notes.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tb_notes.Location = new System.Drawing.Point(765, 192);
+            this.tb_notes.Location = new System.Drawing.Point(777, 191);
             this.tb_notes.Name = "tb_notes";
             this.tb_notes.Size = new System.Drawing.Size(202, 28);
-            this.tb_notes.TabIndex = 5;
+            this.tb_notes.TabIndex = 8;
             // 
             // tb_address
             // 
@@ -168,7 +168,7 @@
             this.tb_address.Location = new System.Drawing.Point(442, 114);
             this.tb_address.Name = "tb_address";
             this.tb_address.Size = new System.Drawing.Size(202, 28);
-            this.tb_address.TabIndex = 5;
+            this.tb_address.TabIndex = 4;
             // 
             // tb_title
             // 
@@ -176,7 +176,7 @@
             this.tb_title.Location = new System.Drawing.Point(442, 47);
             this.tb_title.Name = "tb_title";
             this.tb_title.Size = new System.Drawing.Size(202, 28);
-            this.tb_title.TabIndex = 5;
+            this.tb_title.TabIndex = 3;
             // 
             // tb_surname
             // 
@@ -184,7 +184,7 @@
             this.tb_surname.Location = new System.Drawing.Point(118, 192);
             this.tb_surname.Name = "tb_surname";
             this.tb_surname.Size = new System.Drawing.Size(202, 28);
-            this.tb_surname.TabIndex = 5;
+            this.tb_surname.TabIndex = 2;
             // 
             // tb_name
             // 
@@ -192,7 +192,7 @@
             this.tb_name.Location = new System.Drawing.Point(118, 114);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(202, 28);
-            this.tb_name.TabIndex = 5;
+            this.tb_name.TabIndex = 1;
             // 
             // tb_ID
             // 
@@ -201,11 +201,12 @@
             this.tb_ID.Location = new System.Drawing.Point(118, 47);
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(202, 28);
-            this.tb_ID.TabIndex = 4;
+            this.tb_ID.TabIndex = 0;
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(986, 145);
+            this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_edit.Location = new System.Drawing.Point(986, 185);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(125, 35);
             this.btn_edit.TabIndex = 3;
@@ -216,6 +217,7 @@
             // 
             // btn_add
             // 
+            this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_add.Location = new System.Drawing.Point(986, 186);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(125, 35);
