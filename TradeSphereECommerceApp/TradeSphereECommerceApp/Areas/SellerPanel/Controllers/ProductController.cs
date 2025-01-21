@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -120,7 +121,6 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             return View(product);
 
         }
-
         [HttpPost]
         public ActionResult Edit(int id, Product model, HttpPostedFileBase productImage)
         {
@@ -129,9 +129,8 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             {
                 return RedirectToAction("Login", "Seller");
             }
-
-            Product p = db.Products.FirstOrDefault(prod => prod.ID == id && prod.Seller_ID == seller.ID);
-            if (p == null)
+            Product productToUpdate = db.Products.FirstOrDefault(p => p.ID == id && p.Seller_ID == seller.ID);
+            if (productToUpdate == null)
             {
                 return RedirectToAction("NotFound", "SystemMessages");
             }
@@ -140,36 +139,41 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             {
                 try
                 {
+                    productToUpdate.Name = model.Name;
+                    productToUpdate.Barcode = model.Barcode;
+                    productToUpdate.Stock = model.Stock;
+                    productToUpdate.ReorderLevel = model.ReorderLevel;
+                    productToUpdate.Price = model.Price;
+                    productToUpdate.ListPrice = model.ListPrice;
+                    productToUpdate.IsActive = model.IsActive;
+                    productToUpdate.Category_ID = model.Category_ID;
+                    productToUpdate.Brand_ID = model.Brand_ID;
+                    productToUpdate.Summary = model.Summary;
+                    productToUpdate.Description = model.Description;
+
                     if (productImage != null)
                     {
-                        bool imageIsValid = false;
                         FileInfo fi = new FileInfo(productImage.FileName);
                         if (fi.Extension == ".jpg" || fi.Extension == ".png" || fi.Extension == ".jpeg")
                         {
-                            imageIsValid = true;
                             Guid filename = Guid.NewGuid();
                             string fullname = filename + fi.Extension;
                             productImage.SaveAs(Server.MapPath("~/Assets/ProductImages/" + fullname));
-                            p.Image = fullname;
+                            productToUpdate.Image = fullname;
                         }
+                    }
 
-                        if (imageIsValid)
-                        {
-                            db.SaveChanges();
-                        }
-                    }
-                    else
-                    {
-                        db.SaveChanges();
-                    }
+                    db.Entry(productToUpdate).State = EntityState.Modified;
+                    db.SaveChanges();
 
                     return RedirectToAction("Index");
                 }
                 catch
                 {
-                    return View();
+                    return View(model);
                 }
             }
+
             return View(model);
         }
 

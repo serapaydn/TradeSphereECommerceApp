@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\areas\\sellerpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\areas\\sellerpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\controllers\\shoppingcartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\controllers\\shoppingcartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\areas\\sellerpanel\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\areas\\sellerpanel\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\controllers\\paycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\controllers\\paycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\areas\\sellerpanel\\views\\brand\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\areas\\sellerpanel\\views\\brand\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\views\\product\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\views\\product\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\data\\viewmodels\\paymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\data\\viewmodels\\paymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +26,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 207,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs*",
-              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs*",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAowJ0AAAApAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "PaymentViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Data\\ViewModels\\PaymentViewModel.cs",
+              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Data\\ViewModels\\PaymentViewModel.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Data\\ViewModels\\PaymentViewModel.cs",
+              "RelativeToolTip": "TradeSphereECommerceApp\\Data\\ViewModels\\PaymentViewModel.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA+wC0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T12:36:46.491Z",
+              "WhenOpened": "2025-01-21T09:05:50.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PayController.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\PayController.cs",
+              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Controllers\\PayController.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\PayController.cs",
+              "RelativeToolTip": "TradeSphereECommerceApp\\Controllers\\PayController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T09:00:38.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShoppingCartController.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\ShoppingCartController.cs",
+              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Controllers\\ShoppingCartController.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\ShoppingCartController.cs*",
+              "RelativeToolTip": "TradeSphereECommerceApp\\Controllers\\ShoppingCartController.cs*",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAYwNcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T08:47:37.626Z",
               "EditorCaption": ""
             },
             {
@@ -44,27 +74,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Brand\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Brand\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Brand\\Edit.cshtml",
-              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Brand\\Edit.cshtml",
-              "ViewState": "AgIAABAAAAAAAAAAAADgvygAAAADAAAAAAAAAA==",
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
+              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
+              "RelativeToolTip": "TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-20T11:23:24.722Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BrandController.cs",
-              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\BrandController.cs",
-              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\BrandController.cs",
-              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\BrandController.cs",
-              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\BrandController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAkwF4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T11:15:50.988Z",
+              "WhenOpened": "2025-01-21T08:46:48.703Z",
               "EditorCaption": ""
             }
           ]

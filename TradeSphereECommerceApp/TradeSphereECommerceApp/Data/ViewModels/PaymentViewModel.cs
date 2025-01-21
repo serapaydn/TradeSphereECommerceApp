@@ -41,5 +41,6 @@ namespace TradeSphereECommerceApp.Data.ViewModels
         [Display(Name = "Posta Kodu")]
         [Required(ErrorMessage = "Posta kodu giriniz.")]
         public string PostalCode { get; set; }
+
     }
 }

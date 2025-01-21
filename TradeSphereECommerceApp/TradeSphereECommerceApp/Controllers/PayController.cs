@@ -42,7 +42,6 @@ namespace TradeSphereECommerceApp.Controllers
 
             return View();
         }
-
         [HttpPost]
         public ActionResult Payment(PaymentViewModel model)
         {
