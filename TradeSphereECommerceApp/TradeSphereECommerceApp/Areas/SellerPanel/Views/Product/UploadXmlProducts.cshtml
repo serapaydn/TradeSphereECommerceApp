@@ -11,10 +11,25 @@
 </div>
 
 <div class="pageContent">
+    @if (ViewBag.Warning != null)
+    {
+        <div class="warningMessage">
+            <p>@ViewBag.Warning</p>
+        </div>
+    }
+
+    @if (ViewBag.Success != null)
+    {
+        <div class="successMessage">
+            <p>@ViewBag.Success</p>
+        </div>
+    }
     <div class="pagetitle">
         <h2>Ürünler</h2>
         <div style="clear:both"></div>
+
     </div>
+
     <div class="tableContent">
         @using (Html.BeginForm("ConfirmXmlProducts", "Product", FormMethod.Post))
         {

@@ -281,12 +281,12 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             return View(tempProducts);
         }
 
-        [HttpPost]
         public ActionResult ConfirmXmlProducts(int[] selectedProductIds)
         {
             Seller seller = (Seller)Session["seller"];
             if (seller == null)
             {
+                ViewBag.Warning = "Lütfen giriş yapınız.";
                 return RedirectToAction("Login", "Seller");
             }
 
@@ -298,7 +298,6 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
                 foreach (var product in selectedProducts)
                 {
-
                     product.Seller_ID = seller.ID;
                     switch (seller.SellerType?.ToLower())
                     {
@@ -321,17 +320,21 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 try
                 {
                     db.SaveChanges();
+                    ViewBag.Success = "Ürünler başarıyla onaylandı.";
                 }
                 catch (Exception ex)
                 {
-                    ViewBag.ErrorMessage = $"Veritabanı hatası: {ex.Message}";
-                    return View("UploadXmlProducts", FileUploadApiController.TempProducts);
+                    ViewBag.Warning = $"Veritabanı hatası: {ex.Message}";
                 }
 
                 FileUploadApiController.TempProducts.RemoveAll(p => selectedProductIds.Contains(p.ID));
             }
+            else
+            {
+                ViewBag.Warning = "Hiçbir ürün seçilmedi.";
+            }
 
-            return RedirectToAction("UploadXmlProducts");
+            return View("UploadXmlProducts", FileUploadApiController.TempProducts);
         }
     }
 }
