@@ -3,15 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\areas\\sellerpanel\\views\\product\\uploadxmlproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\areas\\sellerpanel\\views\\product\\uploadxmlproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\areas\\sellerpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\areas\\sellerpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\views\\product\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\tradesphereecommerceapp\\views\\product\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\views\\product\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -22,41 +14,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 207,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UploadXmlProducts.cshtml",
-              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Product\\UploadXmlProducts.cshtml",
-              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Product\\UploadXmlProducts.cshtml",
-              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Product\\UploadXmlProducts.cshtml",
-              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Views\\Product\\UploadXmlProducts.cshtml",
-              "ViewState": "AgIAABQAAAAAAAAAAAAcwDsAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-22T08:52:57.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAMBAAAAAAAAAAAuwCsBAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T08:52:20.453Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
               "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
@@ -64,8 +30,7 @@
               "RelativeToolTip": "TradeSphereECommerceApp\\Views\\Product\\Detail.cshtml",
               "ViewState": "AgIAACYAAAAAAAAAAAAcwEEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-21T08:46:48.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T08:46:48.703Z"
             }
           ]
         }

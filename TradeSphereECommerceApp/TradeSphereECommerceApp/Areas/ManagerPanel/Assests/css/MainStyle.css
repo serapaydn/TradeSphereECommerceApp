@@ -1,6 +1,6 @@
 ﻿body {
     background-color: #f8f4f2;
-    font-family: "Fabrizo", sans-serif;
+    font-family:"Fabrizo",sans-serif;
     color: #292929;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@
     width: 250px;
     background-color: #7b5d56;
     color: #dbc4bf;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px 15px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     display: flex;

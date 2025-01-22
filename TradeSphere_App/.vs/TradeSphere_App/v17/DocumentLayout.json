@@ -3,19 +3,27 @@
   "WorkspaceRootPath": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphere_app\\tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphere_app\\tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphere_app\\tradesphere_app\\brandform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\brandform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphere_app\\tradesphere_app\\brandform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\tradesphere_app\\brandform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\brandform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphere_app\\tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphere_app\\tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91371E39-7CBE-4EF8-B964-3569E9F17718}|TradeSphere_App\\TradeSphere_App.csproj|solutionrelative:tradesphere_app\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -25,8 +33,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 207,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,32 +42,56 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductForm.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\ProductForm.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs",
+              "RelativeToolTip": "TradeSphere_App\\ProductForm.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAiwBkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T11:39:45.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProductForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs",
+              "RelativeDocumentMoniker": "TradeSphere_App\\ProductForm.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\ProductForm.cs [Design]",
+              "RelativeToolTip": "TradeSphere_App\\ProductForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T11:39:17.061Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BrandForm.cs",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\BrandForm.cs",
               "RelativeDocumentMoniker": "TradeSphere_App\\BrandForm.cs",
               "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\BrandForm.cs",
               "RelativeToolTip": "TradeSphere_App\\BrandForm.cs",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAAowKoAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAkwKoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T09:32:43.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "BrandForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\BrandForm.cs",
               "RelativeDocumentMoniker": "TradeSphere_App\\BrandForm.cs",
               "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\BrandForm.cs [Design]",
               "RelativeToolTip": "TradeSphere_App\\BrandForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T09:32:42.585Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-20T09:32:42.585Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\MainForm.cs",
               "RelativeDocumentMoniker": "TradeSphere_App\\MainForm.cs",
@@ -67,20 +99,18 @@
               "RelativeToolTip": "TradeSphere_App\\MainForm.cs",
               "ViewState": "AgIAAF4AAAAAAAAAAAAtwG0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T09:28:58.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T09:28:58.205Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\MainForm.cs",
               "RelativeDocumentMoniker": "TradeSphere_App\\MainForm.cs",
               "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphere_App\\TradeSphere_App\\MainForm.cs [Design]",
               "RelativeToolTip": "TradeSphere_App\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T09:06:38.433Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-20T09:06:38.433Z"
             }
           ]
         }
