@@ -37,7 +37,7 @@ namespace TradeSphere_App
                 db.Suppliers.Add(s);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Tedarikçi başarıyla eklenmiştir");
+                MessageBox.Show($"Taedarikçi başarıyla eklenmiştir. Tedarikçi ID: {s.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_companyname.Text = "";
                 tb_contactname.Text = "";
                 mtb_phone.Text = "";
@@ -48,7 +48,7 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Tedarikçi eklenirken hata oluştu!");
+                MessageBox.Show("Tedarikçi eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -94,26 +94,24 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Tedarikçi düzenlenirken hata oluştu!");
+                MessageBox.Show("Düzenlenecek tedarikçi bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)
         {
             Suppliers s = db.Suppliers.Find(id);
-            try
+
+            if (s != null)
             {
-                if (s != null)
-                {
-                    db.Suppliers.Remove(s);
-                    db.SaveChanges();
-                    doldur();
-                    MessageBox.Show("Tedarikçi başarıyla silinmiştir!");
-                }
+                db.Suppliers.Remove(s);
+                db.SaveChanges();
+                doldur();
+                MessageBox.Show($"Tedarikçi başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch
+            else
             {
-                MessageBox.Show("Tedarikçi silinirken hata oluştu");
+                MessageBox.Show("Silinecek tedarikçi bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -148,9 +146,11 @@ namespace TradeSphere_App
 
                 db.SaveChanges();
                 doldur();
-
-                MessageBox.Show("Tedarikçi başarıyla güncellendi!");
-
+                MessageBox.Show("Tedarikçi başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellenmek istenen tedarikçi bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_edit.Visible = false;
             tb_companyname.Text = "";

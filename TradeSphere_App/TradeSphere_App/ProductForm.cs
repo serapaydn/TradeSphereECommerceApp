@@ -48,7 +48,7 @@ namespace TradeSphere_App
                 db.SaveChanges();
                 doldur();
 
-                MessageBox.Show("Ürün başarıyla eklendi!");
+                MessageBox.Show($"Ürün başarıyla eklenmiştir. Ürün ID: {product.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_name.Text = tb_barcode.Text = tb_quantity.Text = "";
                 cb_supplierid.SelectedIndex = -1;
                 cb_categoryid.SelectedIndex = -1;
@@ -59,7 +59,7 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Ürün oluşturulurken hata oluştu!");
+                MessageBox.Show("Ürün eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -113,49 +113,40 @@ namespace TradeSphere_App
         private void TSMI_edit_Click(object sender, EventArgs e)
         {
             Products product = db.Products.Find(id);
-            try
+
+            if (product != null)
             {
-                if (product != null)
-                {
-                    product.Name = tb_name.Text;
-                    product.Supplier_ID = int.Parse(cb_supplierid.SelectedValue.ToString());
-                    product.Category_ID = int.Parse(cb_categoryid.SelectedValue.ToString());
-                    product.Brand_ID = int.Parse(cb_brandid.SelectedValue.ToString());
-                    product.Barcode = tb_barcode.Text;
-                    product.Quantity = tb_quantity.Text;
-                    product.Price = decimal.Parse(nud_price.Value.ToString());
-                    product.Stock = (short?)nud_stock.Value;
-                    product.ReorderLevel = (short?)nud_reorderlevel.Value;
-                    btn_edit.Visible = true;
-                }
+                product.Name = tb_name.Text;
+                product.Supplier_ID = int.Parse(cb_supplierid.SelectedValue.ToString());
+                product.Category_ID = int.Parse(cb_categoryid.SelectedValue.ToString());
+                product.Brand_ID = int.Parse(cb_brandid.SelectedValue.ToString());
+                product.Barcode = tb_barcode.Text;
+                product.Quantity = tb_quantity.Text;
+                product.Price = decimal.Parse(nud_price.Value.ToString());
+                product.Stock = (short?)nud_stock.Value;
+                product.ReorderLevel = (short?)nud_reorderlevel.Value;
+                btn_edit.Visible = true;
             }
-            catch
+            else
             {
-                MessageBox.Show("Ürün düzenlenirken bir hata oluştu!");
+                MessageBox.Show("Düzenlenecek çalışan bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)
         {
             Products product = db.Products.Find(id);
-            try
+            if (product != null)
             {
-                if (product != null)
-                {
-                    db.Products.Remove(product);
-                    db.SaveChanges();
-                    doldur();
-
-                    MessageBox.Show("Ürün başarıyla silindi!");
-                }
-                else
-                {
-                    MessageBox.Show("Silinecek ürün bulunamadı!");
-                }
+                db.Products.Remove(product);
+                db.SaveChanges();
+                doldur();
+                MessageBox.Show($"Ürün {product.Name} başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ürün silinirken bir hata oluştu: " + ex.Message);
+                MessageBox.Show("Silinecek ürün bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -240,7 +231,7 @@ namespace TradeSphere_App
 
                     doldur();
 
-                    MessageBox.Show("Ürün başarıyla güncellendi!");
+                    MessageBox.Show("Ürün başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 btn_edit.Visible = false;
                 tb_name.Text = tb_barcode.Text = tb_quantity.Text = "";

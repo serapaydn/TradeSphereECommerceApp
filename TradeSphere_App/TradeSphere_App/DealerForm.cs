@@ -33,14 +33,14 @@ namespace TradeSphere_App
                 Phone = mtb_phone.Text,
                 Mail = tb_mail.Text,
                 DiscountRate = int.Parse(tb_discountrate.Text),
-                DealerCode = tb_dealercode.Text 
+                DealerCode = tb_dealercode.Text
             };
             try
             {
                 db.Dealers.Add(d);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Bayi başarıyla eklenmiştir");
+                MessageBox.Show($"Bayi başarıyla eklenmiştir. Bayi ID: {d.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_dealername.Text = "";
                 cb_dealertype.Text = "";
                 mtb_phone.Text = "";
@@ -50,7 +50,7 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Bayi oluşturulurken hata oluştu!");
+                MessageBox.Show("Bayi eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void doldur()
@@ -75,82 +75,71 @@ namespace TradeSphere_App
 
         private void TSMI_edit_Click(object sender, EventArgs e)
         {
+
+
             Dealers d = db.Dealers.Find(id);
-            try
+            if (d != null)
             {
-                if (d != null)
-                {
-                    tb_ID.Text = d.ID.ToString();
-                    tb_dealername.Text = d.DealerName;
-                    cb_dealertype.Text = d.DealerType;
-                    mtb_phone.Text = d.Phone;
-                    tb_mail.Text = d.Mail;
-                    tb_discountrate.Text = d.DiscountRate.ToString();
-                    tb_dealercode.Text = d.DealerCode; 
-                    btn_edit.Visible = true;
-                }
+                tb_ID.Text = d.ID.ToString();
+                tb_dealername.Text = d.DealerName;
+                cb_dealertype.Text = d.DealerType;
+                mtb_phone.Text = d.Phone;
+                tb_mail.Text = d.Mail;
+                tb_discountrate.Text = d.DiscountRate.ToString();
+                tb_dealercode.Text = d.DealerCode;
+                btn_edit.Visible = true;
             }
-            catch
+            else
             {
-                MessageBox.Show("Bayi düzenlenirken bir hata oluştu!");
+                MessageBox.Show("Düzenlenecek bayi bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)
         {
             Dealers d = db.Dealers.Find(id);
-            try
+            if (d != null)
             {
-                if (d != null)
-                {
-                    db.Dealers.Remove(d);
-                    db.SaveChanges();
-                    doldur();
-                    MessageBox.Show("Bayi başarıyla silinmiştir!");
-                }
-                else
-                {
-                    MessageBox.Show("Silinecek bayi bulunamadı!");
-                }
+                db.Dealers.Remove(d);
+                db.SaveChanges();
+                doldur();
+                MessageBox.Show($"Bayi {d.DealerName} başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Bayi silinirken bir hata oluştu: " + ex.Message);
+                MessageBox.Show("Silinecek bayi bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
             Dealers d = db.Dealers.Find(id);
-            try
+            if (d != null)
             {
-                if (d != null)
-                {
-                    d.DealerName = tb_dealername.Text;
-                    d.DealerType = cb_dealertype.Text;
-                    d.Phone = mtb_phone.Text;
-                    d.Mail = tb_mail.Text;
-                    d.DiscountRate = int.Parse(tb_discountrate.Text);
-                    d.DealerCode = tb_dealercode.Text;
+                d.DealerName = tb_dealername.Text;
+                d.DealerType = cb_dealertype.Text;
+                d.Phone = mtb_phone.Text;
+                d.Mail = tb_mail.Text;
+                d.DiscountRate = int.Parse(tb_discountrate.Text);
+                d.DealerCode = tb_dealercode.Text;
 
-                    db.SaveChanges();
-                    doldur();
-                    MessageBox.Show("Bayi başarıyla güncellenmiştir!");
-
-                }
-                btn_edit.Visible = false;
-                tb_ID.Text = "";
-                tb_dealername.Text = "";
-                cb_dealertype.Text = "";
-                mtb_phone.Text = "";
-                tb_mail.Text = "";
-                tb_discountrate.Text = "";
-                tb_dealercode.Text = ""; 
+                db.SaveChanges();
+                doldur();
+                MessageBox.Show("Bayi başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Bayi güncellenirken bir hata oluştu: " + ex.Message);
+                MessageBox.Show("Güncellenmek istenen bayi bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            btn_edit.Visible = false;
+            tb_ID.Text = "";
+            tb_dealername.Text = "";
+            cb_dealertype.Text = "";
+            mtb_phone.Text = "";
+            tb_mail.Text = "";
+            tb_discountrate.Text = "";
+            tb_dealercode.Text = "";
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)

@@ -35,7 +35,7 @@ namespace TradeSphere_App
                 db.SaleDetails.Add(s);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Satış detayları başarıyla eklenmiştir");
+                MessageBox.Show($"Satış detayları başarıyla eklenmiştir. Satış ID: {s.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cb_product.Text = "";
                 cb_sale.Text = "";
                 nud_saleprice.Value = 0;
@@ -43,7 +43,7 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Satış deyatları eklenirken hata oluştu");
+                MessageBox.Show("Satış detayı eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -89,7 +89,7 @@ namespace TradeSphere_App
             }
             else
             {
-                MessageBox.Show("Satış detayı bulunamadı.");
+                MessageBox.Show("Düzenlenecek satış detayı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -102,12 +102,11 @@ namespace TradeSphere_App
                 db.SaleDetails.Remove(s);
                 db.SaveChanges();
                 doldur();
-
-                MessageBox.Show("Satış detayı başarıyla silindi.");
+                MessageBox.Show($"Satış detayı başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Silinecek satış detayı bulunamadı.");
+                MessageBox.Show("Silinecek satış detayı bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -139,9 +138,11 @@ namespace TradeSphere_App
                 db.SaveChanges();
                 doldur();
 
-                MessageBox.Show("Satış detayı başarıyla güncellenmiştir.");
-
-              
+                MessageBox.Show("Satış detayı başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellenmek istenen satış detayı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_edit.Visible = false;
             tb_ID.Text = "";

@@ -37,7 +37,7 @@ namespace TradeSphere_App
                 db.Purchases.Add(p);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Satın alım başarıyla eklenmiştir");
+                MessageBox.Show($"Satın alım başarıyla eklenmiştir. ID: {p.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cb_product.Text = "";
                 cb_supplier.Text = "";
                 cb_employee.Text = "";
@@ -47,7 +47,7 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Satın alım eklenirken bir hata oluştu!");
+                MessageBox.Show("Satın alım eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void doldur()
@@ -103,7 +103,7 @@ namespace TradeSphere_App
             }
             else
             {
-                MessageBox.Show("Satın alım bulunamadı.");
+                MessageBox.Show("Düzenlenecek satın alım bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -116,12 +116,11 @@ namespace TradeSphere_App
                 db.Purchases.Remove(p);
                 db.SaveChanges();
                 doldur();
-
-                MessageBox.Show("Satın alım başarıyla silindi.");
+                MessageBox.Show($"Satın alım {p.ID} başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Silinecek satın alım bulunamadı.");
+                MessageBox.Show("Silinecek satın alım bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -158,9 +157,11 @@ namespace TradeSphere_App
                 db.SaveChanges();
                 doldur();
 
-                MessageBox.Show("Satın alım başarıyla güncellenmiştir.");
-
-                
+                MessageBox.Show("Satın alım başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellenmek istenen satın alım bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_edit.Visible = false;
             tb_ID.Text = "";

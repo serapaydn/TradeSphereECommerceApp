@@ -41,7 +41,7 @@ namespace TradeSphere_App
                 db.Employees.Add(emp);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show(" Çalışan " + emp.ID + " ID ile başarıyla eklenmiştir");
+                MessageBox.Show($"Çalışan başarıyla eklenmiştir. Çalışan ID: {emp.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_name.Text = "";
                 tb_surname.Text = "";
                 tb_title.Text = "";
@@ -54,7 +54,7 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Çalışan eklenirken hata oluştu!");
+                MessageBox.Show("Çalışan eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -99,6 +99,10 @@ namespace TradeSphere_App
                 tb_notes.Text = emp.Notes;
                 btn_edit.Visible = true;
             }
+            else
+            {
+                MessageBox.Show("Düzenlenecek çalışan bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)
@@ -109,11 +113,11 @@ namespace TradeSphere_App
                 db.Employees.Remove(emp);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Çalışan" + emp.Name + "başarıyla silindi");
+                MessageBox.Show($"Çalışan {emp.Name} başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Silinecek çalışan bulunamadı");
+                MessageBox.Show("Silinecek çalışan bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -133,8 +137,11 @@ namespace TradeSphere_App
                 emp.Notes = tb_notes.Text;
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Çalışan başarıyla güncellendi");
-
+                MessageBox.Show("Çalışan başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellenmek istenen çalışan bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_edit.Visible = false;
             tb_ID.Text = "";

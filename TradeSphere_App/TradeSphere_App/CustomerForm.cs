@@ -39,7 +39,7 @@ namespace TradeSphere_App
                 db.Customers.Add(c);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Müşteri " + c.ID + "ile başarıyla eklenmiştir");
+                MessageBox.Show($"Müşteri başarıyla eklenmiştir. Müşteri ID: {c.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_dealerid.Text = "";
                 tb_companyname.Text = "";
                 tb_contactname.Text = "";
@@ -51,11 +51,10 @@ namespace TradeSphere_App
             }
             catch
             {
-                MessageBox.Show("Müşteri eklenirken hata oluştu!");
+                MessageBox.Show("Müşteri eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
+
         public void doldur()
         {
             List<Customers> customers = db.Customers.ToList();
@@ -75,7 +74,6 @@ namespace TradeSphere_App
             dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].Visible = false;
-
         }
 
         private void TSMI_edit_Click(object sender, EventArgs e)
@@ -95,6 +93,10 @@ namespace TradeSphere_App
 
                 btn_edit.Visible = true;
             }
+            else
+            {
+                MessageBox.Show("Düzenlenecek müşteri bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)
@@ -105,13 +107,12 @@ namespace TradeSphere_App
                 db.Customers.Remove(c);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Müşteri başarıyla silindi.");
+                MessageBox.Show($"Müşteri {c.CompanyName} başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Silinecek müşteri bulunamadı.");
+                MessageBox.Show("Silinecek müşteri bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -129,7 +130,11 @@ namespace TradeSphere_App
 
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Müşteri başarıyla güncellendi.");
+                MessageBox.Show("Müşteri başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellenmek istenen müşteri bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             btn_edit.Visible = false;

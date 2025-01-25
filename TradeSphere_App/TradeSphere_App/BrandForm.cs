@@ -32,13 +32,12 @@ namespace TradeSphere_App
                 db.Brands.Add(b);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show(" Marka " + b.ID + " ID ile başarıyla eklenmiştir");
+                MessageBox.Show("Marka başarıyla eklenmiştir. Marka ID: " + b.ID, "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_name.Text = "";
-
             }
             catch
             {
-                MessageBox.Show("Hata!");
+                MessageBox.Show("Marka eklenirken bir hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void doldur()
@@ -76,11 +75,11 @@ namespace TradeSphere_App
                 db.Brands.Remove(b);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Marka " + b.Name + " başarıyla silindi.");
+                MessageBox.Show("Marka başarıyla silinmiştir: " + b.Name, "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Silinecek marka bulunamadı.");
+                MessageBox.Show("Silinecek marka bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -92,7 +91,11 @@ namespace TradeSphere_App
                 b.Name = tb_name.Text;
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Marka başarıyla güncellendi.");
+                MessageBox.Show("Marka başarıyla güncellenmiştir.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellemek için geçerli bir marka seçilmedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_edit.Visible = false;
             tb_name.Text = tb_ID.Text = "";

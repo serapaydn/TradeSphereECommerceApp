@@ -32,15 +32,14 @@ namespace TradeSphere_App
             {
                 db.Categories.Add(c);
                 db.SaveChanges();
-                MessageBox.Show("Kategori" + c.ID + "ID ile başarıyla eklenmiştir");
+                MessageBox.Show($"Kategori başarıyla eklenmiştir. Kategori ID: {c.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tb_name.Text = "";
                 tb_description.Text = "";
             }
             catch
             {
-                MessageBox.Show("Hata!");
+                MessageBox.Show("Kategori eklenirken bir hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         public void doldur()
         {
@@ -70,7 +69,10 @@ namespace TradeSphere_App
                 tb_description.Text = c.Description;
                 btn_edit.Visible = true;
             }
-
+            else
+            {
+                MessageBox.Show("Düzenlenecek kategori bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)
@@ -81,11 +83,11 @@ namespace TradeSphere_App
                 db.Categories.Remove(c);
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Kategori" + c.Name + "başarıyla silindi");
+                MessageBox.Show($"Kategori {c.Name} başarıyla silindi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Silinecek kategori bulunamadı");
+                MessageBox.Show("Silinecek kategori bulunamadı. Lütfen tekrar kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -98,11 +100,16 @@ namespace TradeSphere_App
                 c.Description = tb_description.Text;
                 db.SaveChanges();
                 doldur();
-                MessageBox.Show("Kategori başarıyla güncellendi");
+                MessageBox.Show("Kategori başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncellenmek istenen kategori bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_edit.Visible = false;
             tb_name.Text = tb_description.Text = tb_ID.Text = "";
         }
+
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
