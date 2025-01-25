@@ -280,7 +280,32 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             return View(tempProducts);
         }
+        public ActionResult ChangeQuantity(int productId, bool increase)
+        {
+            var product = FileUploadApiController.TempProducts.FirstOrDefault(p => p.ID == productId);
+            if (product == null)
+            {
+                TempData["Warning"] = "Ürün bulunamadı.";
+                return RedirectToAction("UploadXmlProducts");
+            }
+            if (increase)
+            {
+                product.Stock++;
+            }
+            else
+            {
+                if (product.Stock > 0)
+                {
+                    product.Stock--;
+                }
+                else
+                {
+                    TempData["Warning"] = "Stok sıfırın altına inemez.";
+                }
+            }
 
+            return RedirectToAction("UploadXmlProducts");
+        }
         public ActionResult ConfirmXmlProducts(int[] selectedProductIds)
         {
             Seller seller = (Seller)Session["seller"];

@@ -49,6 +49,7 @@ namespace TradeSphereECommerceApp.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
+
             int id = ((Member)Session["user"]).ID;
             List<ShoppingCart> cart = db.ShoppingCarts.Where(x => x.Member_ID == id).ToList();
             TempData["cart"] = cart;
@@ -57,20 +58,30 @@ namespace TradeSphereECommerceApp.Controllers
 
             if (!ModelState.IsValid)
             {
-
                 return View("Index", model);
             }
-            else
+
+            double toplam = cart.Sum(x => x.Product.Price * x.Quantity);
+            string fiyatstr = toplam.ToString().Replace(",", ".");
+
+            var product = cart.FirstOrDefault()?.Product;
+            if (product == null)
             {
-                double toplam = cart.Sum(x => x.Product.Price * x.Quantity);
-                string fiyatstr = toplam.ToString().Replace(",", ".");
-                string merchantID = "159753654";
-                string merchantPass = "1234";
-                string apiurl = "https://localhost:44362/API/Pay?kartNo=" + model.CardNumber + "&ay=" + model.ExpirationMonth + "&yil=" + model.ExpirationYear + "&cvv=" + model.CVV + "&bakiye=" + fiyatstr + "&merchantID=" + merchantID + "&merchantPass=" + merchantPass;
-                HttpClient client = new HttpClient();
+                ViewBag.Mesaj = "Ürün bulunamadı.";
+                return View("Index", model);
+            }
+
+            string merchantID = product.Seller?.MerchantID ?? product.Manager?.MerchantID ?? "defaultMerchantID";
+            string merchantPass = product.Seller?.MerchantPass ?? product.Manager?.MerchantPass ?? "defaultMerchantPass";
+
+            string apiurl = $"https://localhost:44362/API/Pay?kartNo={model.CardNumber}&ay={model.ExpirationMonth}&yil={model.ExpirationYear}&cvv={model.CVV}&bakiye={fiyatstr}&merchantID={merchantID}&merchantPass={merchantPass}";
+
+            using (HttpClient client = new HttpClient())
+            {
                 HttpResponseMessage response = client.GetAsync(apiurl).Result;
-                var stringResp = response.Content.ReadAsStringAsync();
-                if (stringResp.Result == "\"201\"")
+                string stringResp = response.Content.ReadAsStringAsync().Result;
+
+                if (stringResp == "\"201\"")
                 {
                     foreach (ShoppingCart item in cart)
                     {
@@ -78,41 +89,44 @@ namespace TradeSphereECommerceApp.Controllers
                     }
 
                     db.SaveChanges();
+                    TempData["SuccessMessage"] = "Ödeme işleminiz başarıyla gerçekleşti!";
                     return RedirectToAction("PaymentSuccess");
                 }
-                if (stringResp.Result == "\"801\"")
+
+                if (stringResp == "\"801\"")
                 {
                     ViewBag.Mesaj = "CVV Hatalı";
                 }
-                if (stringResp.Result == "\"901\"")
+                else if (stringResp == "\"901\"")
                 {
                     ViewBag.Mesaj = "Kart Bulunamadı";
                 }
-                if (stringResp.Result == "\"701\"")
+                else if (stringResp == "\"701\"")
                 {
                     ViewBag.Mesaj = "Satıcı Sistem hatası";
                 }
-                if (stringResp.Result == "\"601\"")
+                else if (stringResp == "\"601\"")
                 {
                     ViewBag.Mesaj = "Satıcı Aktif Değil";
                 }
-                if (stringResp.Result == "\"501\"")
+                else if (stringResp == "\"501\"")
                 {
                     ViewBag.Mesaj = "Son Kullanma Tarihi Geçersiz";
                 }
-                if (stringResp.Result == "\"401\"")
+                else if (stringResp == "\"401\"")
                 {
                     ViewBag.Mesaj = "Kart Kullanıma Kapalı";
                 }
-                if (stringResp.Result == "\"301\"")
+                else if (stringResp == "\"301\"")
                 {
                     ViewBag.Mesaj = "Bakiye Yetersiz";
                 }
-
-                return View("Index");
             }
 
+            return View("Index");
         }
 
     }
+
+
 }

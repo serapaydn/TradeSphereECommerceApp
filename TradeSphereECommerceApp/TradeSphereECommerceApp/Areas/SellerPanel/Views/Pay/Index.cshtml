@@ -1,0 +1,127 @@
+﻿@model TradeSphereECommerceApp.Data.ViewModels.PaymentViewModel
+@using TradeSphereECommerceApp.Models
+@{
+    ViewBag.Title = "Ödeme";
+    Layout = "~/Areas/SellerPanel/Views/Shared/_LayoutPage1.cshtml";
+    var totalAmount = ViewBag.TotalAmount;
+    var seller = (Seller)Session["seller"];
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Ödeme</label>
+</div>
+
+<div class="pageContent">
+    <div class="paymentSummary">
+        <div class="pagetitle">
+            <h2>Ödeme Özeti</h2>
+        </div>
+
+        <div class="tableContent">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Barkod</th>
+                        <th>Birim Fiyat</th>
+                        <th>Miktar</th>
+                        <th>Toplam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in ViewBag.SelectedProducts)
+                    {
+                        var unitPrice = product.Price;
+                        if (seller.SellerType == "Gold")
+                        {
+                            unitPrice = product.GoldPrice;
+                        }
+                        else if (seller.SellerType == "Silver")
+                        {
+                            unitPrice = product.SilverPrice;
+                        }
+                        else if (seller.SellerType == "Bronze")
+                        {
+                            unitPrice = product.BronzePrice;
+                        }
+
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Barcode</td>
+                            <td>@unitPrice</td>
+                            <td>@product.Stock</td>
+                            <td>@(unitPrice * product.Stock)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="tablefooter">
+            <div class="totalAmount">
+                <h3>Toplam Tutar: <strong>@totalAmount</strong></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="paymentDetails">
+        <div class="pagetitle">
+            <h2>Kart ve Fatura Bilgileri</h2>
+        </div>
+
+        <div class="tableContent">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Bilgi Tipi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kart Numarası</td>
+                        <td>@Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>Son Kullanma Tarihi</td>
+                        <td>
+                            <div class="quantityContainer">
+                                @Html.DropDownListFor(m => m.ExpirationMonth, new SelectList(ViewBag.Months, "Value", "Text"), "Ay", new { @class = "quantityInput" })
+                                @Html.DropDownListFor(m => m.ExpirationYear, new SelectList(ViewBag.Years, "Value", "Text"), "Yıl", new { @class = "quantityInput" })
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CVV</td>
+                        <td>@Html.TextBoxFor(m => m.CVV, new { @class = "form-control" })</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ad Soyad</td>
+                        <td>@Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>Adres</td>
+                        <td>@Html.TextBoxFor(m => m.Address, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>Şehir</td>
+                        <td>@Html.TextBoxFor(m => m.City, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>Posta Kodu</td>
+                        <td>@Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tablefooter">
+            <button type="submit" class="btn">Ödemeyi Onayla</button>
+        </div>
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/TableStyle.css" rel="stylesheet" />
+}

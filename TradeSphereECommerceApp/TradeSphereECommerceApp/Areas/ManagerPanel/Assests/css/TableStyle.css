@@ -180,3 +180,51 @@
         color: #dbc4bf;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quantityButton {
+    padding: 5px 10px;
+    background-color: #7b5d56;
+    color: #dbc4bf;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    .quantityButton:hover {
+        background-color: #dbc4bf;
+        color: #7b5d56;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+.quantityInput {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #dbc4bf;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #292929;
+    background-color: #ffffff;
+}
+.paymentSummary, .paymentDetails {
+    margin-bottom: 30px;
+}
+.totalAmount {
+    text-align: right;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.totalAmount h3{
+    color:#7b5d56;
+}

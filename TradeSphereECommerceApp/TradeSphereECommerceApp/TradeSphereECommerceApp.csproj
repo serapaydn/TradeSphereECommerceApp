@@ -156,6 +156,7 @@
     <Compile Include="Areas\SellerPanel\Controllers\LoginController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\OrderController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\OrderDetailController.cs" />
+    <Compile Include="Areas\SellerPanel\Controllers\PayController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\ProductController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\SystemMessagesController.cs" />
     <Compile Include="Areas\SellerPanel\Data\ViewModels\SellerLoginViewModel.cs" />
@@ -244,6 +245,7 @@
     <Content Include="Areas\ManagerPanel\Views\Comment\Index.cshtml" />
     <Content Include="Areas\ManagerPanel\Views\Comment\AllIndex.cshtml" />
     <Content Include="Areas\ManagerPanel\Views\Comment\Delete.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Pay\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
