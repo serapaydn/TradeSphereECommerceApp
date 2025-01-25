@@ -40,7 +40,18 @@ namespace TradeSphereECommerceApp.Controllers
 
             if (!pagedProducts.Any())
             {
-                ViewBag.NoProductsMessage = "Ürün yok, bu kategori veya arama terimiyle ilgili ürün bulunmuyor!";
+                if (categoryId.HasValue && string.IsNullOrEmpty(searchTerm))
+                {
+                    ViewBag.NoProductsMessage = "Bu kategoriyle ilgili ürün bulunmuyor!";
+                }
+                else if (!string.IsNullOrEmpty(searchTerm))
+                {
+                    ViewBag.NoProductsMessage = "Aradığınız kriterlere uygun ürün bulunamadı!";
+                }
+                else
+                {
+                    ViewBag.NoProductsMessage = "Ürün bulunmuyor!";
+                }
             }
 
             return View(pagedProducts);

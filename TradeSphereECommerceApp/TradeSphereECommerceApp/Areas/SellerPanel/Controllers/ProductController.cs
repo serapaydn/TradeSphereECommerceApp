@@ -19,7 +19,6 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
         // GET: SellerPanel/Product
 
         TradeSphereDBModel db = new TradeSphereDBModel();
-        //private static readonly HttpClient client = new HttpClient();
         public ActionResult Index()
         {
             Seller seller = (Seller)Session["seller"];
@@ -39,7 +38,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             {
                 return RedirectToAction("Login", "Seller");
             }
-            var product = db.Products.Where(p => p.Seller_ID == seller.ID).ToList();
+            List<Product> product = db.Products.Where(p => p.Seller_ID == seller.ID).ToList();
             return View(product);
         }
 
@@ -306,7 +305,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             return RedirectToAction("UploadXmlProducts");
         }
-        public ActionResult ConfirmXmlProducts(int[] selectedProductIds)
+        public ActionResult ConfirmXmlProducts(int[] selectedProduct)
         {
             Seller seller = (Seller)Session["seller"];
             if (seller == null)
@@ -315,10 +314,10 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 return RedirectToAction("Login", "Seller");
             }
 
-            if (selectedProductIds != null && selectedProductIds.Any())
+            if (selectedProduct != null && selectedProduct.Any())
             {
                 var selectedProducts = FileUploadApiController.TempProducts
-                    .Where(p => selectedProductIds.Contains(p.ID))
+                    .Where(p => selectedProduct.Contains(p.ID))
                     .ToList();
 
                 foreach (var product in selectedProducts)
@@ -352,7 +351,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                     ViewBag.Warning = $"Veritabanı hatası: {ex.Message}";
                 }
 
-                FileUploadApiController.TempProducts.RemoveAll(p => selectedProductIds.Contains(p.ID));
+                FileUploadApiController.TempProducts.RemoveAll(p => selectedProduct.Contains(p.ID));
             }
             else
             {

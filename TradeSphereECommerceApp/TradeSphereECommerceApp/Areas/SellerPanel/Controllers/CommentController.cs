@@ -21,7 +21,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             {
                 return RedirectToAction("Login", "Seller");
             }
-            var comments = db.Comments.Where(c => c.Product.Seller_ID == seller.ID && c.IsDeleted == false).ToList();
+            List<Comment> comments = db.Comments.Where(c => c.Product.Seller_ID == seller.ID && c.IsDeleted == false).ToList();
             return View(comments);
         }
 
@@ -33,7 +33,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 return RedirectToAction("Login", "Seller");
             }
 
-            var comments = db.Comments.Where(c => c.Product.Seller_ID == seller.ID).ToList();
+            List<Comment> comments = db.Comments.Where(c => c.Product.Seller_ID == seller.ID).ToList();
             return View(comments);
         }
 

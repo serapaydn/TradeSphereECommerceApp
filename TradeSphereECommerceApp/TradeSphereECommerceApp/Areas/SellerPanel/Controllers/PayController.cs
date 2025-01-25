@@ -14,7 +14,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
     {
         TradeSphereDBModel db = new TradeSphereDBModel();
         // GET: SellerPanel/Pay
-        public ActionResult Index(int[] selectedProductIds)
+        public ActionResult Index(int[] selectedProduct)
         {
             Seller seller = (Seller)Session["seller"];
             if (seller == null)
@@ -22,14 +22,14 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 return RedirectToAction("Login", "Seller");
             }
 
-            if (selectedProductIds == null || selectedProductIds.Length == 0)
+            if (selectedProduct == null || selectedProduct.Length == 0)
             {
                 TempData["Warning"] = "Hiçbir ürün seçilmedi.";
                 return RedirectToAction("UploadXmlProducts", "Product");
             }
 
             var selectedProducts = FileUploadApiController.TempProducts
-                .Where(p => selectedProductIds.Contains(p.ID))
+                .Where(p => selectedProduct.Contains(p.ID))
                 .ToList();
 
             if (!selectedProducts.Any())
