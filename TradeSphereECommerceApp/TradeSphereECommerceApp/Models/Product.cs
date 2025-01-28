@@ -85,6 +85,7 @@ namespace TradeSphereECommerceApp.Models
         public int Seller_ID { get; internal set; }
         public virtual Seller Seller { get; set; }
 
+
     }
 
 }

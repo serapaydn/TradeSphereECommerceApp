@@ -19,5 +19,7 @@ namespace TradeSphereECommerceApp.Models
         public virtual Product Product { get; set; }
 
         public int Quantity { get; set; }
+        public int TotalPrice { get; internal set; }
+        public int Price { get; internal set; }
     }
 }

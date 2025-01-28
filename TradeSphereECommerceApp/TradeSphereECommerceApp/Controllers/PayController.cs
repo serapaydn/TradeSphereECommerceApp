@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TradeSphereECommerceApp.Data.ViewModels;
@@ -11,30 +14,15 @@ namespace TradeSphereECommerceApp.Controllers
 {
     public class PayController : Controller
     {
-        TradeSphereDBModel db = new TradeSphereDBModel();
         // GET: Pay
-        public ActionResult Index(int? productId, int? quantity)
+        TradeSphereDBModel db = new TradeSphereDBModel();
+
+
+        public ActionResult Index()
         {
             if (Session["user"] == null)
             {
                 return RedirectToAction("Index", "Login");
-            }
-
-            if (productId != null && quantity != null)
-            {
-                Product product = db.Products.Find(productId);
-                if (product == null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-
-                ViewBag.SingleProduct = new ShoppingCart
-                {
-                    Product_ID = productId.Value,
-                    Product = product,
-                    Quantity = quantity.Value,
-                    Member_ID = ((Member)Session["user"]).ID
-                };
             }
 
             ViewBag.Months = new SelectList(Enumerable.Range(1, 12));
@@ -42,17 +30,19 @@ namespace TradeSphereECommerceApp.Controllers
 
             return View();
         }
+
         [HttpPost]
-        public ActionResult Payment(PaymentViewModel model)
+        public async Task<ActionResult> Payment(PaymentViewModel model)
         {
             if (Session["user"] == null)
             {
                 return RedirectToAction("Index", "Login");
             }
 
-            int id = ((Member)Session["user"]).ID;
-            List<ShoppingCart> cart = db.ShoppingCarts.Where(x => x.Member_ID == id).ToList();
+            int userId = ((Member)Session["user"]).ID;
+            List<ShoppingCart> cart = db.ShoppingCarts.Where(x => x.Member_ID == userId).ToList();
             TempData["cart"] = cart;
+
             ViewBag.Months = new SelectList(Enumerable.Range(1, 12));
             ViewBag.Years = new SelectList(Enumerable.Range(DateTime.Now.Year, 20));
 
@@ -61,72 +51,99 @@ namespace TradeSphereECommerceApp.Controllers
                 return View("Index", model);
             }
 
-            double toplam = cart.Sum(x => x.Product.Price * x.Quantity);
-            string fiyatstr = toplam.ToString().Replace(",", ".");
-
-            var product = cart.FirstOrDefault()?.Product;
-            if (product == null)
+            if (cart == null || !cart.Any())
             {
-                ViewBag.Mesaj = "Ürün bulunamadı.";
+                ViewBag.Message = "Sepetiniz boş.";
                 return View("Index", model);
             }
 
-            string merchantID = product.Seller?.MerchantID ?? product.Manager?.MerchantID ?? "defaultMerchantID";
-            string merchantPass = product.Seller?.MerchantPass ?? product.Manager?.MerchantPass ?? "defaultMerchantPass";
-
-            string apiurl = $"https://localhost:44362/API/Pay?kartNo={model.CardNumber}&ay={model.ExpirationMonth}&yil={model.ExpirationYear}&cvv={model.CVV}&bakiye={fiyatstr}&merchantID={merchantID}&merchantPass={merchantPass}";
-
-            using (HttpClient client = new HttpClient())
+            model.Cart = cart.Select(c => new ShoppingCartDto
             {
-                HttpResponseMessage response = client.GetAsync(apiurl).Result;
-                string stringResp = response.Content.ReadAsStringAsync().Result;
+                ID = c.ID,
+                Product_ID = c.Product_ID,
+                ProductName = c.Product.Name,
+                Price = c.Product.Price,
+                Quantity = c.Quantity,
+                TotalPrice = c.Quantity * c.Product.Price
+            }).ToList();
 
-                if (stringResp == "\"201\"")
+            try
+            {
+                string apiUrl = "https://localhost:44385/api/payment/payment";
+                using (HttpClient client = new HttpClient())
                 {
-                    foreach (ShoppingCart item in cart)
+                    var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+
+                    string responseString = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
                     {
-                        db.ShoppingCarts.Remove(item);
+                        if (responseString.Trim() == "201")
+                        {
+                            foreach (var item in cart)
+                            {
+                                db.ShoppingCarts.Remove(item);
+                            }
+                            db.SaveChanges();
+                            return RedirectToAction("PaymentSuccess","Pay");
+                        }
+                        else
+                        {
+
+                            switch (responseString)
+                            {
+                                case "801":
+                                    ViewBag.Message = "CVV Hatalı";
+                                    break;
+                                case "901":
+                                    ViewBag.Message = "Kart Bulunamadı";
+                                    break;
+                                case "701":
+                                    ViewBag.Message = "Satıcı Sistem hatası";
+                                    break;
+                                case "601":
+                                    ViewBag.Message = "Satıcı Aktif Değil";
+                                    break;
+                                case "501":
+                                    ViewBag.Message = "Son Kullanma Tarihi Geçersiz";
+                                    break;
+                                case "401":
+                                    ViewBag.Message = "Kart Kullanıma Kapalı";
+                                    break;
+                                case "301":
+                                    ViewBag.Message = "Bakiye Yetersiz";
+                                    break;
+                                default:
+                                    ViewBag.Message = "Bilinmeyen Hata";
+                                    break;
+                            }
+                        }
                     }
-
-                    db.SaveChanges();
-                    TempData["SuccessMessage"] = "Ödeme işleminiz başarıyla gerçekleşti!";
-                    return RedirectToAction("PaymentSuccess");
-                }
-
-                if (stringResp == "\"801\"")
-                {
-                    ViewBag.Mesaj = "CVV Hatalı";
-                }
-                else if (stringResp == "\"901\"")
-                {
-                    ViewBag.Mesaj = "Kart Bulunamadı";
-                }
-                else if (stringResp == "\"701\"")
-                {
-                    ViewBag.Mesaj = "Satıcı Sistem hatası";
-                }
-                else if (stringResp == "\"601\"")
-                {
-                    ViewBag.Mesaj = "Satıcı Aktif Değil";
-                }
-                else if (stringResp == "\"501\"")
-                {
-                    ViewBag.Mesaj = "Son Kullanma Tarihi Geçersiz";
-                }
-                else if (stringResp == "\"401\"")
-                {
-                    ViewBag.Mesaj = "Kart Kullanıma Kapalı";
-                }
-                else if (stringResp == "\"301\"")
-                {
-                    ViewBag.Mesaj = "Bakiye Yetersiz";
+                    else
+                    {
+                        ViewBag.Message = $"Ödeme API hatası: {response.StatusCode} - {responseString}";
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction("Index");
+            }
 
-            return View("Index");
+            return View("Index", model);
         }
-
+        public ActionResult PaymentSuccess()
+        {
+            return View();
+        }
     }
-
-
+    
 }
+
+
+
+
+
+

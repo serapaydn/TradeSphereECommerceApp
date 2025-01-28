@@ -1364,3 +1364,43 @@ button {
     .Paymentcontainer .dropdownrow .form-control {
         width: 32%;
     }
+.Paymentcontent h2 {
+    font-size: 24px;
+    color: #7b5d56;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.Paymentcontent p {
+    font-size: 16px;
+    color: #7b5d56;
+    text-align: center;
+}
+
+.Paymentcontent .text-success {
+    color: #28a745;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.SuccessContent {
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .SuccessContent .btn {
+        padding: 8px 20px;
+        background-color: #7b5d56;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .SuccessContent .btn:hover {
+            background-color: #dbc4bf;
+            color: #7b5d56;
+        }

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "PaymentSuccess";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="Paymentcontainer">
+    <div class="Paymentcontent">
+        <h2>Ödeme Başarılı</h2>
+        <p class="text-success">Ödemeniz başarıyla alınmıştır.</p>
+        <p>@ViewBag.Message</p>
+    </div>
+    <div class="SuccessContent">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Anasayfaya Dön</a>
+    </div>
+</div>
+

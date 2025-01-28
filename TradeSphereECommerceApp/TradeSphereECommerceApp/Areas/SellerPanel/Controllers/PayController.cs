@@ -1,21 +1,26 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using TradeSphereECommerceApp.Areas.SellerPanel.Data;
 using TradeSphereECommerceApp.Data.ViewModels;
 using TradeSphereECommerceApp.Models;
 
 namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 {
-    
+
     public class PayController : Controller
     {
         TradeSphereDBModel db = new TradeSphereDBModel();
         // GET: SellerPanel/Pay
         public ActionResult Index(int[] selectedProduct)
         {
+
             Seller seller = (Seller)Session["seller"];
             if (seller == null)
             {
@@ -30,6 +35,16 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             var selectedProducts = FileUploadApiController.TempProducts
                 .Where(p => selectedProduct.Contains(p.ID))
+                .Select(p => new SelectedProductDto
+                {
+                    ProductName = p.Name,
+                    Barcode = p.Barcode,
+                    Price = p.Price,
+                    GoldPrice = p.GoldPrice,
+                    SilverPrice = p.SilverPrice,
+                    BronzePrice = p.BronzePrice,
+                    Stock = p.Stock
+                })
                 .ToList();
 
             if (!selectedProducts.Any())
@@ -38,39 +53,17 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 return RedirectToAction("UploadXmlProducts", "Product");
             }
 
-            ViewBag.Months = new SelectList(Enumerable.Range(1, 12));
-            ViewBag.Years = new SelectList(Enumerable.Range(DateTime.Now.Year, 20));
-
-
-            double totalAmount = 0;
-            foreach (var product in selectedProducts)
-            {
-                if (seller.SellerType == "Gold")
-                {
-                    totalAmount += product.GoldPrice * product.Stock;
-                }
-                else if (seller.SellerType == "Silver")
-                {
-                    totalAmount += product.SilverPrice * product.Stock;
-                }
-                else if (seller.SellerType == "Bronze")
-                {
-                    totalAmount += product.BronzePrice * product.Stock;
-                }
-                else
-                {
-                    totalAmount += product.Price * product.Stock; 
-                }
-            }
-
+            double totalAmount = selectedProducts.Sum(p => p.Price * p.Stock);
             ViewBag.SelectedProducts = selectedProducts;
             ViewBag.TotalAmount = totalAmount;
 
+            ViewBag.Months = new SelectList(Enumerable.Range(1, 12).Select(i => new { Value = i, Text = i.ToString("00") }), "Value", "Text");
+            ViewBag.Years = new SelectList(Enumerable.Range(DateTime.Now.Year, 10).Select(i => new { Value = i, Text = i.ToString() }), "Value", "Text");
+
             return View(new PaymentViewModel());
         }
-
         [HttpPost]
-        public ActionResult Payment(PaymentViewModel model, int[] selectedProductIds)
+        public async Task<ActionResult> Payment(PaymentViewModel model, int[] selectedProduct)
         {
             Seller seller = (Seller)Session["seller"];
             if (seller == null)
@@ -80,120 +73,86 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             if (!ModelState.IsValid)
             {
-                TempData["Error"] = "Lütfen tüm alanları doğru şekilde doldurunuz.";
-                return RedirectToAction("Index", new { selectedProductIds });
+                ViewBag.Error = "Lütfen tüm alanları doğru şekilde doldurunuz.";
+                return RedirectToAction("Index", new { selectedProduct });
             }
 
             var selectedProducts = FileUploadApiController.TempProducts
-                .Where(p => selectedProductIds.Contains(p.ID))
+                .Where(p => selectedProduct.Contains(p.ID))
                 .ToList();
 
             if (!selectedProducts.Any())
             {
-                TempData["Warning"] = "Seçilen ürünler bulunamadı.";
+                ViewBag.Warning = "Seçilen ürünler bulunamadı.";
                 return RedirectToAction("UploadXmlProducts", "Product");
             }
 
-            double totalAmount = 0;
-            foreach (var product in selectedProducts)
-            {
-                if (seller.SellerType == "Gold")
-                {
-                    totalAmount += product.GoldPrice * product.Stock;
-                }
-                else if (seller.SellerType == "Silver")
-                {
-                    totalAmount += product.SilverPrice * product.Stock;
-                }
-                else if (seller.SellerType == "Bronze")
-                {
-                    totalAmount += product.BronzePrice * product.Stock;
-                }
-                else
-                {
-                    totalAmount += product.Price * product.Stock; 
-                }
-            }
+            double totalAmount = selectedProducts.Sum(p => p.Price * p.Stock);
             string totalAmountStr = totalAmount.ToString("F2").Replace(",", ".");
-            string merchantID = "123456890";
-            string merchantPass = "1234";
-            string apiUrl = $"https://localhost:44362/API/Pay?kartNo={model.CardNumber}&ay={model.ExpirationMonth}&yil={model.ExpirationYear}&cvv={model.CVV}&bakiye={totalAmountStr}&merchantID={merchantID}&merchantPass={merchantPass}";
 
             try
             {
-                HttpClient client = new HttpClient();
-                HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-                string responseString = response.Content.ReadAsStringAsync().Result;
-
-                if (responseString == "\"201\"")
+                string apiUrl = "https://localhost:44385/api/seller/payment";
+                using (HttpClient client = new HttpClient())
                 {
-                    foreach (var product in selectedProducts)
+                    var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+                    string responseString = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode && responseString == "\"201\"")
                     {
-                        db.Products.Add(product);
+                        foreach (var product in selectedProducts)
+                        {
+                            db.Products.Add(product);
+                        }
+
+                        db.SaveChanges();
+                        FileUploadApiController.TempProducts.RemoveAll(p => selectedProduct.Contains(p.ID));
+                        ViewBag.Success = "Ödeme başarıyla tamamlandı ve ürünler sisteme eklendi.";
+                        return RedirectToAction("Index", "Product");
                     }
 
-                    db.SaveChanges();
-                    FileUploadApiController.TempProducts.RemoveAll(p => selectedProductIds.Contains(p.ID));
-                    TempData["Success"] = "Ödeme başarıyla tamamlandı ve ürünler sisteme eklendi.";
-                    return RedirectToAction("Index", "Product");
-                }
-
-                if (responseString == "\"201\"")
-                {
-                    foreach (var product in selectedProducts)
+                    switch (responseString)
                     {
-                        db.Products.Add(product);
+                        case "\"801\"":
+                            ViewBag.Error = "CVV Hatalı";
+                            break;
+                        case "\"901\"":
+                            ViewBag.Error = "Kart Bulunamadı";
+                            break;
+                        case "\"701\"":
+                            ViewBag.Error = "Satıcı Sistem hatası";
+                            break;
+                        case "\"601\"":
+                            ViewBag.Error = "Satıcı Aktif Değil";
+                            break;
+                        case "\"501\"":
+                            ViewBag.Error = "Son Kullanma Tarihi Geçersiz";
+                            break;
+                        case "\"401\"":
+                            ViewBag.Error = "Kart Kullanıma Kapalı";
+                            break;
+                        case "\"301\"":
+                            ViewBag.Error = "Bakiye Yetersiz";
+                            break;
+                        default:
+                            ViewBag.Error = "Bilinmeyen bir hata oluştu.";
+                            break;
                     }
-
-                    db.SaveChanges();
-                    FileUploadApiController.TempProducts.RemoveAll(p => selectedProductIds.Contains(p.ID));
-                    TempData["Success"] = "Ödeme başarıyla tamamlandı ve ürünler sisteme eklendi.";
-                    return RedirectToAction("Index", "Product");
-                }
-
-                if (responseString == "\"801\"")
-                {
-                    TempData["Error"] = "CVV Hatalı";
-                }
-                else if (responseString == "\"901\"")
-                {
-                    TempData["Error"] = "Kart Bulunamadı";
-                }
-                else if (responseString == "\"701\"")
-                {
-                    TempData["Error"] = "Satıcı Sistem hatası";
-                }
-                else if (responseString == "\"601\"")
-                {
-                    TempData["Error"] = "Satıcı Aktif Değil";
-                }
-                else if (responseString == "\"501\"")
-                {
-                    TempData["Error"] = "Son Kullanma Tarihi Geçersiz";
-                }
-                else if (responseString == "\"401\"")
-                {
-                    TempData["Error"] = "Kart Kullanıma Kapalı";
-                }
-                else if (responseString == "\"301\"")
-                {
-                    TempData["Error"] = "Bakiye Yetersiz";
-                }
-                else
-                {
-                    TempData["Error"] = "Bilinmeyen bir hata oluştu.";
                 }
             }
             catch (Exception ex)
             {
-                TempData["Error"] = $"Bir hata oluştu: {ex.Message}";
+                ViewBag.Error = $"Bir hata oluştu: {ex.Message}";
             }
 
-            return RedirectToAction("Index", new { selectedProductIds });
-        
+            return RedirectToAction("Index", new { selectedProduct });
         }
     }
 }
+
+
+
     
 
     

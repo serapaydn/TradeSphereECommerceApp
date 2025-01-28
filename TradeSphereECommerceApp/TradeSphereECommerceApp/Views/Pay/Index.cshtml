@@ -11,89 +11,65 @@
 <div class="Paymentcontainer">
     @using (Html.BeginForm("Payment", "Pay", FormMethod.Post))
     {
-    <div class="Paymentcontent">
-        @if (ViewBag.Mesaj != null)
-        {
-            <label>@ViewBag.Mesaj</label>
-        }
-        @Html.AntiForgeryToken()
-        <h2>Kart Bilgileri</h2>
+        <div class="Paymentcontent">
+            @if (ViewBag.Message != null)
+            {
+                <label>@ViewBag.Message</label>
+            }
+            @Html.AntiForgeryToken()
 
-        <div class="row">
-            @Html.LabelFor(m => m.CardNumber)
-            @Html.ValidationMessageFor(m => m.CardNumber, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control", type = "text", placeholder = "XXXX XXXX XXXX XXXX", maxlength = 16 })
-        </div>
-        <div class="dropdownrow">
-            @Html.LabelFor(m => m.ExpirationMonth)
-            @Html.ValidationMessageFor(m => m.ExpirationMonth, "", new { @class = "text-danger" })
-            @Html.DropDownListFor(m => m.ExpirationMonth, (SelectList)ViewBag.Months, "Ay", new { @class = "form-control" })
+            <h2>Kart Bilgileri</h2>
 
-            @Html.LabelFor(m => m.ExpirationYear)
-            @Html.ValidationMessageFor(m => m.ExpirationYear, "", new { @class = "text-danger" })
-            @Html.DropDownListFor(m => m.ExpirationYear, (SelectList)ViewBag.Years, "Yıl", new { @class = "form-control" })
+            <div class="row">
+                @Html.LabelFor(m => m.CardNumber)
+                @Html.ValidationMessageFor(m => m.CardNumber, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control", type = "text", placeholder = "XXXX XXXX XXXX XXXX", maxlength = 16 })
+            </div>
+            <div class="dropdownrow">
+                @Html.LabelFor(m => m.ExpirationMonth)
+                @Html.ValidationMessageFor(m => m.ExpirationMonth, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.ExpirationMonth, (SelectList)ViewBag.Months, "Ay", new { @class = "form-control" })
 
-            @Html.LabelFor(m => m.CVV)
-            @Html.ValidationMessageFor(m => m.CVV, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(m => m.CVV, new { @class = "form-control", type = "text", placeholder = "XXX", maxlength = 3 })
-        </div>
+                @Html.LabelFor(m => m.ExpirationYear)
+                @Html.ValidationMessageFor(m => m.ExpirationYear, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.ExpirationYear, (SelectList)ViewBag.Years, "Yıl", new { @class = "form-control" })
 
-        <h2>Fatura Bilgileri</h2>
+                @Html.LabelFor(m => m.CVV)
+                @Html.ValidationMessageFor(m => m.CVV, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.CVV, new { @class = "form-control", type = "text", placeholder = "XXX", maxlength = 3 })
+            </div>
 
-        <div class="row">
-            @Html.LabelFor(m => m.FullName)
-            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
-        </div>
-        <div class="row">
-            @Html.LabelFor(m => m.City)
-            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-        </div>
-        <div class="row">
-            @Html.LabelFor(m => m.PostalCode)
-            @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
-        </div>
-        <div class="row">
-            @Html.LabelFor(m => m.Address)
-            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
-        </div>
-    </div>
+            <h2>Fatura Bilgileri</h2>
 
-    <div class="Ordercontent">
-        <h2>Sipariş Bilgileri</h2>
-        @if (ViewBag.SingleProduct != null)
-        {
-            var product = ViewBag.SingleProduct as ShoppingCart;
+            <div class="row">
+                @Html.LabelFor(m => m.FullName)
+                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.City)
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.PostalCode)
+                @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.Address)
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="Ordercontent">
+            <h2>Sipariş Bilgileri</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Ürün Adı</th>
                         <th>Adet</th>
-                        <th>Birim Fiyat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@product.Product.Name</td>
-                        <td>@product.Quantity</td>
-                        <td>@product.Product.Price</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>Toplam Tutar</h3>
-            <h4>@(product.Product.Price * product.Quantity)</h4>
-        }
-        else
-        {
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ürün Adı</th>
-                        <th>Adet</th>
-                        <th>Birim Fiyat</th>
+                        <th style="border-right:1px solid silver">Birim Fiyat</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,17 +78,17 @@
                         <tr>
                             <td>@item.Product.Name</td>
                             <td>@item.Quantity</td>
-                            <td>@item.Product.Price</td>
+                            <td style="border-right:1px solid silver">@item.Product.Price</td>
                         </tr>
                         TotalAmount += (item.Product.Price * item.Quantity);
                     }
                 </tbody>
             </table>
             <h3>Toplam Tutar</h3>
+            <div style="clear:both"></div>
             <h4>@TotalAmount</h4>
-        }
-
-        <input type="submit" value="Ödeme Yap" />
-    </div>
+            <input type="submit" value="Ödeme Yap" />
+        </div>
+        <div style="clear:both"></div>
     }
 </div>

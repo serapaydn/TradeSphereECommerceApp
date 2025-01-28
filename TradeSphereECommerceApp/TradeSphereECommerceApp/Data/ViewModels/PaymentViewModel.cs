@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using TradeSphereECommerceApp.Models;
 
 namespace TradeSphereECommerceApp.Data.ViewModels
 {
@@ -41,6 +42,8 @@ namespace TradeSphereECommerceApp.Data.ViewModels
         [Display(Name = "Posta Kodu")]
         [Required(ErrorMessage = "Lütfen gerekli alanı doldurunuz")]
         public string PostalCode { get; set; }
+        public double TotalAmount { get; set; }
+        public List<ShoppingCartDto> Cart { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿@model TradeSphereECommerceApp.Data.ViewModels.PaymentViewModel
 @using TradeSphereECommerceApp.Models
+@using TradeSphereECommerceApp.Data.ViewModels
 @{
     ViewBag.Title = "Ödeme";
     Layout = "~/Areas/SellerPanel/Views/Shared/_LayoutPage1.cshtml";
@@ -30,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var product in ViewBag.SelectedProducts)
+                    @foreach (var product in ViewBag.SelectedProducts as List<SelectedProductDto>)
                     {
                         var unitPrice = product.Price;
                         if (seller.SellerType == "Gold")
@@ -47,7 +48,7 @@
                         }
 
                         <tr>
-                            <td>@product.Name</td>
+                            <td>@product.ProductName</td>
                             <td>@product.Barcode</td>
                             <td>@unitPrice</td>
                             <td>@product.Stock</td>
@@ -70,53 +71,56 @@
         </div>
 
         <div class="tableContent">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Bilgi Tipi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Kart Numarası</td>
-                        <td>@Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td>Son Kullanma Tarihi</td>
-                        <td>
-                            <div class="quantityContainer">
-                                @Html.DropDownListFor(m => m.ExpirationMonth, new SelectList(ViewBag.Months, "Value", "Text"), "Ay", new { @class = "quantityInput" })
-                                @Html.DropDownListFor(m => m.ExpirationYear, new SelectList(ViewBag.Years, "Value", "Text"), "Yıl", new { @class = "quantityInput" })
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CVV</td>
-                        <td>@Html.TextBoxFor(m => m.CVV, new { @class = "form-control" })</td>
-                    </tr>
+            @using (Html.BeginForm("Payment", "Pay", FormMethod.Post))
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Bilgi Tipi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kart Numarası</td>
+                            <td>@Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td>Son Kullanma Tarihi</td>
+                            <td>
+                                <div class="quantityContainer">
+                                    @Html.DropDownListFor(m => m.ExpirationMonth, new SelectList(ViewBag.Months, "Value", "Text"), "Ay", new { @class = "quantityInput" })
+                                    @Html.DropDownListFor(m => m.ExpirationYear, new SelectList(ViewBag.Years, "Value", "Text"), "Yıl", new { @class = "quantityInput" })
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CVV</td>
+                            <td>@Html.TextBoxFor(m => m.CVV, new { @class = "form-control" })</td>
+                        </tr>
 
-                    <tr>
-                        <td>Ad Soyad</td>
-                        <td>@Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td>Adres</td>
-                        <td>@Html.TextBoxFor(m => m.Address, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td>Şehir</td>
-                        <td>@Html.TextBoxFor(m => m.City, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td>Posta Kodu</td>
-                        <td>@Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                        <tr>
+                            <td>Ad Soyad</td>
+                            <td>@Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td>Adres</td>
+                            <td>@Html.TextBoxFor(m => m.Address, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td>Şehir</td>
+                            <td>@Html.TextBoxFor(m => m.City, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td>Posta Kodu</td>
+                            <td>@Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <div class="tablefooter">
-            <button type="submit" class="btn">Ödemeyi Onayla</button>
+                <div class="tablefooter">
+                    <button type="submit" class="btn">Ödemeyi Onayla</button>
+                </div>
+            }
         </div>
     </div>
 </div>
