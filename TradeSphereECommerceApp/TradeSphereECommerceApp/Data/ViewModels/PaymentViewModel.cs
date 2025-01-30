@@ -44,6 +44,8 @@ namespace TradeSphereECommerceApp.Data.ViewModels
         public string PostalCode { get; set; }
         public double TotalAmount { get; set; }
         public List<ShoppingCartDto> Cart { get; set; }
+        public int[] SelectedProducts { get; set; }
+        //public List<SelectedProductDto> SelectedProducts { get; set; }
 
     }
 }

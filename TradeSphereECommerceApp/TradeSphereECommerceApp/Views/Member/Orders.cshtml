@@ -1,0 +1,92 @@
+﻿@model List<TradeSphereECommerceApp.Models.Order>
+@{
+    ViewBag.Title = "Siparişlerim";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Profil</label> >
+    <label>Siparişlerim</label>
+</div>
+
+<div class="main-content">
+    <div class="member-panel-container">
+        <div class="member-panel">
+            <a href="@Url.Action("Index","ShoppingCart")">Sepetim</a>
+            <a href="@Url.Action("Favorites","Member")">Favorilerim</a>
+            <a href="@Url.Action("Comments","Member")">Yorumlarım</a>
+            <a href="@Url.Action("Orders","Member")">Siparişlerim</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Edit","Member")">Kullanıcı Bilgilerim</a>
+            <a href="#">Adres Bilgilerim</a>
+            <a href="#">Kayıtlı Kartlar</a>
+        </div>
+        <div class="member-panel">
+            <a href="@Url.Action("Logout", "Login")">Çıkış</a>
+        </div>
+    </div>
+
+    <div class="ordersBase">
+        <h2>Siparişlerim</h2>
+        @if (Model != null && Model.Any())
+        {
+            <table class="ordersTable">
+                <tr class="headerRow">
+                    <th>SİPARİŞ NO</th>
+                    <th>TARİH</th>
+                    <th>TESLİMAT ADRESİ</th>
+                    <th>KARGO ÜCRETİ</th>
+                    <th>TUTAR</th>
+                    <th>DETAY</th>
+                </tr>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.OrderID</td>
+                        <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+                        <td>@order.ShipAddress</td>
+                        <td>@order.Freight.ToString("C")</td>
+                        <td>@order.OrderDetails.Sum(od => od.Quantity * od.UnitPrice).ToString("C")</td>
+                        <td>
+                            <a href="@Url.Action("OrderDetail", "Order", new { id = order.OrderID })" class="productLink">Detay</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <table class="orderItemsTable">
+                                <tr class="subHeaderRow">
+                                    <th>ÜRÜN RESMİ</th>
+                                    <th>ÜRÜN ADI</th>
+                                    <th>FİYAT</th>
+                                    <th>ADET</th>
+                                    <th>TOPLAM</th>
+                                </tr>
+                                @foreach (var item in order.OrderDetails)
+                                {
+                                    <tr>
+                                        <td style="text-align:center">
+                                            <img src="~/Assets/ProductImages/@item.Product.Image" class="productImage" />
+                                        </td>
+                                        <td>@item.Product.Name</td>
+                                        <td>@item.UnitPrice.ToString("C")</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@(item.Quantity * item.UnitPrice).ToString("C")</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>Henüz siparişiniz bulunmamaktadır.</p>
+        }
+    </div>
+
+    <div style="clear:both"></div>
+</div>
+

@@ -18,6 +18,12 @@
         <div class="pagetitle">
             <h2>Ödeme Özeti</h2>
         </div>
+        @if (ViewBag.Error != null)
+        {
+            <div class="warningMessage">
+                <p>@ViewBag.Error</p>
+            </div>
+        }
 
         <div class="tableContent">
             <table class="table">

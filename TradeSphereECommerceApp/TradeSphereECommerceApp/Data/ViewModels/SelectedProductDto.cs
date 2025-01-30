@@ -10,8 +10,8 @@ namespace TradeSphereECommerceApp.Data.ViewModels
         public int ID { get; set; }
         public string ProductName { get; set; }
         public double Price { get; set; }
-        public int Stock { get; set; }
-        public double TotalPrice => Price * Stock;
+        public short Stock { get; set; }
+        public double TotalPrice { get; set; }
 
         public string Barcode { get; internal set; }
         public double GoldPrice { get; internal set; }

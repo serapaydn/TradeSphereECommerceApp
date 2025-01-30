@@ -157,8 +157,8 @@
     <Compile Include="Areas\SellerPanel\Controllers\OrderController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\OrderDetailController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\PayController.cs" />
-    <Compile Include="Areas\SellerPanel\Controllers\PaymentController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\ProductController.cs" />
+    <Compile Include="Areas\SellerPanel\Controllers\SellerPaymentController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\SystemMessagesController.cs" />
     <Compile Include="Areas\SellerPanel\Data\ViewModels\SellerLoginViewModel.cs" />
     <Compile Include="Areas\SellerPanel\SellerPanelAreaRegistration.cs" />
@@ -172,6 +172,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SellerController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Data\ViewModels\PaymentRequest.cs" />
     <Compile Include="Data\ViewModels\PaymentViewModel.cs" />
     <Compile Include="Data\ViewModels\SelectedProductDto.cs" />
     <Compile Include="Data\ViewModels\ShoppingCartDto.cs" />
@@ -268,6 +269,7 @@
     <Content Include="Views\Pay\Index.cshtml" />
     <Content Include="Views\Login\ForgotPassword.cshtml" />
     <Content Include="Views\Pay\PaymentSuccess.cshtml" />
+    <Content Include="Views\Member\Orders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

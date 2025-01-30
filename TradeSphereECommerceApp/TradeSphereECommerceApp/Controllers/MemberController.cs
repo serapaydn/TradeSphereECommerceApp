@@ -244,5 +244,20 @@ namespace TradeSphereECommerceApp.Controllers
 
             return RedirectToAction("Comments");
         }
+        public ActionResult Orders()
+        {
+            Member member = Session["user"] as Member;
+
+            if (member == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            List<Order> memberOrders = db.Order
+                                         .Where(o => o.MemberID == member.ID.ToString() && o.IsActive && !o.IsDeleted)
+                                         .ToList();
+
+            return View(memberOrders);
+        }
     }
 }

@@ -930,7 +930,103 @@ button {
     font-weight: 600;
     margin-top: 50px;
 }
+.ordersBase {
+    width: 100%;
+    margin-left: 15px;
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0e0d6;
+}
 
+    .ordersBase h2 {
+        font-size: 24px;
+        color: #7b5d56;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+.ordersTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .ordersTable th,
+    .ordersTable td {
+        padding: 12px 15px;
+        text-align: center;
+        border: 1px solid #dbc4bf;
+    }
+
+    .ordersTable th {
+        background-color: #f7f7f7;
+        font-size: 16px;
+        font-weight: 600;
+        color: #7b5d56;
+        text-transform: uppercase;
+    }
+
+    .ordersTable td {
+        font-size: 15px;
+        color: #5a4039;
+        font-weight: 500;
+    }
+
+.productLink {
+    color: #7b5d56;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #dbc4bf;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+    .productLink:hover {
+        background-color: #7b5d56;
+        color: #fff;
+    }
+
+.orderItemsTable {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+    .orderItemsTable th,
+    .orderItemsTable td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #dbc4bf;
+    }
+
+    .orderItemsTable th {
+        background-color: #f7f7f7;
+        font-size: 14px;
+        font-weight: 600;
+        color: #7b5d56;
+    }
+
+    .orderItemsTable td {
+        font-size: 14px;
+        color: #5a4039;
+    }
+
+.productImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+
+.emptyOrders {
+    text-align: center;
+    color: #7b5d56;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+}
 .cartBase {
     width: 100%;
     margin-left: 15px;

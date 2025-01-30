@@ -63,14 +63,16 @@ namespace TradeSphereECommerceApp.Controllers
             {
                 try
                 {
-                    var content = new StringContent(JsonConvert.SerializeObject(paymentData), Encoding.UTF8, "application/json");
+
+                    var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
                     HttpResponseMessage response = await client.PostAsync(apiurl, content);
 
                     if (response.IsSuccessStatusCode)
                     {
-                        string responseContent = await response.Content.ReadAsStringAsync();
+                        string responseString = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine(responseString);
 
-                        if (responseContent.Contains("Success"))
+                        if (responseString.Trim() == "201")
                         {
                             foreach (var item in model.Cart)
                             {
@@ -81,17 +83,16 @@ namespace TradeSphereECommerceApp.Controllers
                                 }
                             }
                             await db.SaveChangesAsync();
-                            return Ok();
+                            return Ok("201"); 
                         }
                         else
                         {
-                            return BadRequest($"Ödeme başarısız: {responseContent}");
+                            return BadRequest($"Ödeme başarısız: {responseString}");
                         }
                     }
                     else
                     {
                         string errorResponse = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Error Response: {errorResponse}");
                         return BadRequest($"API Hatası: {response.StatusCode} - {errorResponse}");
                     }
                 }
@@ -103,10 +104,10 @@ namespace TradeSphereECommerceApp.Controllers
         }
     }
 }
-    
 
 
 
-    
+
+
 
 

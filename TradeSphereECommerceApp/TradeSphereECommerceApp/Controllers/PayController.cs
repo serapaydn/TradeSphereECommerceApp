@@ -17,7 +17,6 @@ namespace TradeSphereECommerceApp.Controllers
         // GET: Pay
         TradeSphereDBModel db = new TradeSphereDBModel();
 
-
         public ActionResult Index()
         {
             if (Session["user"] == null)
@@ -74,57 +73,82 @@ namespace TradeSphereECommerceApp.Controllers
                 {
                     var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
                     HttpResponseMessage response = await client.PostAsync(apiUrl, content);
-
                     string responseString = await response.Content.ReadAsStringAsync();
-
+                    Console.WriteLine(responseString);
                     if (response.IsSuccessStatusCode)
                     {
+
                         if (responseString.Trim() == "201")
                         {
-                            foreach (var item in cart)
+                            try
                             {
-                                db.ShoppingCarts.Remove(item);
-                            }
-                            db.SaveChanges();
-                            return RedirectToAction("PaymentSuccess","Pay");
-                        }
-                        else
-                        {
+                                Order newOrder = new Order
+                                {
+                                    MemberID = userId.ToString(),
+                                    OrderDate = DateTime.Now,
+                                    RequiredDate = DateTime.Now.AddDays(7),
+                                    ShippedDate = DateTime.Now.AddDays(3),
+                                    Freight = 0,
+                                    ShipName = "Default Name",
+                                    ShipAddress = "Default Address",
+                                    IsActive = true,
+                                    IsDeleted = false
+                                };
 
-                            switch (responseString)
+                                db.Order.Add(newOrder);
+                                db.SaveChanges();
+
+                                foreach (var item in cart)
+                                {
+                                    db.ShoppingCarts.Remove(item);
+                                }
+                                db.SaveChanges();
+
+                                return RedirectToAction("PaymentSuccess", "Pay");
+                            }
+                            catch (Exception ex)
                             {
-                                case "801":
-                                    ViewBag.Message = "CVV Hatalı";
-                                    break;
-                                case "901":
-                                    ViewBag.Message = "Kart Bulunamadı";
-                                    break;
-                                case "701":
-                                    ViewBag.Message = "Satıcı Sistem hatası";
-                                    break;
-                                case "601":
-                                    ViewBag.Message = "Satıcı Aktif Değil";
-                                    break;
-                                case "501":
-                                    ViewBag.Message = "Son Kullanma Tarihi Geçersiz";
-                                    break;
-                                case "401":
-                                    ViewBag.Message = "Kart Kullanıma Kapalı";
-                                    break;
-                                case "301":
-                                    ViewBag.Message = "Bakiye Yetersiz";
-                                    break;
-                                default:
-                                    ViewBag.Message = "Bilinmeyen Hata";
-                                    break;
+                                Console.WriteLine("Hata oluştu: " + ex.Message);
+                                TempData["ErrorMessage"] = "Sipariş kaydedilirken hata oluştu!";
+                                return RedirectToAction("Index");
                             }
                         }
+
                     }
                     else
                     {
+                        switch (responseString)
+                        {
+                            case "801":
+                                ViewBag.Message = "CVV Hatalı";
+                                break;
+                            case "901":
+                                ViewBag.Message = "Kart Bulunamadı";
+                                break;
+                            case "701":
+                                ViewBag.Message = "Satıcı Sistem hatası";
+                                break;
+                            case "601":
+                                ViewBag.Message = "Satıcı Aktif Değil";
+                                break;
+                            case "501":
+                                ViewBag.Message = "Son Kullanma Tarihi Geçersiz";
+                                break;
+                            case "401":
+                                ViewBag.Message = "Kart Kullanıma Kapalı";
+                                break;
+                            case "301":
+                                ViewBag.Message = "Bakiye Yetersiz";
+                                break;
+                            default:
+                                ViewBag.Message = "Bilinmeyen Hata";
+                                break;
+                        }
                         ViewBag.Message = $"Ödeme API hatası: {response.StatusCode} - {responseString}";
                     }
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -134,13 +158,15 @@ namespace TradeSphereECommerceApp.Controllers
 
             return View("Index", model);
         }
+
         public ActionResult PaymentSuccess()
         {
             return View();
         }
     }
-    
 }
+
+
 
 
 

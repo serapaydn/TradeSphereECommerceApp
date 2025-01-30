@@ -13,7 +13,7 @@ using TradeSphereECommerceApp.Models;
 namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 {
     [RoutePrefix("api/seller/payment")]
-    public class PaymentController : ApiController
+    public class SellerPaymentController : ApiController
     {
         TradeSphereDBModel db = new TradeSphereDBModel();
         [HttpPost]
@@ -37,10 +37,10 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             double totalAmount = selectedProducts.Sum(p => p.Price * p.Stock);
             model.TotalAmount = totalAmount;
-            string fiyatstr = totalAmount.ToString().Replace(",", "."); 
+            string fiyatstr = totalAmount.ToString().Replace(",", ".");
 
-            string merchantID = "123456890"; 
-            string merchantPass = "1234";     
+            string merchantID = "123456890";
+            string merchantPass = "1234";
 
             string apiurl = $"https://localhost:44362/API/Pay?kartNo={model.CardNumber}&ay={model.ExpirationMonth}&yil={model.ExpirationYear}&cvv={model.CVV}&bakiye={fiyatstr}&merchantID={merchantID}&merchantPass={merchantPass}";
 
