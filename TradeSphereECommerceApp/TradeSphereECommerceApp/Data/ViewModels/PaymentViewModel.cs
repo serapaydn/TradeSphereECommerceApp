@@ -45,7 +45,7 @@ namespace TradeSphereECommerceApp.Data.ViewModels
         public double TotalAmount { get; set; }
         public List<ShoppingCartDto> Cart { get; set; }
         public int[] SelectedProducts { get; set; }
-        //public List<SelectedProductDto> SelectedProducts { get; set; }
+        public List<SelectedProductDto> SelectedProduct { get; set; }
 
     }
 }

@@ -23,7 +23,7 @@ namespace TradeSphereECommerceApp.Models
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
         public DbSet<Comment> Comments { get; set; }
-
+        public DbSet<FileChangeHistory> FileChangeHistories { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

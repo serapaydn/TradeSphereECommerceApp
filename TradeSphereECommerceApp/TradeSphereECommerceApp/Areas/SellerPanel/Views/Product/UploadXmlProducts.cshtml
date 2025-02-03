@@ -11,23 +11,32 @@
 </div>
 
 <div class="pageContent">
-    @if (ViewBag.Error != null)
-    {
-        <div class="warningMessage">
-            <p>@ViewBag.Error</p>
-        </div>
-    }
+    <div class="pageContent">
+        @if (ViewBag.XmlUpdated != null)
+        {
+            <div class="infoMessage">
+                <p>@ViewBag.XmlUpdated</p>
+            </div>
+        }
 
-    @if (ViewBag.Success != null)
-    {
-        <div class="successMessage">
-            <p>@ViewBag.Success</p>
-        </div>
-    }
+        @if (ViewBag.Error != null)
+        {
+            <div class="warningMessage">
+                <p>@ViewBag.Error</p>
+            </div>
+        }
+
+        @if (ViewBag.Success != null)
+        {
+            <div class="successMessage">
+                <p>@ViewBag.Success</p>
+            </div>
+        }
+    </div>
+
     <div class="pagetitle">
         <h2>Ürünler</h2>
         <div style="clear:both"></div>
-
     </div>
 
     <div class="tableContent">
@@ -53,7 +62,7 @@
                         {
                             <tr>
                                 <td style="border-left:none">
-                                    <input type="checkbox" name="selectedProduct" value="@item.ID" />
+                                    <input type="checkbox" name="selectedProduct[]" value="@item.ID" />
                                 </td>
                                 <td>@item.Name</td>
                                 <td>@item.Barcode</td>
@@ -86,8 +95,65 @@
                 </tbody>
             </table>
             <div class="tablefooter">
-                <button type="submit" formaction="@Url.Action("Index", "Pay")" class="btn">Seçilen Ürünleri Onayla ve Öde</button>
+                <button type="submit" class="btn">Seçilen Ürünleri Kaydet</button>
             </div>
+            @*@using (Html.BeginForm("ConfirmXmlProducts", "Product", FormMethod.Post))
+            {
+                <input type="hidden" name="sellerType" value="@sellerType" />
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="border-left:none">Seç</th>
+                            <th>Ürün Adı</th>
+                            <th>Barkod</th>
+                            <th>Fiyat</th>
+                            <th>Stok</th>
+                            <th>Miktar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="border-left:none">
+                                        <input type="checkbox" name="selectedProduct[]" value="@item.ID" />
+                                    </td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Barcode</td>
+                                    <td>
+                                        @switch (ViewBag.SellerType?.ToLower())
+                                        {
+                                            case "gold":
+                                                @item.GoldPrice
+                                                break;
+                                            case "silver":
+                                                @item.SilverPrice
+                                                break;
+                                            case "bronze":
+                                                @item.BronzePrice
+                                                break;
+                                            default:
+                                                @item.Price
+                                                break;
+                                        }
+                                    </td>
+                                    <td>@item.Stock</td>
+                                    <td>
+                                        <a href="@Url.Action("ChangeQuantity", "Product", new { productId = item.ID, increase = false })" class="quantityButton">-</a>
+                                        <input type="text" name="quantities[@item.ID]" value="@item.Stock" class="quantityInput" readonly />
+                                        <a href="@Url.Action("ChangeQuantity", "Product", new { productId = item.ID, increase = true })" class="quantityButton">+</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <div class="tablefooter">
+                    <button type="submit" formaction="@Url.Action("Index", "Pay")" class="btn">Seçilen Ürünleri Onayla ve Öde</button>
+                </div>*@
         }
     </div>
 </div>
@@ -95,5 +161,3 @@
 {
     <link href="~/Areas/ManagerPanel/Assests/css/TableStyle.css" rel="stylesheet" />
 }
-
-

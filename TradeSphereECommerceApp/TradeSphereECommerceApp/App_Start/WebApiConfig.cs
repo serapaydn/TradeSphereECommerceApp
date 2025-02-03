@@ -20,5 +20,6 @@ namespace TradeSphereECommerceApp
                 defaults: new { id = RouteParameter.Optional }
             );
         }
+
     }
 }

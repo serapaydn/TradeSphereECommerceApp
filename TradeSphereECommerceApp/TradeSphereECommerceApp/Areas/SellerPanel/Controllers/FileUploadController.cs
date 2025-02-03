@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Configuration;
 using System.Web.Http;
 using System.Xml.Linq;
 using TradeSphereECommerceApp.Models;
@@ -98,5 +100,78 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
         {
             return Ok(TempProducts);
         }
+
+        [HttpGet]
+        [Route("checkxmlupdate")]
+        public IHttpActionResult CheckXmlUpdate()
+        {
+            string filePath = @"C:/Users/serap/Documents/Products.xml";
+
+            if (!File.Exists(filePath))
+            {
+                return NotFound();
+            }
+
+            DateTime lastModifiedTime = File.GetLastWriteTime(filePath);
+            var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
+
+            if (fileChangeHistory == null || lastModifiedTime > fileChangeHistory.LastModifiedTime)
+            {
+                if (fileChangeHistory == null)
+                {
+                    fileChangeHistory = new FileChangeHistory
+                    {
+                        FilePath = filePath,
+                        LastModifiedTime = lastModifiedTime
+                    };
+                    db.FileChangeHistories.Add(fileChangeHistory);
+                }
+                else
+                {
+                    fileChangeHistory.LastModifiedTime = lastModifiedTime;
+                }
+
+                db.SaveChanges();
+                return Ok(new { isUpdated = true, lastModifiedTime });
+            }
+
+            return Ok(new { isUpdated = false, lastModifiedTime });
+        }
+        //    [HttpGet]
+        //    [Route("checkxmlupdate")]
+        //    public IHttpActionResult CheckXmlUpdate()
+        //    {
+        //        string filePath = @"C:/Users/serap/Documents/Products.xml";
+
+        //        if (!File.Exists(filePath))
+        //        {
+        //            return NotFound();
+        //        }
+
+        //        DateTime lastModifiedTime = File.GetLastWriteTime(filePath);
+        //        var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
+
+        //        if (fileChangeHistory == null || lastModifiedTime > fileChangeHistory.LastModifiedTime)
+        //        {
+        //            if (fileChangeHistory == null)
+        //            {
+        //                fileChangeHistory = new FileChangeHistory
+        //                {
+        //                    FilePath = filePath,
+        //                    LastModifiedTime = lastModifiedTime
+        //                };
+        //                db.FileChangeHistories.Add(fileChangeHistory);
+        //            }
+        //            else
+        //            {
+        //                fileChangeHistory.LastModifiedTime = lastModifiedTime;
+        //            }
+
+        //            db.SaveChanges();
+        //            return Ok(new { isUpdated = true, lastModifiedTime });
+        //        }
+
+        //        return Ok(new { isUpdated = false, lastModifiedTime });
+        //    }
     }
 }

@@ -6,7 +6,7 @@
 
 <div class="breadCrumb">
     <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
-    <a href="@Url.Action("Index", "Comments")">Yorumlar</a> >
+    <a href="@Url.Action("Index", "Comment")">Yorumlar</a> >
     <label>Yorum Sil</label>
 </div>
 
@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <th align="left">Yorum Durumu</th>
-                <td>@Model.IsActive ? "Aktif" : "Pasif"</td>
+                <td>@Model.IsActive</td>
             </tr>
             <tr>
                 <th align="left">Silinme Durumu</th>
@@ -53,8 +53,10 @@
         </table>
         @using (Html.BeginForm())
         {
+            @Html.AntiForgeryToken() 
+
             <div class="row">
-                <input type="submit" value="Yorumu Sil" class="btn btn-danger" />
+                <input type="submit" value="Yorumu Sil" class="btn btn-default" />
             </div>
         }
     </div>

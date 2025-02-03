@@ -24,6 +24,7 @@
                 <th>Birim Fiyat</th>
                 <th>Miktar</th>
                 <th>İndirim Oranı</th>
+                <th>Durum</th>
                 <th>Seçenekler</th>
             </tr>
 
@@ -32,16 +33,28 @@
                 <tr>
                     <td style="border-left:none">@item.OrderID</td>
                     <td>@item.Product.Name</td>
-                    <td>@item.UnitPrice)</td>
+                    <td>@item.UnitPrice</td>
                     <td>@item.Quantity</td>
-                    <td>@item.Discount)</td>
+                    <td>@item.Discount</td>
                     <td>
-                        <a href="" class="btnedit">Düzenle</a>
-                        <a href="" class="btndelete">Sil</a>
+                        @if (item.IsActive)
+                        {
+                            <label>Aktif</label>
+                        }
+                        else
+                        {
+                            <label>Pasif</label>
+                        }
+                                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", "OrderDetail", new { id = item.OrderID })" class="btndelete">Sil</a>
                     </td>
                 </tr>
             }
         </table>
+    </div>
+    <div class="tablefooter">
+        <a href="@Url.Action("AllIndex", "OrderDetail")">Tüm Siparişleri Listele</a>
     </div>
 </div>
 @section styles

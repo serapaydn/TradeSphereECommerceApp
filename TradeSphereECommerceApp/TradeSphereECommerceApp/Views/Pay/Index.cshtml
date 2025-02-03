@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
     List<ShoppingCart> c = TempData["cart"] as List<ShoppingCart>;
-    double TotalAmount = 0;
+
 }
 
 <div class="Paymentcontainer">
@@ -62,6 +62,7 @@
                 @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
             </div>
         </div>
+
         <div class="Ordercontent">
             <h2>Sipariş Bilgileri</h2>
             <table>
@@ -73,22 +74,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in c)
+                    @if (ViewBag.Cart != null)
+                    {
+                        foreach (var item in ViewBag.Cart)
+                        {
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Quantity</td>
+                                <td style="border-right:1px solid silver">@item.Product.Price</td>
+                            </tr>
+                        }
+                    }
+                    else if (ViewBag.SingleProduct != null)
                     {
                         <tr>
-                            <td>@item.Product.Name</td>
-                            <td>@item.Quantity</td>
-                            <td style="border-right:1px solid silver">@item.Product.Price</td>
+                            <td>@ViewBag.SingleProduct.Product.Name</td>
+                            <td>@ViewBag.SingleProduct.Quantity</td>
+                            <td style="border-right:1px solid silver">@ViewBag.SingleProduct.Product.Price</td>
                         </tr>
-                        TotalAmount += (item.Product.Price * item.Quantity);
                     }
                 </tbody>
             </table>
+
             <h3>Toplam Tutar</h3>
             <div style="clear:both"></div>
-            <h4>@TotalAmount</h4>
+            <h4>@ViewBag.TotalAmount</h4>
             <input type="submit" value="Ödeme Yap" />
         </div>
+
         <div style="clear:both"></div>
     }
 </div>

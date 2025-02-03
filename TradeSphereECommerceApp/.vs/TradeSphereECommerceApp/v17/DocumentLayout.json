@@ -3,52 +3,69 @@
   "WorkspaceRootPath": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\controllers\\paycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\controllers\\paycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|c:\\users\\serap\\belgeler\\github\\tradesphereecommerceapp\\tradesphereecommerceapp\\tradesphereecommerceapp\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2BD9521-DACB-44EE-9C90-2017F88571E0}|TradeSphereECommerceApp\\TradeSphereECommerceApp.csproj|solutionrelative:tradesphereecommerceapp\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 209,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 295,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PayController.cs",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\PayController.cs",
               "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Controllers\\PayController.cs",
               "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\PayController.cs",
               "RelativeToolTip": "TradeSphereECommerceApp\\Controllers\\PayController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFMAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAqwNAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T09:54:02.564Z",
+              "WhenOpened": "2025-02-03T10:04:05.178Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Models\\OrderDetail.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "TradeSphereECommerceApp\\Models\\OrderDetail.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAgwB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T10:04:02.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Controllers\\PaymentController.cs",
               "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Controllers\\PaymentController.cs",
               "RelativeToolTip": "TradeSphereECommerceApp\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAQwDQAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAuwGMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T09:53:45.04Z",
+              "WhenOpened": "2025-02-03T10:03:55.651Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             }
           ]
         }

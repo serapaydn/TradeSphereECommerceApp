@@ -199,7 +199,7 @@ namespace TradeSphereECommerceApp.Controllers
                 {
                     return RedirectToAction("Index", "Pay", new { productId = id, quantity = quantity });
                 }
-                else
+                else if (actionType == "addToCart")
                 {
                     return RedirectToAction("Index", "ShoppingCart");
                 }
@@ -208,6 +208,9 @@ namespace TradeSphereECommerceApp.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
+
+            return RedirectToAction("Index", "Home");
         }
     }
+    
 }

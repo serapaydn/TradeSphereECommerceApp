@@ -71,15 +71,14 @@
                         }
                     </td>
                     <td>
-                        <a href="" class="btnedit">Düzenle</a>
-                        <a href="" class="btndelete">Sil</a>
+                        <a href="@Url.Action("Delete", "Order", new { id = item.OrderID })" class="btndelete">Sil</a>
                     </td>
                 </tr>
             }
         </table>
     </div>
     <div class="tablefooter">
-        <a href="">Tüm Siparişleri Listele</a>
+        <a href="@Url.Action("AllIndex", "Order")">Tüm Siparişleri Listele</a>
     </div>
 </div>
 

@@ -21,6 +21,7 @@
                 <th>@Html.DisplayNameFor(model => model.Surname)</th>
                 <th>@Html.DisplayNameFor(model => model.UserName)</th>
                 <th>@Html.DisplayNameFor(model => model.Mail)</th>
+                <th>@Html.DisplayNameFor(model => model.CreationTime)</th>
                 <th>@Html.DisplayNameFor(model => model.IsActive)</th>
                 <th>Seçenekler</th>
             </tr>
@@ -47,7 +48,6 @@
                             }
                         </td>
                         <td>
-                            <a href="@Url.Action("Edit", "Member", new { id = item.ID })" class="btnedit">Düzenle</a>
                             <a href="@Url.Action("ReDelete", "Member", new { id = item.ID })" class="btndelete">Silme İşlemini Geri Al</a>
                         </td>
                     </tr>
@@ -72,7 +72,6 @@
                             }
                         </td>
                         <td>
-                            <a href="@Url.Action("Edit", "Member", new { id = item.ID })" class="btnedit">Düzenle</a>
                             <a href="@Url.Action("Delete", "Member", new { id = item.ID })" class="btndelete">Sil</a>
                         </td>
                     </tr>

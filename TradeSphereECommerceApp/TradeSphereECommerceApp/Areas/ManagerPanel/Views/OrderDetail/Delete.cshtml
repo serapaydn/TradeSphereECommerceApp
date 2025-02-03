@@ -1,0 +1,58 @@
+﻿@model TradeSphereECommerceApp.Models.OrderDetail
+@{
+    ViewBag.Title = "Sipariş Detayı Sil";
+    Layout = "~/Areas/ManagerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Order")">Siparişler</a> >
+    <a href="@Url.Action("Index", "OrderDetail")">Sipariş Detayları</a> >
+    <label>Sipariş Detayı Sil</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Sipariş Detayı Sil</h2>
+    </div>
+    <div class="formContent">
+        <h3>Bu sipariş detayını silmek istediğinize emin misiniz?</h3>
+        <table class="table" cellpadding="5" cellspacing="0" width="600">
+            <tr>
+                <th align="left" width="30%">Sipariş No</th>
+                <td>@Model.OrderID</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Adı</th>
+                <td>@Model.Product.Name</td>
+            </tr>
+            <tr>
+                <th align="left">Birim Fiyat</th>
+                <td>@Model.UnitPrice</td>
+            </tr>
+            <tr>
+                <th align="left">Miktar</th>
+                <td>@Model.Quantity</td>
+            </tr>
+            <tr>
+                <th align="left">İndirim Oranı</th>
+                <td>@Model.Discount</td>
+            </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <input type="submit" value="Sipariş Detayını Sil" class="btn btn-default" />
+            </div>
+        }
+    </div>
+    <div class="formfooter">
+        @Html.ActionLink("Sipariş Detayları Listesine Dön", "Index", "OrderDetail", new { @class = "btn btn-secondary" })
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/FormStyle.css" rel="stylesheet" />
+}

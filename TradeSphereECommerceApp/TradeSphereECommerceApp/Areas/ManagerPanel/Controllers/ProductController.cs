@@ -33,7 +33,7 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
             {
                 return RedirectToAction("Login", "Manager");
             }
-            var products = db.Products.Where(p => p.Manager_ID == manager.ID).ToList();
+            List<Product> products = db.Products.Where(p => p.Manager_ID == manager.ID).ToList();
             return View(products);
         }
 
@@ -205,6 +205,7 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
             }
 
             product.IsDeleted = false;
+            product.IsActive = true;
             db.Entry(product).State = EntityState.Modified;
             db.SaveChanges();
 

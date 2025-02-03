@@ -39,7 +39,7 @@ namespace TradeSphereECommerceApp.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Telefon numarası zorunludur")]
-        [StringLength(15)]
+        [StringLength(11)]
         [Display(Name = "Telefon")]
         public string Phone { get; set; }
 
@@ -61,8 +61,8 @@ namespace TradeSphereECommerceApp.Models
         [StringLength(50)]
         public string MerchantPass { get; set; }
         [Display(Name = "Durum")]
-        public bool IsActive { get; set; } = true;
-        public bool IsDeleted { get; set; } = true;
+        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; } 
         public ICollection<Product> Products { get; set; }
         public virtual ICollection<Manager> Managers { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

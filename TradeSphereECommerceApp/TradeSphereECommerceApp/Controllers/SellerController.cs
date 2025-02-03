@@ -42,10 +42,11 @@ namespace TradeSphereECommerceApp.Controllers
                 db.SaveChanges();
 
                 ViewBag.Success = "Kayıt başarılı! Giriş yapabilirsiniz.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Login", new { area = "SellerPanel" });
             }
 
             return View(model);
         }
     }
+
 }

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TradeSphereECommerceApp.Models.OrderDetail>
+@{
+    ViewBag.Title = "AllIndex";
+    Layout = "~/Areas/SellerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Order")">Siparişler</a> >
+    <label>Sipariş Detayları</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Sipariş Detayları</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        <table class="table">
+            <tr>
+                <th style="border-left:none">Sipariş No</th>
+                <th>Ürün Adı</th>
+                <th>Birim Fiyat</th>
+                <th>Miktar</th>
+                <th>İndirim Oranı</th>
+                <th>Durum</th>
+                <th>Seçenekler</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="border-left:none">@item.OrderID</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Discount</td>
+                    <td>
+                        @if (item.IsActive)
+                        {
+                            <label>Aktif</label>
+                        }
+                        else
+                        {
+                            <label>Pasif</label>
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsDeleted)
+                        {
+                            <a href="@Url.Action("ReDelete", "OrderDetail", new { id = item.OrderID })" class="btndelete">Silme İşlemini Geri Al</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Delete", "OrderDetail", new { id = item.OrderID })" class="btndelete">Sil</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="tablefooter">
+        <a href="@Url.Action("Index", "OrderDetail")">Sipariş Detaylarını Listele</a>
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/TableStyle.css" rel="stylesheet" />
+}
+

@@ -74,7 +74,7 @@
     }
 
 .btnedit, .btndetail, .btndelete {
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 5px;
     color: white;
     text-decoration: none;
@@ -227,4 +227,16 @@
 }
 .totalAmount h3{
     color:#7b5d56;
+}
+.pageContent .infoMessage {
+    color: #7b5d56;
+    background-color: #f8f4f2;
+    border: 1px solid #dbc4bf;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

@@ -172,7 +172,6 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SellerController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
-    <Compile Include="Data\ViewModels\PaymentRequest.cs" />
     <Compile Include="Data\ViewModels\PaymentViewModel.cs" />
     <Compile Include="Data\ViewModels\SelectedProductDto.cs" />
     <Compile Include="Data\ViewModels\ShoppingCartDto.cs" />
@@ -184,6 +183,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Favorites.cs" />
+    <Compile Include="Models\FileChangeHistory.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Order.cs" />
@@ -251,6 +251,14 @@
     <Content Include="Areas\ManagerPanel\Views\Comment\AllIndex.cshtml" />
     <Content Include="Areas\ManagerPanel\Views\Comment\Delete.cshtml" />
     <Content Include="Areas\SellerPanel\Views\Pay\Index.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Order\Delete.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Order\AllIndex.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\OrderDetail\AllIndex.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\OrderDetail\Delete.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Order\AllIndex.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Order\Delete.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\OrderDetail\AllIndex.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\OrderDetail\Delete.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

@@ -96,6 +96,7 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
                 return RedirectToAction("NotFound", "SystemMessages");
             }
             seller.IsDeleted = false;
+            seller.IsActive = true;
             db.Entry(seller).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");

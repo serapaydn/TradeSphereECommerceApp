@@ -42,6 +42,7 @@ namespace TradeSphereECommerceApp.Models
         public string ShipAddress { get; set; }
 
         public bool IsDeleted { get; set; }
+        [Display(Name = "Durum")]
         public bool IsActive { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public int Manager_ID { get; internal set; }

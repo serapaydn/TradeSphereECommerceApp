@@ -1,4 +1,4 @@
-﻿@model TradeSphereECommerceApp.Data.ViewModels.PaymentViewModel
+﻿@*@model TradeSphereECommerceApp.Data.ViewModels.PaymentViewModel
 @using TradeSphereECommerceApp.Models
 @using TradeSphereECommerceApp.Data.ViewModels
 @{
@@ -18,13 +18,19 @@
         <div class="pagetitle">
             <h2>Ödeme Özeti</h2>
         </div>
+        @Html.HiddenFor(m => m.SelectedProducts)
         @if (ViewBag.Error != null)
         {
             <div class="warningMessage">
                 <p>@ViewBag.Error</p>
             </div>
         }
-
+        @if (ViewBag.Success != null)
+        {
+            <div class="warningMessage">
+                <p>@ViewBag.Success </p>
+            </div>
+        }
         <div class="tableContent">
             <table class="table">
                 <thead>
@@ -124,7 +130,11 @@
                 </table>
 
                 <div class="tablefooter">
-                    <button type="submit" class="btn">Ödemeyi Onayla</button>
+                        @foreach (var product in ViewBag.SelectedProducts as List<SelectedProductDto>)
+                        {
+                            <input type="hidden" name="selectedProduct[]" value="@product.ID" />
+                        }
+                        <button type="submit" class="btn">Ödemeyi Onayla</button>
                 </div>
             }
         </div>
@@ -134,4 +144,4 @@
 @section styles
 {
     <link href="~/Areas/ManagerPanel/Assests/css/TableStyle.css" rel="stylesheet" />
-}
+}*@

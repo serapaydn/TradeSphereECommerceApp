@@ -48,30 +48,33 @@
             </div>
 
             <div class="detailquantity">
+
                 @using (Html.BeginForm("HandleAction", "ShoppingCart", FormMethod.Post))
                 {
                     @Html.Hidden("id", Model.ID)
+                <div class="detailquantity">
                     <input type="number" name="quantity" class="quantity" value="1" min="1" />
-
-                    <input type="hidden" name="actionType" id="actionType" value="" />
-
-                    <button type="submit" class="buyNow" onclick="document.getElementById('actionType').value='buyNow';">
-                        Şimdi Satın Al
-                    </button>
-                    <button type="submit" class="addtoCart" onclick="document.getElementById('actionType').value='addToCart';">
-                        Sepete Ekle
-                    </button>
-                }
-            </div>
-            <div class="detaildescription">
-                <h3>Ürün Detay</h3>
-                <div style="border-top:1px solid silver; padding-top:20px">
-                    <p>
-                        @Model.Description
-                    </p>
                 </div>
-            </div>
-        </div>
+                        <input type="hidden" name="actionType" id="actionType" value="" />
+
+                        <button type="submit" class="buyNow" onclick="document.getElementById('actionType').value='buyNow';">
+                            Şimdi Satın Al
+                        </button>
+
+                        <button type="submit" class="addtoCart" onclick="document.getElementById('actionType').value='addToCart';">
+                            Sepete Ekle
+                        </button>
+                        }
+                    </div>
+                    <div class="detaildescription">
+                        <h3>Ürün Detay</h3>
+                        <div style="border-top:1px solid silver; padding-top:20px">
+                            <p>
+                                @Model.Description
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
     </div>
 

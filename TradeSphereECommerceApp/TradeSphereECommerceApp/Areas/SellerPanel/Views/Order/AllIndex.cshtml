@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TradeSphereECommerceApp.Models.Order>
+@{
+    ViewBag.Title = "AllIndex";
+    Layout = "~/Areas/SellerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Siparişler</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        <h2>Siparişler</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        <table class="table">
+            <tr>
+                <th style="border-left:none">Sipariş No</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberID)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+                <th>@Html.DisplayNameFor(model => model.RequiredDate)</th>
+                <th>@Html.DisplayNameFor(model => model.ShipName)</th>
+                <th>@Html.DisplayNameFor(model => model.ShipAddress)</th>
+                <th>@Html.DisplayNameFor(model => model.IsActive)</th>
+                <th>Seçenekler</th>
+            </tr>
+
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td style="border-left:none">@order.OrderID</td>
+                    <td>@Html.DisplayFor(modelItem => order.MemberID)</td>
+                    <td>@Html.DisplayFor(modelItem => order.OrderDate)</td>
+                    <td>@Html.DisplayFor(modelItem => order.RequiredDate)</td>
+                    <td>@Html.DisplayFor(modelItem => order.ShipName)</td>
+                    <td>@Html.DisplayFor(modelItem => order.ShipAddress)</td>
+
+                    <td>
+                        @if (order.IsActive)
+                        {
+                            <label>Aktif</label>
+                        }
+                        else
+                        {
+                            <label>Pasif</label>
+                        }
+                    </td>
+                    <td>
+                        @if (order.IsDeleted)
+                        {
+                            <a href="@Url.Action("ReDelete", "Order", new { id = order.OrderID })" class="btndelete">Silme İşlemini Geri Al</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Delete", "Order", new { id = order.OrderID })" class="btndelete">Sil</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="tablefooter">
+        <a href="@Url.Action("Index", "Order")">Siparişleri Listele</a>
+    </div>
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assests/css/TableStyle.css" rel="stylesheet" />
+}
+

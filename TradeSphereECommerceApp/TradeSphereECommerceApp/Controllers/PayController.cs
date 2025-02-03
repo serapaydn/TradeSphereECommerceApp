@@ -17,11 +17,45 @@ namespace TradeSphereECommerceApp.Controllers
         // GET: Pay
         TradeSphereDBModel db = new TradeSphereDBModel();
 
-        public ActionResult Index()
+        public ActionResult Index(int? productId, int? quantity)
         {
             if (Session["user"] == null)
             {
                 return RedirectToAction("Index", "Login");
+            }
+
+            if (productId != null && quantity != null)
+            {
+                Product product = db.Products.Find(productId);
+                if (product == null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.SingleProduct = new ShoppingCart
+                {
+                    Product_ID = productId.Value,
+                    Product = product,
+                    Quantity = quantity.Value,
+                    Member_ID = ((Member)Session["user"]).ID
+                };
+
+                ViewBag.TotalAmount = product.Price * quantity.Value;
+            }
+            else
+            {
+                int userId = ((Member)Session["user"]).ID;
+                List<ShoppingCart> cart = db.ShoppingCarts.Where(x => x.Member_ID == userId).ToList();
+
+                if (!cart.Any())
+                {
+                    ViewBag.Message = "Sepetiniz boş.";
+                }
+                else
+                {
+                    ViewBag.Cart = cart;
+                    ViewBag.TotalAmount = cart.Sum(item => item.Product.Price * item.Quantity);
+                }
             }
 
             ViewBag.Months = new SelectList(Enumerable.Range(1, 12));
@@ -29,7 +63,6 @@ namespace TradeSphereECommerceApp.Controllers
 
             return View();
         }
-
         [HttpPost]
         public async Task<ActionResult> Payment(PaymentViewModel model)
         {

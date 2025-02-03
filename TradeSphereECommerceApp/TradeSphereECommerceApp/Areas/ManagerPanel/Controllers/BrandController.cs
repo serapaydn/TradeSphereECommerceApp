@@ -128,6 +128,7 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
             }
 
             brand.IsDeleted = false;
+            brand.IsActive = true;
             db.Entry(brand).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");

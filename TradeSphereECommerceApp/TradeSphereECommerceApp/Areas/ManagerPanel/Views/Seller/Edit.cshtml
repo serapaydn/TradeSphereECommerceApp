@@ -6,7 +6,7 @@
 
 <div class="breadCrumb">
     <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
-    <a href="@Url.Action("Index", "Sellers")">Satıcılar</a> >
+    <a href="@Url.Action("Index", "Seller")">Satıcılar</a> >
     <label>Satıcı Güncelle</label>
 </div>
 
@@ -16,10 +16,10 @@
     </div>
     <div class="formContent">
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Edit", "Seller", new { area = "ManagerPanel" }, FormMethod.Post))
         {
             @Html.AntiForgeryToken()
-            @Html.HiddenFor(model => model.ID);
+            @Html.HiddenFor(model => model.ID)
             <div class="row">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
@@ -77,5 +77,6 @@
 @section styles
 {
     <link href="~/Areas/ManagerPanel/Assests/css/FormStyle.css" rel="stylesheet" />
+    }
 
 

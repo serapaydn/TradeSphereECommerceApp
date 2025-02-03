@@ -90,6 +90,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             }
 
             comment.IsDeleted = false;
+            comment.IsActive = true;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
 

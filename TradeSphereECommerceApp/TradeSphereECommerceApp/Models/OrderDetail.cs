@@ -26,5 +26,7 @@ namespace TradeSphereECommerceApp.Models
         public bool IsDeleted { get; set; }
         public int Seller_ID { get; internal set; }
         public int Manager_ID { get; internal set; }
+        [Display(Name = "Durum")]
+        public bool IsActive { get; internal set; }
     }
 }

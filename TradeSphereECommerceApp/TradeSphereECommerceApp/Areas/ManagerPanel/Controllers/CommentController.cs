@@ -73,7 +73,6 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
             comment.IsActive = false;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
-
             return RedirectToAction("Index");
         }
 
@@ -85,14 +84,16 @@ namespace TradeSphereECommerceApp.Areas.ManagerPanel.Controllers
             }
 
             Manager manager = (Manager)Session["manager"];
-            Comment comment = db.Comments.FirstOrDefault(c => c.ID == id && c.Product.Manager_ID == manager.ID);
 
-            if (comment == null)
+            Comment comment = db.Comments.Find(id);
+
+            if (comment == null || comment.Product.Manager_ID != manager.ID)
             {
                 return RedirectToAction("NotFound", "SystemMessages");
             }
 
             comment.IsDeleted = false;
+            comment.IsActive = true;
             db.Entry(comment).State = EntityState.Modified;
             db.SaveChanges();
 
