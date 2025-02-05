@@ -12,13 +12,17 @@
     @using (Html.BeginForm("Payment", "Pay", FormMethod.Post))
     {
         <div class="Paymentcontent">
+            <h2>Kart Bilgileri</h2>
             @if (ViewBag.Message != null)
             {
-                <label>@ViewBag.Message</label>
+
+                <div class="viewbag-message">
+                    <label>@ViewBag.Message</label>
+                </div>
             }
             @Html.AntiForgeryToken()
 
-            <h2>Kart Bilgileri</h2>
+
 
             <div class="row">
                 @Html.LabelFor(m => m.CardNumber)

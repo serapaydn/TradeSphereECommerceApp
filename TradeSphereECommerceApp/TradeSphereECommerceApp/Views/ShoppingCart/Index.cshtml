@@ -49,13 +49,13 @@
                                 <tr>
                                     <td style="text-align:center"><img src="~/Assets/ProductImages/@item.Product.Image" class="productImage" /></td>
                                     <td>@item.Product.Name</td>
-                                    <td>@item.Product.Price,00 ₺</td>
+                                    <td>@item.Product.Price₺</td>
                                     <td>
                                         <a href="@Url.Action("ChangeQuantity", "ShoppingCart", new { productId = item.Product.ID, increase = false })" class="quantityButton">-</a>
                                         <input type="text" value="@item.Quantity" readonly class="quantityInput" />
                                         <a href="@Url.Action("ChangeQuantity", "ShoppingCart", new { productId = item.Product.ID, increase = true })" class="quantityButton">+</a>
                                     </td>
-                                    <td>@(item.Quantity * item.Product.Price),00 ₺</td>
+                                    <td>@(item.Quantity * item.Product.Price)₺</td>
                                     <td>
                                         <a href="@Url.Action("Detail", "Product", new { id = item.Product.ID })" class="productLink">ÜRÜNE GİT</a>
                                         <a href="@Url.Action("DeleteCart", "ShoppingCart", new { productId = item.Product.ID })" class="deleteButton">
@@ -83,7 +83,7 @@
                                     totalPrice += item.Quantity * (decimal)item.Product.Price;
                                 }
                             }
-                            @totalPrice,00 ₺
+                            @totalPrice₺
                         </span>
                     </div>
 

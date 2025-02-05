@@ -139,6 +139,7 @@
     <Compile Include="Areas\ManagerPanel\Controllers\CommentController.cs" />
     <Compile Include="Areas\ManagerPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\ManagerPanel\Controllers\LoginController.cs" />
+    <Compile Include="Areas\ManagerPanel\Controllers\ManagerController.cs" />
     <Compile Include="Areas\ManagerPanel\Controllers\MemberController.cs" />
     <Compile Include="Areas\ManagerPanel\Controllers\OrderController.cs" />
     <Compile Include="Areas\ManagerPanel\Controllers\OrderDetailController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Areas\SellerPanel\Controllers\OrderDetailController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\PayController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\ProductController.cs" />
+    <Compile Include="Areas\SellerPanel\Controllers\SellerController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\SellerPaymentController.cs" />
     <Compile Include="Areas\SellerPanel\Controllers\SystemMessagesController.cs" />
     <Compile Include="Areas\SellerPanel\Data\ViewModels\SellerLoginViewModel.cs" />
@@ -259,6 +261,10 @@
     <Content Include="Areas\SellerPanel\Views\Order\Delete.cshtml" />
     <Content Include="Areas\SellerPanel\Views\OrderDetail\AllIndex.cshtml" />
     <Content Include="Areas\SellerPanel\Views\OrderDetail\Delete.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Seller\Edit.cshtml" />
+    <Content Include="Areas\SellerPanel\Views\Seller\Index.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Manager\Index.cshtml" />
+    <Content Include="Areas\ManagerPanel\Views\Manager\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

@@ -54,10 +54,10 @@ namespace TradeSphereECommerceApp.Models
 
         [Display(Name = "Fiyat")]
 
-        public double Price { get; set; }
-        public double GoldPrice { get; set; }
-        public double SilverPrice { get; set; }
-        public double BronzePrice { get; set; }
+        public decimal Price { get; set; }
+        public decimal GoldPrice { get; set; }
+        public decimal SilverPrice { get; set; }
+        public decimal BronzePrice { get; set; }
 
         [Display(Name = "Liste Fiyat")]
         public double ListPrice { get; set; }
@@ -82,7 +82,7 @@ namespace TradeSphereECommerceApp.Models
         public bool IsActive { get; set; }
 
         public bool IsDeleted { get; set; }
-        public int Seller_ID { get; internal set; }
+        public int? Seller_ID { get; internal set; }
         public virtual Seller Seller { get; set; }
 
 

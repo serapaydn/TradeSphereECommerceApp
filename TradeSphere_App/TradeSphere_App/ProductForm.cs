@@ -178,7 +178,7 @@ namespace TradeSphere_App
                             new XElement("ID", product.ID),
                             new XElement("Name", product.Name),
                             new XElement("Barcode", product.Barcode),
-                            new XElement("Price", product.Price),
+                            new XElement("Price", Math.Round((decimal)product.Price, 2)), 
                             new XElement("GoldPrice", Math.Round((decimal)(product.Price * (1 - discountRates["Gold"] / 100m)), 2)),
                             new XElement("SilverPrice", Math.Round((decimal)(product.Price * (1 - discountRates["Silver"] / 100m)), 2)),
                             new XElement("BronzePrice", Math.Round((decimal)(product.Price * (1 - discountRates["Bronze"] / 100m)), 2)),

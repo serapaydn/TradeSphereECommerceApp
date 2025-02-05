@@ -17,26 +17,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 295,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 354,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs*",
-              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs*",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAuwBcBAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T09:51:39.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -45,10 +28,27 @@
               "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\FileUploadController.cs",
               "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\FileUploadController.cs",
               "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\FileUploadController.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAqwH0AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAYwK4AAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T08:07:56.587Z",
+              "WhenOpened": "2025-02-05T09:39:12.317Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\serap\\Belgeler\\GitHub\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs*",
+              "RelativeToolTip": "TradeSphereECommerceApp\\Areas\\SellerPanel\\Controllers\\ProductController.cs*",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAuwGwBAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T09:35:24.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             }
           ]
         }

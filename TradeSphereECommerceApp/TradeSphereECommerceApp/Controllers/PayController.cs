@@ -94,9 +94,9 @@ namespace TradeSphereECommerceApp.Controllers
                 ID = c.ID,
                 Product_ID = c.Product_ID,
                 ProductName = c.Product.Name,
-                Price = c.Product.Price,
+                Price = (double)c.Product.Price,
                 Quantity = c.Quantity,
-                TotalPrice = c.Quantity * c.Product.Price
+                TotalPrice = (double)(c.Quantity * c.Product.Price)
             }).ToList();
 
             try

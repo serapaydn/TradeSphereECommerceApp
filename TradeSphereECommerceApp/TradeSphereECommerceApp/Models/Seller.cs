@@ -33,8 +33,6 @@ namespace TradeSphereECommerceApp.Models
         [StringLength(maximumLength: 150, ErrorMessage = "Bu alan en fazla 150 karakter olabilir")]
         public string Mail { get; set; }
 
-        [Required(ErrorMessage = "Bu Alan zorunludur")]
-        [Display(Name = "Şifre")]
         [StringLength(maximumLength: 20, MinimumLength = 6, ErrorMessage = "Bu alan en fazla 6-20 karakter olabilir")]
         public string Password { get; set; }
 

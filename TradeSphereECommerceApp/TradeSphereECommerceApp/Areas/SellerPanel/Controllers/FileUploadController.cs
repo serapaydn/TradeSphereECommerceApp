@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -34,16 +35,23 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                     string xmlContent = File.ReadAllText(filePath);
                     var xDocument = XDocument.Parse(xmlContent);
 
+                    var cultureInfo = new CultureInfo("tr-TR");
+                    var numberFormatInfo = new NumberFormatInfo
+                    {
+                        NumberDecimalSeparator = ".",
+                        CurrencyDecimalSeparator = "."
+                    };
+
                     TempProducts = (from p in xDocument.Descendants("Product")
                                     select new Product
                                     {
                                         ID = TempProductIdCounter++,
                                         Name = p.Element("Name")?.Value,
                                         Barcode = p.Element("Barcode")?.Value,
-                                        Price = (double)decimal.Parse(p.Element("Price")?.Value ?? "0"),
-                                        GoldPrice = (double)decimal.Parse(p.Element("GoldPrice")?.Value ?? "0"),
-                                        SilverPrice = (double)decimal.Parse(p.Element("SilverPrice")?.Value ?? "0"),
-                                        BronzePrice = (double)decimal.Parse(p.Element("BronzePrice")?.Value ?? "0"),
+                                        Price = decimal.Parse(p.Element("Price")?.Value ?? "0", numberFormatInfo),
+                                        GoldPrice = decimal.Parse(p.Element("GoldPrice")?.Value ?? "0", numberFormatInfo),
+                                        SilverPrice = decimal.Parse(p.Element("SilverPrice")?.Value ?? "0", numberFormatInfo),
+                                        BronzePrice = decimal.Parse(p.Element("BronzePrice")?.Value ?? "0", numberFormatInfo),
                                         Stock = short.Parse(p.Element("Stock")?.Value ?? "0"),
                                         CreationTime = DateTime.Now,
                                         IsDeleted = false
@@ -101,6 +109,42 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             return Ok(TempProducts);
         }
 
+        //[HttpGet]
+        //[Route("checkxmlupdate")]
+        //public IHttpActionResult CheckXmlUpdate()
+        //{
+        //    string filePath = @"C:/Users/serap/Documents/Products.xml";
+
+        //    if (!File.Exists(filePath))
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    DateTime lastModifiedTime = File.GetLastWriteTime(filePath);
+        //    var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
+
+        //    if (fileChangeHistory == null || lastModifiedTime > fileChangeHistory.LastModifiedTime)
+        //    {
+        //        if (fileChangeHistory == null)
+        //        {
+        //            fileChangeHistory = new FileChangeHistory
+        //            {
+        //                FilePath = filePath,
+        //                LastModifiedTime = lastModifiedTime
+        //            };
+        //            db.FileChangeHistories.Add(fileChangeHistory);
+        //        }
+        //        else
+        //        {
+        //            fileChangeHistory.LastModifiedTime = lastModifiedTime;
+        //        }
+
+        //        db.SaveChanges();
+        //        return Ok(new { isUpdated = true, lastModifiedTime });
+        //    }
+
+        //    return Ok(new { isUpdated = false, lastModifiedTime });
+        //}
         [HttpGet]
         [Route("checkxmlupdate")]
         public IHttpActionResult CheckXmlUpdate()
@@ -137,41 +181,5 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
             return Ok(new { isUpdated = false, lastModifiedTime });
         }
-        //    [HttpGet]
-        //    [Route("checkxmlupdate")]
-        //    public IHttpActionResult CheckXmlUpdate()
-        //    {
-        //        string filePath = @"C:/Users/serap/Documents/Products.xml";
-
-        //        if (!File.Exists(filePath))
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        DateTime lastModifiedTime = File.GetLastWriteTime(filePath);
-        //        var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
-
-        //        if (fileChangeHistory == null || lastModifiedTime > fileChangeHistory.LastModifiedTime)
-        //        {
-        //            if (fileChangeHistory == null)
-        //            {
-        //                fileChangeHistory = new FileChangeHistory
-        //                {
-        //                    FilePath = filePath,
-        //                    LastModifiedTime = lastModifiedTime
-        //                };
-        //                db.FileChangeHistories.Add(fileChangeHistory);
-        //            }
-        //            else
-        //            {
-        //                fileChangeHistory.LastModifiedTime = lastModifiedTime;
-        //            }
-
-        //            db.SaveChanges();
-        //            return Ok(new { isUpdated = true, lastModifiedTime });
-        //        }
-
-        //        return Ok(new { isUpdated = false, lastModifiedTime });
-        //    }
     }
 }
