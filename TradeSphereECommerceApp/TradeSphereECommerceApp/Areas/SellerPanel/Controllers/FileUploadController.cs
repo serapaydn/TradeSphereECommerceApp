@@ -109,42 +109,6 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             return Ok(TempProducts);
         }
 
-        //[HttpGet]
-        //[Route("checkxmlupdate")]
-        //public IHttpActionResult CheckXmlUpdate()
-        //{
-        //    string filePath = @"C:/Users/serap/Documents/Products.xml";
-
-        //    if (!File.Exists(filePath))
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    DateTime lastModifiedTime = File.GetLastWriteTime(filePath);
-        //    var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
-
-        //    if (fileChangeHistory == null || lastModifiedTime > fileChangeHistory.LastModifiedTime)
-        //    {
-        //        if (fileChangeHistory == null)
-        //        {
-        //            fileChangeHistory = new FileChangeHistory
-        //            {
-        //                FilePath = filePath,
-        //                LastModifiedTime = lastModifiedTime
-        //            };
-        //            db.FileChangeHistories.Add(fileChangeHistory);
-        //        }
-        //        else
-        //        {
-        //            fileChangeHistory.LastModifiedTime = lastModifiedTime;
-        //        }
-
-        //        db.SaveChanges();
-        //        return Ok(new { isUpdated = true, lastModifiedTime });
-        //    }
-
-        //    return Ok(new { isUpdated = false, lastModifiedTime });
-        //}
         [HttpGet]
         [Route("checkxmlupdate")]
         public IHttpActionResult CheckXmlUpdate()
@@ -176,7 +140,16 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                 }
 
                 db.SaveChanges();
-                return Ok(new { isUpdated = true, lastModifiedTime });
+
+                //if (( DateTime.Now- lastModifiedTime).TotalDays <= 1)
+                if (( DateTime.Now- lastModifiedTime).TotalHours <= 18)
+                {
+                    return Ok(new { isUpdated = true, lastModifiedTime });
+                }
+                else
+                {
+                    return Ok(new { isUpdated = false, lastModifiedTime });
+                }
             }
 
             return Ok(new { isUpdated = false, lastModifiedTime });

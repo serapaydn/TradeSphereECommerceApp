@@ -245,76 +245,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //public ActionResult UploadXmlProducts()
-        //{
-        //    List<Product> tempProducts = new List<Product>();
-        //    string filePath = @"C:/Users/serap/Documents/Products.xml";
-        //    HttpClient client = new HttpClient();
 
-        //    try
-        //    {
-        //        if (System.IO.File.Exists(filePath))
-        //        {
-        //            DateTime currentModifiedTime = System.IO.File.GetLastWriteTime(filePath);
-        //            var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
-
-        //            if (fileChangeHistory != null)
-        //            {
-        //                DateTime lastCheckedTime = fileChangeHistory.LastModifiedTime;
-
-        //                if ((currentModifiedTime - lastCheckedTime).Days >= 1)
-        //                {
-        //                    ViewBag.XmlUpdated = "XML dosyası güncellenmiş. Yeni ürün eklemek ister misiniz?";
-
-        //                    fileChangeHistory.LastModifiedTime = currentModifiedTime;
-        //                    db.SaveChanges();
-        //                }
-        //                else
-        //                {
-        //                    ViewBag.XmlUpdated = "XML dosyası güncel.";
-        //                }
-        //            }
-        //            else
-        //            {
-        //                fileChangeHistory = new FileChangeHistory
-        //                {
-        //                    FilePath = filePath,
-        //                    LastModifiedTime = currentModifiedTime
-        //                };
-        //                db.FileChangeHistories.Add(fileChangeHistory);
-        //                db.SaveChanges();
-
-        //                ViewBag.XmlUpdated = "XML dosyası güncellenmiş. Yeni ürün eklemek ister misiniz?";
-        //            }
-        //        }
-
-        //        string apiUrl = "https://localhost:44385/api/fileupload/gettempproducts";
-        //        HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            string responseData = response.Content.ReadAsStringAsync().Result;
-        //            tempProducts = JsonConvert.DeserializeObject<List<Product>>(responseData);
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Ürünleri yüklerken bir hata oluştu.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ModelState.AddModelError("", $"Bir hata oluştu: {ex.Message}");
-        //    }
-        //    finally
-        //    {
-        //        client.Dispose();
-        //    }
-
-        //    Seller seller = (Seller)Session["seller"];
-        //    ViewBag.SellerType = seller?.SellerType;
-
-        //    return View(tempProducts);
-        //}
         public ActionResult UploadXmlProducts()
         {
             List<Product> tempProducts = new List<Product>();
@@ -328,8 +259,18 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                     DateTime currentModifiedTime = System.IO.File.GetLastWriteTime(filePath);
                     var fileChangeHistory = db.FileChangeHistories.FirstOrDefault(f => f.FilePath == filePath);
 
-                    if (fileChangeHistory == null || currentModifiedTime > fileChangeHistory.LastModifiedTime)
+                    if (fileChangeHistory == null || currentModifiedTime != fileChangeHistory.LastModifiedTime)
                     {
+                        //if ((DateTime.Now - currentModifiedTime).TotalDays <= 1)
+                        if ((DateTime.Now - currentModifiedTime).TotalHours <= 18)
+                        {
+                            ViewBag.XmlUpdated = "XML dosyası güncellenmiş. Yeni ürün eklemek ister misiniz?";
+                        }
+                        else
+                        {
+                            ViewBag.XmlUpdated = "XML dosyası güncel.";
+                        }
+
                         if (fileChangeHistory == null)
                         {
                             fileChangeHistory = new FileChangeHistory
@@ -345,7 +286,10 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                         }
 
                         db.SaveChanges();
-                        ViewBag.XmlUpdated = "XML dosyası güncellenmiş. Yeni ürün eklemek ister misiniz?";
+                    }
+                    else
+                    {
+                        ViewBag.XmlUpdated = "XML dosyası güncel.";
                     }
                 }
 
