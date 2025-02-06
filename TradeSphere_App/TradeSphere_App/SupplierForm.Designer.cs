@@ -185,7 +185,7 @@
             // btn_edit
             // 
             this.btn_edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_edit.Location = new System.Drawing.Point(922, 142);
+            this.btn_edit.Location = new System.Drawing.Point(922, 186);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(189, 35);
             this.btn_edit.TabIndex = 3;

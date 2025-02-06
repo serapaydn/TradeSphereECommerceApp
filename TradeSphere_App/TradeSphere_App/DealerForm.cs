@@ -114,24 +114,37 @@ namespace TradeSphere_App
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Dealers d = db.Dealers.Find(id);
-            if (d != null)
+            try
             {
-                d.DealerName = tb_dealername.Text;
-                d.DealerType = cb_dealertype.Text;
-                d.Phone = mtb_phone.Text;
-                d.Mail = tb_mail.Text;
-                d.DiscountRate = int.Parse(tb_discountrate.Text);
-                d.DealerCode = tb_dealercode.Text;
+                Dealers d = db.Dealers.Find(id);
+                if (d != null)
+                {
+                    d.DealerName = tb_dealername.Text;
+                    d.DealerType = cb_dealertype.Text;
+                    d.Phone = mtb_phone.Text;
+                    d.Mail = tb_mail.Text;
+                    if (!int.TryParse(tb_discountrate.Text, out int discountRate))
+                    {
+                        MessageBox.Show("Lütfen geçerli bir indirim oranı girin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    d.DiscountRate = discountRate;
+                    d.DealerCode = tb_dealercode.Text;
 
-                db.SaveChanges();
-                doldur();
-                MessageBox.Show("Bayi başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.SaveChanges();
+                    doldur();
+                    MessageBox.Show("Bayi başarıyla güncellendi.", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Güncellenmek istenen bayi bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Güncellenmek istenen bayi bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Düzenleme sırasında hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             btn_edit.Visible = false;
             tb_ID.Text = "";
             tb_dealername.Text = "";
@@ -141,7 +154,6 @@ namespace TradeSphere_App
             tb_discountrate.Text = "";
             tb_dealercode.Text = "";
         }
-
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)

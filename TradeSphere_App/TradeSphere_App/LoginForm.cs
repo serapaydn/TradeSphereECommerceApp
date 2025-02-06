@@ -43,7 +43,7 @@ namespace TradeSphere_App
             }
             else
             {
-                MessageBox.Show("Kuallanıcı Adı boş bırakılamaz");
+                MessageBox.Show("Kullanıcı Adı boş bırakılamaz");
             }
         }
 
@@ -52,8 +52,8 @@ namespace TradeSphere_App
           
             if (!giris)
             {
-                DialogResult result = MessageBox.Show("Çıkış Yapmak İstiyor musun?", "Çıkış Onay", MessageBoxButtons.OKCancel);
-                if (result != DialogResult.OK)
+                DialogResult result = MessageBox.Show("Çıkış Yapmak İstiyor musun?", "Çıkış Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
                 {
                     e.Cancel = true;
                 }

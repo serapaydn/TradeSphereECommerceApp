@@ -126,6 +126,11 @@
             // 
             this.nud_saleprice.DecimalPlaces = 2;
             this.nud_saleprice.Location = new System.Drawing.Point(447, 37);
+            this.nud_saleprice.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
             this.nud_saleprice.Name = "nud_saleprice";
             this.nud_saleprice.Size = new System.Drawing.Size(204, 22);
             this.nud_saleprice.TabIndex = 3;

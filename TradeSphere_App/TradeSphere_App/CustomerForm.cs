@@ -26,7 +26,16 @@ namespace TradeSphere_App
         private void btn_add_Click(object sender, EventArgs e)
         {
             Customers c = new Customers();
-            c.Dealer_ID = int.Parse(tb_dealerid.Text);
+
+            if (int.TryParse(tb_dealerid.Text, out int dealerId))
+            {
+                c.Dealer_ID = dealerId;
+            }
+            else
+            {
+                c.Dealer_ID = null;
+            }
+
             c.CompanyName = tb_companyname.Text;
             c.ContactName = tb_contactname.Text;
             c.Grade = cb_grade.Text;
@@ -34,12 +43,14 @@ namespace TradeSphere_App
             c.City = tb_city.Text;
             c.Phone = mtb_phone.Text;
             c.Fax = mtb_fax.Text;
+
             try
             {
                 db.Customers.Add(c);
                 db.SaveChanges();
                 doldur();
                 MessageBox.Show($"Müşteri başarıyla eklenmiştir. Müşteri ID: {c.ID}", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 tb_dealerid.Text = "";
                 tb_companyname.Text = "";
                 tb_contactname.Text = "";
@@ -49,9 +60,9 @@ namespace TradeSphere_App
                 mtb_phone.Text = "";
                 mtb_fax.Text = "";
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Müşteri eklenirken hata oluştu. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Müşteri eklenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

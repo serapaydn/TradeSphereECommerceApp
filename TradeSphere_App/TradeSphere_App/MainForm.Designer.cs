@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dosyaİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_category = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_brand = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_product = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +54,6 @@
             this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dosyaİşlemleriToolStripMenuItem,
             this.TSMI_category,
             this.TSMI_brand,
             this.TSMI_product,
@@ -69,14 +67,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1152, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // dosyaİşlemleriToolStripMenuItem
-            // 
-            this.dosyaİşlemleriToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dosyaİşlemleriToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dosyaİşlemleriToolStripMenuItem.Name = "dosyaİşlemleriToolStripMenuItem";
-            this.dosyaİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            this.dosyaİşlemleriToolStripMenuItem.Text = "Dosya İşlemleri";
             // 
             // TSMI_category
             // 
@@ -204,7 +194,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem dosyaİşlemleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSMI_category;
         private System.Windows.Forms.ToolStripMenuItem TSMI_brand;
         private System.Windows.Forms.ToolStripMenuItem TSMI_product;

@@ -116,22 +116,22 @@ namespace TradeSphere_App
 
             if (product != null)
             {
-                product.Name = tb_name.Text;
-                product.Supplier_ID = int.Parse(cb_supplierid.SelectedValue.ToString());
-                product.Category_ID = int.Parse(cb_categoryid.SelectedValue.ToString());
-                product.Brand_ID = int.Parse(cb_brandid.SelectedValue.ToString());
-                product.Barcode = tb_barcode.Text;
-                product.Quantity = tb_quantity.Text;
-                product.Price = decimal.Parse(nud_price.Value.ToString());
-                product.Stock = (short?)nud_stock.Value;
-                product.ReorderLevel = (short?)nud_reorderlevel.Value;
+                tb_name.Text = product.Name;
+                tb_barcode.Text = product.Barcode;
+                tb_quantity.Text = product.Quantity;
+                nud_price.Value = product.Price ?? 0;
+                nud_stock.Value = product.Stock ?? 0;
+                nud_reorderlevel.Value = product.ReorderLevel ?? 0;
+                cb_supplierid.SelectedValue = product.Supplier_ID;
+                cb_categoryid.SelectedValue = product.Category_ID;
+                cb_brandid.SelectedValue = product.Brand_ID;
+
                 btn_edit.Visible = true;
             }
             else
             {
-                MessageBox.Show("Düzenlenecek çalışan bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Düzenlenecek ürün bulunamadı. Lütfen bir ürün seçtiğinizden emin olun.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void TSMI_delete_Click(object sender, EventArgs e)

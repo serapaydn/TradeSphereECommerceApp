@@ -23,8 +23,8 @@ namespace TradeSphere_App
                     mdiClient.BackColor = ColorTranslator.FromHtml("#dbc4bf");
                 }
             }
-            //LoginForm frm = new LoginForm();
-            //frm.ShowDialog();
+            LoginForm frm = new LoginForm();
+            frm.ShowDialog();
         }
         public void FormOpen(Form frm)
         {
