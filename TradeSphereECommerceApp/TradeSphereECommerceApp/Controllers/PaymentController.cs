@@ -33,6 +33,26 @@ namespace TradeSphereECommerceApp.Controllers
             string merchantID = "159753655";
             string merchantPass = "1234";
 
+            //var firstProduct = model.Cart.First();
+            //            string merchantID = null;
+            //            string merchantPass = null;
+
+            //            Seller seller = db.Sellers.FirstOrDefault(s => s.Products.Any(p => p.ID == firstProduct.Product_ID));
+            //            if (seller != null)
+            //            {
+            //                merchantID = seller.MerchantID;
+            //                merchantPass = seller.MerchantPass;
+            //            }
+            //            else
+            //            {
+            //               Manager manager = db.Managers.FirstOrDefault(m => m.MerchantID != null && m.MerchantPass != null);
+            //                if (manager != null)
+            //                {
+            //                    merchantID = manager.MerchantID;
+            //                    merchantPass = manager.MerchantPass;
+            //                }
+            //            }
+
 
             string apiurl = $"https://localhost:44362/API/Pay?kartNo={model.CardNumber}&ay={model.ExpirationMonth}&yil={model.ExpirationYear}&cvv={model.CVV}&bakiye={fiyatstr}&merchantID={merchantID}&merchantPass={merchantPass}";
 
@@ -71,7 +91,7 @@ namespace TradeSphereECommerceApp.Controllers
                                 }
                             }
                             await db.SaveChangesAsync();
-                            return Ok("201"); 
+                            return Ok("201");
                         }
                         else
                         {
@@ -92,6 +112,8 @@ namespace TradeSphereECommerceApp.Controllers
         }
     }
 }
+
+
 
 
 
