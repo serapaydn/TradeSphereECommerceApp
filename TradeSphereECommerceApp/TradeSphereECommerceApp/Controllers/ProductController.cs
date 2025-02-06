@@ -42,7 +42,7 @@ namespace TradeSphereECommerceApp.Controllers
                 ViewBag.IsFavorite = false;
             }
 
-            var comments = db.Comments.Where(c => c.Product_ID == model.ID && c.IsActive && !c.IsDeleted)
+            List<Comment> comments = db.Comments.Where(c => c.Product_ID == model.ID && c.IsActive && !c.IsDeleted)
                                       .OrderByDescending(c => c.CreationTime)
                                       .ToList();
             ViewBag.Comments = comments;

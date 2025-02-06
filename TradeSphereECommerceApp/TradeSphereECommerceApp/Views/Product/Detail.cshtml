@@ -83,7 +83,7 @@
 
         @if (Session["User"] == null)
         {
-            <p>Yorum yapabilmek için <a href="@Url.Action("Index", "Login")">giriş yapın</a>.</p>
+            <p style="margin-bottom:20px;">Yorum yapabilmek için <a href="@Url.Action("Index", "Login")">giriş yapın</a>.</p>
         }
         else
         {
@@ -109,7 +109,7 @@
             }
             else
             {
-                <p>Henüz yorum yapılmamış. İlk yorumu yapabilirsiniz!</p>
+                <p style="margin-bottom:20px;">Henüz yorum yapılmamış. İlk yorumu yapabilirsiniz!</p>
             }
         </div>
     </div>

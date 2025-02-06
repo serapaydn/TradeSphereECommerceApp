@@ -32,19 +32,7 @@ namespace TradeSphereECommerceApp.Controllers
             string fiyatstr = totalAmount.ToString().Replace(",", ".");
             string merchantID = "159753655";
             string merchantPass = "1234";
-            //string merchantID = "defaultMerchantID";
-            //string merchantPass = "defaultMerchantPass";
 
-            //var firstCartItem = model.Cart.FirstOrDefault();
-            //if (firstCartItem != null)
-            //{
-            //    var product = db.Products.Find(firstCartItem.Product_ID);
-            //    if (product != null)
-            //    {
-            //        merchantID = product.Seller?.MerchantID ?? product.Manager?.MerchantID ?? merchantID;
-            //        merchantPass = product.Seller?.MerchantPass ?? product.Manager?.MerchantPass ?? merchantPass;
-            //    }
-            //}
 
             string apiurl = $"https://localhost:44362/API/Pay?kartNo={model.CardNumber}&ay={model.ExpirationMonth}&yil={model.ExpirationYear}&cvv={model.CVV}&bakiye={fiyatstr}&merchantID={merchantID}&merchantPass={merchantPass}";
 

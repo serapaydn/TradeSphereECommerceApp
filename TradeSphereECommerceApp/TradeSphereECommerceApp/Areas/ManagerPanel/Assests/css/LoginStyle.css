@@ -20,7 +20,7 @@ body {
     padding: 40px;
     border-radius: 20px;
     background: linear-gradient(135deg, #ffb6b2, #ffede9);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -45,7 +45,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #7b5d56;
     color: #7b5d56;
-    width: 100%;
+    width: 93%;
     padding: 12px;
     font-size: 16px;
     border-radius: 5px;

@@ -35,8 +35,8 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                     string xmlContent = File.ReadAllText(filePath);
                     var xDocument = XDocument.Parse(xmlContent);
 
-                    var cultureInfo = new CultureInfo("tr-TR");
-                    var numberFormatInfo = new NumberFormatInfo
+                    CultureInfo cultureInfo = new CultureInfo("tr-TR");
+                    NumberFormatInfo numberFormatInfo = new NumberFormatInfo
                     {
                         NumberDecimalSeparator = ".",
                         CurrencyDecimalSeparator = "."
@@ -141,8 +141,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
                 db.SaveChanges();
 
-                //if (( DateTime.Now- lastModifiedTime).TotalDays <= 1)
-                if (( DateTime.Now- lastModifiedTime).TotalHours <= 18)
+                if (( DateTime.Now- lastModifiedTime).TotalHours <= 24)
                 {
                     return Ok(new { isUpdated = true, lastModifiedTime });
                 }

@@ -261,14 +261,13 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
 
                     if (fileChangeHistory == null || currentModifiedTime != fileChangeHistory.LastModifiedTime)
                     {
-                        //if ((DateTime.Now - currentModifiedTime).TotalDays <= 1)
-                        if ((DateTime.Now - currentModifiedTime).TotalHours <= 18)
+                        if ((DateTime.Now - currentModifiedTime).TotalHours <= 24)
                         {
-                            ViewBag.XmlUpdated = "XML dosyası güncellenmiş. Yeni ürün eklemek ister misiniz?";
+                            ViewBag.XmlUpdated = "Ürünler güncellenmiş. Yeni ürün eklemek ister misiniz?";
                         }
                         else
                         {
-                            ViewBag.XmlUpdated = "XML dosyası güncel.";
+                            ViewBag.XmlUpdated = "Ürünler güncel.";
                         }
 
                         if (fileChangeHistory == null)
@@ -289,7 +288,7 @@ namespace TradeSphereECommerceApp.Areas.SellerPanel.Controllers
                     }
                     else
                     {
-                        ViewBag.XmlUpdated = "XML dosyası güncel.";
+                        ViewBag.XmlUpdated = "Ürünler güncel.";
                     }
                 }
 
