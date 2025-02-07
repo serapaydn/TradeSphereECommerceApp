@@ -125,9 +125,11 @@
     <Content Include="Assets\PageImages\shopping-cart.png" />
     <Content Include="Assets\PageImages\user%282%29.png" />
     <Content Include="Assets\PageImages\user.png" />
+    <Content Include="Assets\ProductImages\Asus laptop.png" />
     <Content Include="Assets\ProductImages\bilgisayar.jpg" />
     <Content Include="Assets\ProductImages\kulaklık.jpg" />
     <Content Include="Assets\ProductImages\laptop.jpg" />
+    <Content Include="Assets\ProductImages\mouse.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

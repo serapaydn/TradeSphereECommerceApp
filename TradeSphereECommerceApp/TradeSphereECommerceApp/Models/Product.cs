@@ -40,16 +40,19 @@ namespace TradeSphereECommerceApp.Models
         public string Barcode { get; set; }
 
         [Required(ErrorMessage = "Bu alan zorunludur")]
+
+        [Display(Name = "İsim")]
         [StringLength(maximumLength: 150, ErrorMessage = "En fazla 150 karakter olabilir")]
         public string Name { get; set; }
 
         [Display(Name = "Açıklama")]
         [DataType(DataType.MultilineText)]
+        [StringLength(maximumLength: 2000, ErrorMessage = "Açıklama en fazla 2000 karakter olabilir")]
         public string Description { get; set; }
 
         [Display(Name = "Özet")]
         [DataType(DataType.MultilineText)]
-        [StringLength(maximumLength: 500, ErrorMessage = "En fazla 500 karakter olabilir")]
+        [StringLength(maximumLength: 2000, ErrorMessage = "En fazla 2000 karakter olabilir")]
         public string Summary { get; set; }
 
         [Display(Name = "Fiyat")]

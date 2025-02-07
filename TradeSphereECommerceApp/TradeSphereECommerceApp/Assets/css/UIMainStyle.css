@@ -327,6 +327,7 @@ button {
 .content {
     width: 1170px;
     margin: 0 auto;
+    text-align:center;
 }
 
 .categoriesBase a {
@@ -725,7 +726,7 @@ button {
     }
 
 .main-content {
-    width: 1000px;
+    width: 1100px;
     margin: 0 auto;
     padding-top: 30px;
     display: flex;
